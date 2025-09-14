@@ -121,6 +121,83 @@
             nav ul { display: none; }
             .hero-content h1 { font-size: 2.5rem; }
             .guide-container { grid-template-columns: 1fr; }
+            /* --- Bagian Baru: Info Terkini / Berita --- */
+.news-feed {
+    padding: 6rem 0;
+    background-color: #121212;
+}
+.news-feed h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.news-grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.news-card {
+    background-color: #1e1e1e;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #333;
+    transition: transform 0.3s ease;
+}
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Membuat konten mengisi sisa ruang kartu */
+}
+
+.card-tag {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    align-self: flex-start; /* Membuat tag tidak full width */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    flex-grow: 1; /* Mendorong meta ke bawah */
+}
+
+.card-title a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-title a:hover {
+    color: var(--primary-color);
+}
+
+.card-meta {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+}
         }
     </style>
 </head>
@@ -237,6 +314,63 @@
                     </div>
                 </div>
             </div>
+
+<section class="news-feed" id="berita">
+    <div class="container">
+        <h2>Info Terkini</h2>
+        <p class="section-subtitle">Pantau berita dan kondisi lalu lintas terbaru di sekitar Anda.</p>
+
+        <div class="news-grid">
+
+            <div class="news-card">
+                <div class="card-image">
+                    <img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Proyek Infrastruktur</span>
+                    <h3 class="card-title">
+                        <a href="#">Jalan Tol Trans-Jawa Ruas Baru Resmi Dibuka Hari Ini</a>
+                    </h3>
+                    <div class="card-meta">
+                        <span>Kompas Otomotif</span> • <span>14 September 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="card-image">
+                    <img src="https://via.placeholder.com/400x225.png?text=Macet+Pagi+Hari" alt="Kemacetan Pagi Hari">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Kondisi Jalan</span>
+                    <h3 class="card-title">
+                        <a href="#">Pantauan CCTV: Kemacetan Terjadi di Ruas Tol Cikampek KM 48</a>
+                    </h3>
+                    <div class="card-meta">
+                        <span>NTMC Polri</span> • <span>14 September 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="card-image">
+                    <img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Regulasi</span>
+                    <h3 class="card-title">
+                        <a href="#">Aturan Ganjil-Genap di Jakarta Kembali Diperluas ke 26 Titik</a>
+                    </h3>
+                    <div class="card-meta">
+                        <span>Detik News</span> • <span>13 September 2025</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+            
         </section>
         <section class="contact" id="kontak">
             <div class="container">
