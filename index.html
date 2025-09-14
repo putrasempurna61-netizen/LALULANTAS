@@ -124,6 +124,12 @@
             padding-top: 70px; /* Menghindari tumpang tindih dengan header */
         }
 
+        .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
         .hero-content h1 {
             font-size: 3rem;
             font-weight: 700;
@@ -153,6 +159,10 @@
             background-color: var(--primary-hover);
             transform: translateY(-3px);
         }
+
+        .cta-button + .cta-button {
+    margin-top: 1rem;
+}
 
         /* --- Bagian Panduan --- */
         .guides {
