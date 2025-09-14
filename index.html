@@ -15,7 +15,6 @@
             --primary-hover: #003d82;
             --white-color: #ffffff;
             --text-dark: #333333;
-            --text-light: #666666;
             --border-radius: 8px;
             --font-family: 'Poppins', sans-serif;
         }
@@ -67,28 +66,22 @@
         .hero-content p { font-size: 1.2rem; color: #a0a0a0; max-width: 600px; margin: 0 auto 2rem auto; }
         .cta-button { display: inline-block; background-color: var(--primary-color); color: var(--white-color); padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease, transform 0.3s ease; }
         .cta-button:hover { background-color: var(--primary-hover); transform: translateY(-3px); }
-        .cta-button + .cta-button { margin-top: 1rem; }
         .section-subtitle { color: #a0a0a0; margin-bottom: 4rem; text-align: center;}
         
-        /* --- GAYA BARU: DASHBOARD INFO TERKINI --- */
         .dashboard-section { padding: 6rem 0; background-color: #1c1c1c; }
         .dashboard-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
         .dashboard-grid { margin-top: 4rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2.5rem; }
         .traffic-status-column h3, .news-column h3 { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #444; padding-bottom: 1rem; }
         
-        /* Gaya untuk List Status Lalu Lintas (Kolom Kiri) */
         .status-list { list-style: none; padding: 0; }
         .status-item { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid #333; }
         .status-item:last-child { border-bottom: none; }
         .item-location small { display: block; color: #a0a0a0; font-size: 0.8rem; }
         .item-status span { font-weight: 700; font-size: 0.9rem; }
-        
-        /* KODE PENTING UNTUK WARNA STATUS */
         .item-status.status-lancar span, .item-status.status-Lancar span { color: #2ecc71; }
         .item-status.status-macet span, .item-status.status-Macet span { color: #e74c3c; }
         .item-status.status-sedang span, .item-status.status-Sedang span { color: #f1c40f; }
         
-        /* Gaya untuk Berita (Kolom Kanan) */
         .news-card { background-color: #1e1e1e; border-radius: var(--border-radius); overflow: hidden; border: 1px solid #333; margin-bottom: 1.5rem; }
         .card-image img { width: 100%; height: 150px; object-fit: cover; display: block; }
         .card-content { padding: 1.2rem; }
@@ -98,55 +91,50 @@
         .card-title a:hover { color: var(--primary-color); }
         .card-meta { font-size: 0.8rem; color: #a0a0a0; }
         
+        /* --- Gaya untuk Menu Dropdown --- */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1e1e1e;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+            z-index: 1;
+            border-radius: var(--border-radius);
+            border: 1px solid #333;
+        }
+        .dropdown-content a { color: #e0e0e0; padding: 12px 16px; text-decoration: none; display: block; }
+        .dropdown-content a:hover { background-color: var(--primary-color); }
+        .dropdown:hover .dropdown-content { display: block; }
+        
         footer { background-color: #1c1c1c; color: var(--white-color); text-align: center; padding: 2rem 0; }
         
         @media (max-width: 992px) { .dashboard-grid { grid-template-columns: 1fr; } }
         @media (max-width: 768px) {
             nav ul { display: none; }
             .hero-content h1 { font-size: 2.5rem; }
-            /* --- Gaya untuk Menu Dropdown --- */
-/* --- Gaya untuk Menu Dropdown --- */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #1e1e1e;
-    min-width: 220px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-    z-index: 1;
-    border-radius: var(--border-radius);
-    border: 1px solid #333;
-}
-.dropdown-content a {
-    color: #e0e0e0;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown-content a:hover {
-    background-color: var(--primary-color);
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+        }
     </style>
 </head>
 <body>
     <header>
-        <ul>
-    <li><a href="index.html">Home</a></li>
-    <li class="dropdown">
-        <a href="#">Edukasi ▼</a>
-        <div class="dropdown-content">
-            <a href="tugas.html">Tugas & Fungsi Lantas</a>
-            </div>
-    </li>
-    <li><a href="#info-terkini">Info Terkini</a></li>
-    <li><a href="#">Kontak</a></li>
-</ul>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Logo">
+                <span>L</span><span>a</span><span>l</span><span>u</span><span>L</span><span>a</span><span>n</span><span>t</span><span>a</span><span>s</span>
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Edukasi ▼</a>
+                    <div class="dropdown-content">
+                        <a href="tugas.html">Tugas & Fungsi Lantas</a>
+                        </div>
+                </li>
+                <li><a href="#info-terkini">Info Terkini</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <section class="hero" id="hero">
@@ -161,7 +149,6 @@
             <div class="container">
                 <h2>Info Terkini</h2>
                 <p class="section-subtitle">Pantau berita dan kondisi lalu lintas terbaru di sekitar Anda.</p>
-                
                 <div class="dashboard-grid">
                     <div class="traffic-status-column">
                         <h3>Status Lalu Lintas</h3>
@@ -171,22 +158,17 @@
                             <li class="status-item"><div class="item-location"><span>Jl. M.H. Thamrin</span><small>Jakarta Pusat</small></div><div class="item-status status-sedang"><span>Sedang</span></div></li>
                             <li class="status-item"><div class="item-location"><span>Gerbang Tol Pasteur</span><small>Bandung</small></div><div class="item-status status-sedang"><span>Sedang</span></div></li>
                             <li class="status-item"><div class="item-location"><span>Jl. Malioboro</span><small>Yogyakarta</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Tol Waru-Juanda</span><small>Surabaya</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Jl. Bypass Ngurah Rai</span><small>Denpasar, Bali</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Jembatan Ampera</span><small>Palembang</small></div><div class="item-status status-sedang"><span>Sedang</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Jl. A. P. Pettarani</span><small>Makassar</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Jl. Ahmad Yani</span><small>Banjarmasin</small></div><div class="item-status status-lancar"><span>Lancar</span></div></li>
                         </ul>
                     </div>
                     <div class="news-column">
                         <h3>Berita Utama</h3>
                         <div class="news-card">
                             <div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap"></div>
-                            <div class="card-content"><span class="card-tag">Regulasi</span><h3 class="card-title"><a href="#">Ganjil-Genap di Jakarta Diperluas ke 26 Titik</a></h3><div class="card-meta"><span>Detik News</span> • <span>13 Sep 2025</span></div></div>
+                            <div class="card-content"><span class="card-tag">Regulasi</span><h3 class="card-title"><a href="#">Ganjil-Genap di Jakarta Diperluas</a></h3><div class="card-meta"><span>Detik News</span> • <span>13 Sep 2025</span></div></div>
                         </div>
                         <div class="news-card">
                             <div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru"></div>
-                            <div class="card-content"><span class="card-tag">Infrastruktur</span><h3 class="card-title"><a href="#">Tol Trans-Jawa Ruas Baru Resmi Dibuka Hari Ini</a></h3><div class="card-meta"><span>Kompas Otomotif</span> • <span>14 Sep 2025</span></div></div>
+                            <div class="card-content"><span class="card-tag">Infrastruktur</span><h3 class="card-title"><a href="#">Tol Trans-Jawa Ruas Baru Resmi Dibuka</a></h3><div class="card-meta"><span>Kompas Otomotif</span> • <span>14 Sep 2025</span></div></div>
                         </div>
                     </div>
                 </div>
