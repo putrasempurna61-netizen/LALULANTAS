@@ -21,11 +21,11 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body {
             font-family: var(--font-family);
-            line-height: 1.7;
+            line-height: 1.8;
             background-color: #121212;
             color: #e0e0e0;
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
         header {
             background-color: #1c1c1c;
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
@@ -67,7 +67,18 @@
         .cta-button { display: inline-block; background-color: var(--primary-color); color: var(--white-color); padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease, transform 0.3s ease; }
         .cta-button:hover { background-color: var(--primary-hover); transform: translateY(-3px); }
         .section-subtitle { color: #a0a0a0; margin-bottom: 4rem; text-align: center;}
+
+        /* Gaya untuk Section Konten Edukasi */
+        .content-page-section { padding: 6rem 0; }
+        .page-header { text-align: center; margin-bottom: 3rem; border-bottom: 1px solid #333; padding-bottom: 2rem; }
+        .page-header h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
+        .page-header p { font-size: 1.1rem; color: #a0a0a0; }
+        .content-section { background-color: #1e1e1e; padding: 2rem; border-radius: var(--border-radius); margin-bottom: 2rem; }
+        .content-section h2 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--primary-color); }
+        .content-section ul { list-style-position: inside; padding-left: 1rem; }
+        .content-section li { margin-bottom: 0.8rem; }
         
+        /* Gaya untuk Dashboard Info Terkini */
         .dashboard-section { padding: 6rem 0; background-color: #1c1c1c; }
         .dashboard-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
         .dashboard-grid { margin-top: 4rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2.5rem; }
@@ -91,24 +102,6 @@
         .card-title a:hover { color: var(--primary-color); }
         .card-meta { font-size: 0.8rem; color: #a0a0a0; }
         
-        /* --- Gaya untuk Menu Dropdown --- */
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #1e1e1e;
-            min-width: 220px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-            z-index: 1;
-            border-radius: var(--border-radius);
-            border: 1px solid #333;
-        }
-        dropdown { position: relative; display: inline-block; }
-.dropdown-content { display: none; position: absolute; background-color: #1e1e1e; min-width: 220px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; border-radius: var(--border-radius); border: 1px solid #333; }
-.dropdown-content a { color: #e0e0e0; padding: 12px 16px; text-decoration: none; display: block; }
-.dropdown-content a:hover { background-color: var(--primary-color); }
-.dropdown:hover .dropdown-content { display: block; }
-        
         footer { background-color: #1c1c1c; color: var(--white-color); text-align: center; padding: 2rem 0; }
         
         @media (max-width: 992px) { .dashboard-grid { grid-template-columns: 1fr; } }
@@ -126,15 +119,10 @@
                 <span>L</span><span>a</span><span>l</span><span>u</span><span>L</span><span>a</span><span>n</span><span>t</span><span>a</span><span>s</span>
             </a>
             <ul>
-                <li><a href="index.html">Home</a></li>
-    <li class="dropdown">
-        <a href="#">Edukasi ▼</a>
-        <div class="dropdown-content">
-            <a href="tugas.html">Tugas & Fungsi Lantas</a>
-            </div>
-    </li>
-    <li><a href="#info-terkini">Info Terkini</a></li>
-    <li><a href="#">Kontak</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#edukasi">Edukasi</a></li>
+                <li><a href="#info-terkini">Info Terkini</a></li>
+                <li><a href="#">Kontak</a></li>
             </ul>
         </nav>
     </header>
@@ -144,6 +132,33 @@
                 <h1>Selamat Datang di Website Lalu Lintas</h1>
                 <p>Pusat informasi kondisi jalan dan berita lalu lintas terkini.</p>
                 <a href="#info-terkini" class="cta-button">Lihat Info Terkini</a>
+            </div>
+        </section>
+
+        <section id="edukasi" class="content-page-section">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Tugas dan Fungsi Lalu Lintas</h1>
+                    <p>Memahami peran penting Polisi Lalu Lintas dalam menjaga ketertiban dan keselamatan di jalan raya.</p>
+                </div>
+                <section class="content-section">
+                    <h2>Tugas Pokok Polisi Lalu Lintas</h2>
+                    <ul>
+                        <li><strong>Pengaturan Jalan (Turjawali):</strong> Melakukan pengaturan, penjagaan, pengawalan, dan patroli di jalan raya untuk mencegah kemacetan.</li>
+                        <li><strong>Pendidikan Masyarakat:</strong> Memberikan edukasi dan sosialisasi kepada masyarakat tentang pentingnya keselamatan berkendara.</li>
+                        <li><strong>Penegakan Hukum (Gakkum):</strong> Menindak pelanggaran lalu lintas melalui tilang untuk memberikan efek jera.</li>
+                        <li><strong>Registrasi dan Identifikasi (Regident):</strong> Mengelola administrasi kendaraan seperti penerbitan SIM, STNK, dan BPKB.</li>
+                        <li><strong>Penanganan Kecelakaan:</strong> Melakukan Tindakan Pertama di Tempat Kejadian Perkara (TPTKP) dan melakukan penyelidikan.</li>
+                    </ul>
+                </section>
+                <section class="content-section">
+                    <h2>Fungsi Utama Lalu Lintas</h2>
+                    <ul>
+                        <li><strong>Fungsi Preemtif:</strong> Mencegah pelanggaran dengan memberikan pendidikan dan membangun kesadaran keselamatan sejak dini.</li>
+                        <li><strong>Fungsi Preventif:</strong> Menghilangkan potensi gangguan dengan kehadiran fisik polisi di lapangan melalui patroli dan penjagaan.</li>
+                        <li><strong>Fungsi Represif:</strong> Melakukan penindakan hukum sebagai upaya terakhir untuk menegakkan aturan dan memberikan keadilan.</li>
+                    </ul>
+                </section>
             </div>
         </section>
 
@@ -157,7 +172,6 @@
                         <ul class="status-list">
                             <li class="status-item"><div class="item-location"><span>Jl. Jenderal Sudirman</span><small>Jakarta Pusat</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
                             <li class="status-item"><div class="item-location"><span>Tol Dalam Kota</span><small>Jakarta (Arah Cawang)</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Jl. M.H. Thamrin</span><small>Jakarta Pusat</small></div><div class="item-status status-sedang"><span>Sedang</span></div></li>
                             <li class="status-item"><div class="item-location"><span>Gerbang Tol Pasteur</span><small>Bandung</small></div><div class="item-status status-sedang"><span>Sedang</span></div></li>
                             <li class="status-item"><div class="item-location"><span>Jl. Malioboro</span><small>Yogyakarta</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
                         </ul>
