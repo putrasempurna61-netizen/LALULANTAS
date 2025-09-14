@@ -68,7 +68,6 @@
         .cta-button:hover { background-color: var(--primary-hover); transform: translateY(-3px); }
         .section-subtitle { color: #a0a0a0; margin-bottom: 4rem; text-align: center;}
 
-        /* Gaya untuk Section Konten Edukasi */
         .content-page-section { padding: 6rem 0; }
         .page-header { text-align: center; margin-bottom: 3rem; border-bottom: 1px solid #333; padding-bottom: 2rem; }
         .page-header h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
@@ -78,7 +77,6 @@
         .content-section ul { list-style-position: inside; padding-left: 1rem; }
         .content-section li { margin-bottom: 0.8rem; }
         
-        /* Gaya untuk Bagian Tips Berkendara */
         .tips-section { padding: 6rem 0; background-color: #1c1c1c; }
         .tips-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
         .tips-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
@@ -88,7 +86,6 @@
         .tip-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
         .tip-card p { color: #a0a0a0; font-size: 0.9rem; line-height: 1.6; }
         
-        /* GAYA BARU: Bagian Galeri */
         .gallery-section { padding: 6rem 0; }
         .gallery-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
         .gallery-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
@@ -97,8 +94,15 @@
         .gallery-item:hover img { transform: scale(1.05); }
         .gallery-item .caption { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); color: var(--white-color); padding: 2rem 1rem 1rem 1rem; font-weight: 600; text-align: center; }
 
-        /* Gaya untuk Dashboard Info Terkini */
-        .dashboard-section { padding: 6rem 0; background-color: #1c1c1c; }
+        .literasi-section { padding: 6rem 0; background-color: #1c1c1c; }
+        .literasi-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .story-container { background-color: #1e1e1e; border: 1px solid #333; margin-top: 4rem; border-radius: var(--border-radius); overflow: hidden; }
+        .story-image { width: 100%; height: auto; max-height: 400px; object-fit: cover; display: block; }
+        .story-content { padding: 2.5rem; }
+        .story-content h3 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--primary-color); }
+        .story-content p { margin-bottom: 1rem; color: #c0c0c0; }
+
+        .dashboard-section { padding: 6rem 0; }
         .dashboard-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
         .dashboard-grid { margin-top: 4rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2.5rem; }
         .traffic-status-column h3, .news-column h3 { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #444; padding-bottom: 1rem; }
@@ -107,16 +111,15 @@
         .status-item:last-child { border-bottom: none; }
         .item-location small { display: block; color: #a0a0a0; font-size: 0.8rem; }
         .item-status span { font-weight: 700; font-size: 0.9rem; }
-        .item-status.status-lancar span, .item-status.status-Lancar span { color: #2ecc71; }
-        .item-status.status-macet span, .item-status.status-Macet span { color: #e74c3c; }
-        .item-status.status-sedang span, .item-status.status-Sedang span { color: #f1c40f; }
+        .item-status.status-lancar span { color: #2ecc71; }
+        .item-status.status-macet span { color: #e74c3c; }
+        .item-status.status-sedang span { color: #f1c40f; }
         .news-card { background-color: #1e1e1e; border-radius: var(--border-radius); overflow: hidden; border: 1px solid #333; margin-bottom: 1.5rem; }
         .card-image img { width: 100%; height: 150px; object-fit: cover; display: block; }
         .card-content { padding: 1.2rem; }
         .card-title a { color: #e0e0e0; text-decoration: none; transition: color 0.3s ease; }
         .card-title a:hover { color: var(--primary-color); }
         
-        /* Gaya untuk Menu Dropdown */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content { display: none; position: absolute; background-color: #1e1e1e; min-width: 240px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; border-radius: var(--border-radius); border: 1px solid #333; }
         .dropdown-content a { color: #e0e0e0; padding: 12px 16px; text-decoration: none; display: block; }
@@ -147,6 +150,7 @@
                         <a href="#edukasi">Tugas & Fungsi Lantas</a>
                         <a href="#tips-berkendara">Tips Berkendara</a>
                         <a href="#galeri">Galeri Rambu</a>
+                        <a href="#literasi">Cerita Literasi</a>
                     </div>
                 </li>
                 <li><a href="#info-terkini">Info Terkini</a></li>
@@ -202,29 +206,28 @@
                 <h2>Galeri Rambu Lalu Lintas</h2>
                 <p class="section-subtitle">Mengenal beberapa rambu penting untuk keselamatan bersama.</p>
                 <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/STOP_sign.svg/1200px-STOP_sign.svg.png" alt="Rambu Stop">
-                        <div class="caption">Rambu Stop</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Indonesia_road_sign_R2-2.svg/1200px-Indonesia_road_sign_R2-2.svg.png" alt="Rambu Dilarang Parkir">
-                        <div class="caption">Dilarang Parkir</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Traffic-light-red-up.svg/800px-Traffic-light-red-up.svg.png" alt="Lampu Merah">
-                        <div class="caption">Lampu Merah</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Indonesia_road_sign_P4-3.svg/1024px-Indonesia_road_sign_P4-3.svg.png" alt="Rambu Putar Balik">
-                        <div class="caption">Wajib Putar Balik</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Indonesia_road_sign_P1-1.svg/1024px-Indonesia_road_sign_P1-1.svg.png" alt="Rambu Hati-Hati">
-                        <div class="caption">Hati-Hati</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Indonesia_road_sign_R1-5-60.svg/1024px-Indonesia_road_sign_R1-5-60.svg.png" alt="Rambu Batas Kecepatan">
-                        <div class="caption">Batas Kecepatan 60 km/j</div>
+                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/STOP_sign.svg/1200px-STOP_sign.svg.png" alt="Rambu Stop"><div class="caption">Rambu Stop</div></div>
+                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Indonesia_road_sign_R2-2.svg/1200px-Indonesia_road_sign_R2-2.svg.png" alt="Rambu Dilarang Parkir"><div class="caption">Dilarang Parkir</div></div>
+                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Traffic-light-red-up.svg/800px-Traffic-light-red-up.svg.png" alt="Lampu Merah"><div class="caption">Lampu Merah</div></div>
+                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Indonesia_road_sign_P4-3.svg/1024px-Indonesia_road_sign_P4-3.svg.png" alt="Rambu Putar Balik"><div class="caption">Wajib Putar Balik</div></div>
+                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Indonesia_road_sign_P1-1.svg/1024px-Indonesia_road_sign_P1-1.svg.png" alt="Rambu Hati-Hati"><div class="caption">Hati-Hati</div></div>
+                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Indonesia_road_sign_R1-5-60.svg/1024px-Indonesia_road_sign_R1-5-60.svg.png" alt="Rambu Batas Kecepatan"><div class="caption">Batas Kecepatan 60 km/j</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="literasi" class="literasi-section">
+            <div class="container">
+                <h2>Literasi Lalu Lintas</h2>
+                <p class="section-subtitle">Belajar keselamatan melalui cerita yang menarik.</p>
+                <div class="story-container">
+                    <img src="https://via.placeholder.com/800x400.png?text=Selalu+Pakai+Helmmu!" alt="Anak memakai helm" class="story-image">
+                    <div class="story-content">
+                        <h3>Kisah Ardi dan Helm Ajaib</h3>
+                        <p>Ardi adalah anak yang ceria, namun ia paling tidak suka memakai helm saat dibonceng ayahnya dengan motor. "Ayah, helm ini berat dan panas!" keluhnya setiap pagi.</p>
+                        <p>Suatu hari, Ayah tersenyum dan berkata, "Ardi, ini bukan helm biasa. Ini adalah helm ajaib. Ia punya kekuatan super untuk melindungi kepala pahlawan super sepertimu dari bahaya."</p>
+                        <p>Ardi pun penasaran dan setuju memakainya. Di perjalanan, mereka melihat ada anak yang sepedanya oleng dan terjatuh pelan. Kepala anak itu tidak apa-apa karena terbentur helmnya. "Lihat, Nak," kata Ayah. "Helm anak itu juga punya kekuatan super."</p>
+                        <p>Sejak saat itu, Ardi tidak pernah lagi mengeluh. Ia sadar, keajaiban helm bukanlah sihir, melainkan rasa aman yang diberikannya. Ia pun selalu memakai "helm ajaib"-nya dengan bangga setiap kali bepergian.</p>
                     </div>
                 </div>
             </div>
