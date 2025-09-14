@@ -78,12 +78,21 @@
         .content-section ul { list-style-position: inside; padding-left: 1rem; }
         .content-section li { margin-bottom: 0.8rem; }
         
+        /* GAYA BARU: Bagian Tips Berkendara */
+        .tips-section { padding: 6rem 0; background-color: #1c1c1c; }
+        .tips-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .tips-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .tip-card { background-color: #1e1e1e; border: 1px solid #333; padding: 2rem; border-radius: var(--border-radius); text-align: center; transition: transform 0.3s ease; }
+        .tip-card:hover { transform: translateY(-5px); }
+        .tip-icon { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary-color); }
+        .tip-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
+        .tip-card p { color: #a0a0a0; font-size: 0.9rem; line-height: 1.6; }
+
         /* Gaya untuk Dashboard Info Terkini */
-        .dashboard-section { padding: 6rem 0; background-color: #1c1c1c; }
+        .dashboard-section { padding: 6rem 0; }
         .dashboard-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
         .dashboard-grid { margin-top: 4rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2.5rem; }
         .traffic-status-column h3, .news-column h3 { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #444; padding-bottom: 1rem; }
-        
         .status-list { list-style: none; padding: 0; }
         .status-item { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid #333; }
         .status-item:last-child { border-bottom: none; }
@@ -92,15 +101,18 @@
         .item-status.status-lancar span, .item-status.status-Lancar span { color: #2ecc71; }
         .item-status.status-macet span, .item-status.status-Macet span { color: #e74c3c; }
         .item-status.status-sedang span, .item-status.status-Sedang span { color: #f1c40f; }
-        
         .news-card { background-color: #1e1e1e; border-radius: var(--border-radius); overflow: hidden; border: 1px solid #333; margin-bottom: 1.5rem; }
         .card-image img { width: 100%; height: 150px; object-fit: cover; display: block; }
         .card-content { padding: 1.2rem; }
-        .card-tag { display: inline-block; background-color: var(--primary-color); color: var(--white-color); padding: 4px 10px; font-size: 0.75rem; font-weight: 700; border-radius: 50px; margin-bottom: 0.8rem; }
-        .card-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
         .card-title a { color: #e0e0e0; text-decoration: none; transition: color 0.3s ease; }
         .card-title a:hover { color: var(--primary-color); }
-        .card-meta { font-size: 0.8rem; color: #a0a0a0; }
+        
+        /* Gaya untuk Menu Dropdown */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #1e1e1e; min-width: 240px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; border-radius: var(--border-radius); border: 1px solid #333; }
+        .dropdown-content a { color: #e0e0e0; padding: 12px 16px; text-decoration: none; display: block; }
+        .dropdown-content a:hover { background-color: var(--primary-color); }
+        .dropdown:hover .dropdown-content { display: block; }
         
         footer { background-color: #1c1c1c; color: var(--white-color); text-align: center; padding: 2rem 0; }
         
@@ -120,7 +132,13 @@
             </a>
             <ul>
                 <li><a href="#hero">Home</a></li>
-                <li><a href="#edukasi">Edukasi</a></li>
+                <li class="dropdown">
+                    <a href="#edukasi">Edukasi ▼</a>
+                    <div class="dropdown-content">
+                        <a href="#edukasi">Tugas & Fungsi Lantas</a>
+                        <a href="#tips-berkendara">Tips Berkendara</a>
+                        </div>
+                </li>
                 <li><a href="#info-terkini">Info Terkini</a></li>
                 <li><a href="#">Kontak</a></li>
             </ul>
@@ -144,21 +162,42 @@
                 <section class="content-section">
                     <h2>Tugas Pokok Polisi Lalu Lintas</h2>
                     <ul>
-                        <li><strong>Pengaturan Jalan (Turjawali):</strong> Melakukan pengaturan, penjagaan, pengawalan, dan patroli di jalan raya untuk mencegah kemacetan.</li>
-                        <li><strong>Pendidikan Masyarakat:</strong> Memberikan edukasi dan sosialisasi kepada masyarakat tentang pentingnya keselamatan berkendara.</li>
+                        <li><strong>Pengaturan Jalan (Turjawali):</strong> Melakukan pengaturan, penjagaan, pengawalan, dan patroli di jalan raya.</li>
+                        <li><strong>Pendidikan Masyarakat:</strong> Memberikan edukasi dan sosialisasi kepada masyarakat tentang keselamatan berkendara.</li>
                         <li><strong>Penegakan Hukum (Gakkum):</strong> Menindak pelanggaran lalu lintas melalui tilang untuk memberikan efek jera.</li>
                         <li><strong>Registrasi dan Identifikasi (Regident):</strong> Mengelola administrasi kendaraan seperti penerbitan SIM, STNK, dan BPKB.</li>
                         <li><strong>Penanganan Kecelakaan:</strong> Melakukan Tindakan Pertama di Tempat Kejadian Perkara (TPTKP) dan melakukan penyelidikan.</li>
                     </ul>
                 </section>
-                <section class="content-section">
-                    <h2>Fungsi Utama Lalu Lintas</h2>
-                    <ul>
-                        <li><strong>Fungsi Preemtif:</strong> Mencegah pelanggaran dengan memberikan pendidikan dan membangun kesadaran keselamatan sejak dini.</li>
-                        <li><strong>Fungsi Preventif:</strong> Menghilangkan potensi gangguan dengan kehadiran fisik polisi di lapangan melalui patroli dan penjagaan.</li>
-                        <li><strong>Fungsi Represif:</strong> Melakukan penindakan hukum sebagai upaya terakhir untuk menegakkan aturan dan memberikan keadilan.</li>
-                    </ul>
-                </section>
+            </div>
+        </section>
+
+        <section id="tips-berkendara" class="tips-section">
+            <div class="container">
+                <h2>Tips Aman Berkendara</h2>
+                <p class="section-subtitle">Beberapa kebiasaan sederhana untuk menjaga keselamatan Anda dan orang lain di jalan.</p>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">✓</div>
+                        <h3>Jaga Jarak Aman</h3>
+                        <p>Selalu beri ruang cukup dengan kendaraan di depan Anda untuk mengantisipasi pengereman mendadak.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">✓</div>
+                        <h3>Fokus Penuh</h3>
+                        <p>Hindari penggunaan ponsel atau distraksi lain yang dapat mengalihkan perhatian Anda dari jalan.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">✓</div>
+                        <h3>Patuhi Rambu</h3>
+                        <p>Setiap rambu lalu lintas memiliki arti penting untuk keselamatan. Kenali dan patuhi semuanya.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">✓</div>
+                        <h3>Istirahat Cukup</h3>
+                        <p>Jika merasa lelah atau mengantuk, menepilah sejenak untuk beristirahat. Jangan memaksakan diri.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -180,11 +219,11 @@
                         <h3>Berita Utama</h3>
                         <div class="news-card">
                             <div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap"></div>
-                            <div class="card-content"><span class="card-tag">Regulasi</span><h3 class="card-title"><a href="#">Ganjil-Genap di Jakarta Diperluas</a></h3><div class="card-meta"><span>Detik News</span> • <span>13 Sep 2025</span></div></div>
+                            <div class="card-content"><span class="card-tag">Regulasi</span><h3 class="card-title"><a href="#">Ganjil-Genap di Jakarta Diperluas</a></h3></div>
                         </div>
                         <div class="news-card">
                             <div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru"></div>
-                            <div class="card-content"><span class="card-tag">Infrastruktur</span><h3 class="card-title"><a href="#">Tol Trans-Jawa Ruas Baru Resmi Dibuka</a></h3><div class="card-meta"><span>Kompas Otomotif</span> • <span>14 Sep 2025</span></div></div>
+                            <div class="card-content"><span class="card-tag">Infrastruktur</span><h3 class="card-title"><a href="#">Tol Trans-Jawa Ruas Baru Resmi Dibuka</a></h3></div>
                         </div>
                     </div>
                 </div>
