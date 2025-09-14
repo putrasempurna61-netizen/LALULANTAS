@@ -66,16 +66,7 @@
         .hero-content { display: flex; flex-direction: column; align-items: center; }
         .hero-content h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
         .hero-content p { font-size: 1.2rem; color: #a0a0a0; max-width: 600px; margin: 0 auto 2rem auto; }
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--white-color);
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+        .cta-button { display: inline-block; background-color: var(--primary-color); color: var(--white-color); padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease, transform 0.3s ease; }
         .cta-button:hover { background-color: var(--primary-hover); transform: translateY(-3px); }
         .cta-button + .cta-button { margin-top: 1rem; }
         .section-subtitle { color: #a0a0a0; margin-bottom: 4rem; text-align: center;}
@@ -83,17 +74,10 @@
         .guides h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
         .guide-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; text-align: left; }
         .guide-card { background-color: var(--white-color); color: var(--text-dark); border-radius: var(--border-radius); padding: 2.5rem 2rem; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .guide-card:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .guide-card:hover { transform: translateY(-10px); }
         .card-icon { background-color: var(--primary-color); color: var(--white-color); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
         .guide-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
         .guide-card p { color: var(--text-light); }
-        .safety-tips { padding: 6rem 0; background-color: #121212; text-align: center; }
-        .safety-tips h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .tips-container { margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; text-align: left; }
-        .tip-item { display: flex; align-items: flex-start; gap: 1rem; }
-        .tip-icon { flex-shrink: 0; background-color: var(--primary-color); color: var(--white-color); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; }
-        .tip-text h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
-        .tip-text p { color: #a0a0a0; }
         .gallery { padding: 6rem 0; background-color: #1c1c1c; text-align: center;}
         .gallery h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
         .gallery-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
@@ -108,49 +92,37 @@
         .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
         .form-group input, .form-group textarea { width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid #555; background-color: #2a2a2a; color: #e0e0e0; font-family: var(--font-family); font-size: 1rem; }
         .contact-form .cta-button { width: 100%; border: none; cursor: pointer; }
-        .news-feed { padding: 6rem 0; background-color: #1c1c1c; }
-        .news-feed h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .news-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .news-card { background-color: #1e1e1e; border-radius: var(--border-radius); overflow: hidden; display: flex; flex-direction: column; border: 1px solid #333; transition: transform 0.3s ease; }
-        .news-card:hover { transform: translateY(-5px); }
-        .card-image img { width: 100%; height: 180px; object-fit: cover; display: block; }
-        .card-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-        .card-tag { display: inline-block; background-color: var(--primary-color); color: var(--white-color); padding: 4px 10px; font-size: 0.75rem; font-weight: 700; border-radius: 50px; margin-bottom: 1rem; align-self: flex-start; }
-        .card-title { font-size: 1.25rem; margin-bottom: 0.5rem; flex-grow: 1; }
-        .card-title a { color: #e0e0e0; text-decoration: none; transition: color 0.3s ease; }
-        .card-title a:hover { color: var(--primary-color); }
-        .card-meta { font-size: 0.8rem; color: #a0a0a0; }
         footer { background-color: #1c1c1c; color: var(--white-color); text-align: center; padding: 2rem 0; }
         
-        /* --- Gaya untuk Tombol Pemicu Pop-up --- */
-        .popup-trigger { background-color: var(--primary-color); padding: 5px 15px; border-radius: 50px; color: var(--white-color) !important; transition: background-color 0.3s ease; }
-        .popup-trigger:hover { background-color: var(--primary-hover); }
+        /* --- GAYA BARU: DASHBOARD INFO TERKINI --- */
+        .dashboard-section { padding: 6rem 0; background-color: #1c1c1c; }
+        .dashboard-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .dashboard-grid { margin-top: 4rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2.5rem; }
+        .traffic-status-column h3, .news-column h3 { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #444; padding-bottom: 1rem; }
         
-        /* --- Gaya untuk Pop-up --- */
-        .popup-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); z-index: 1000;
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .popup-overlay:target { opacity: 1; visibility: visible; }
-        .popup-content { background-color: #2a2a2a; padding: 2rem; border-radius: var(--border-radius); width: 90%; max-width: 400px; position: relative; border: 1px solid #444; }
-        .popup-content h3 { margin-bottom: 1.5rem; font-size: 1.5rem; text-align: center; }
-        .popup-close { position: absolute; top: 10px; right: 15px; font-size: 2rem; color: #888; text-decoration: none; line-height: 1; }
+        /* Gaya untuk List Status Lalu Lintas (Kolom Kiri) */
         .status-list { list-style: none; padding: 0; }
-        .status-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid #444; }
+        .status-item { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid #333; }
         .status-item:last-child { border-bottom: none; }
         .item-location small { display: block; color: #a0a0a0; font-size: 0.8rem; }
         .item-status span { font-weight: 700; padding: 5px 12px; border-radius: 50px; font-size: 0.9rem; }
-        .item-status.status-macet span { background-color: #c0392b; color: var(--white-color); }
-        .item-status.status-lancar span { background-color: #27ae60; color: var(--white-color); }
-
-        @media (max-width: 900px) { .tips-container { grid-template-columns: 1fr; } }
+        .item-status.status-macet span { color: #e74c3c; } /* Merah */
+        .item-status.status-lancar span { color: #2ecc71; } /* Hijau */
+        
+        /* Gaya untuk Berita (Kolom Kanan) */
+        .news-card { background-color: #1e1e1e; border-radius: var(--border-radius); overflow: hidden; border: 1px solid #333; margin-bottom: 1.5rem; }
+        .card-image img { width: 100%; height: 150px; object-fit: cover; display: block; }
+        .card-content { padding: 1.2rem; }
+        .card-tag { display: inline-block; background-color: var(--primary-color); color: var(--white-color); padding: 4px 10px; font-size: 0.75rem; font-weight: 700; border-radius: 50px; margin-bottom: 0.8rem; }
+        .card-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .card-title a { color: #e0e0e0; text-decoration: none; transition: color 0.3s ease; }
+        .card-title a:hover { color: var(--primary-color); }
+        .card-meta { font-size: 0.8rem; color: #a0a0a0; }
+        
+        @media (max-width: 992px) { .dashboard-grid { grid-template-columns: 1fr; } }
         @media (max-width: 768px) {
             nav ul { display: none; }
             .hero-content h1 { font-size: 2.5rem; }
-            .guide-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -164,8 +136,8 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#layanan">Panduan</a></li>
+                <li><a href="#info-terkini">Status Lalin</a></li>
                 <li><a href="#kontak">Kontak</a></li>
-                <li><a href="#popup-lalulintas" class="popup-trigger">Status Lalin</a></li>
             </ul>
         </nav>
     </header>
@@ -175,7 +147,7 @@
                 <h1>Selamat Datang di Platform Modern Kami</h1>
                 <p>Temukan panduan langkah-demi-langkah untuk membantu Anda memulai dan berhasil.</p>
                 <a href="#layanan" class="cta-button">Mulai Pelajari</a>
-                <a href="#layanan" class="cta-button">Masuk ke Halaman Utama</a>
+                <a href="#info-terkini" class="cta-button">Masuk ke Halaman Utama</a>
             </div>
         </section>
         <section class="guides" id="layanan">
@@ -189,18 +161,37 @@
                 </div>
             </div>
         </section>
-        <section class="safety-tips" id="tips">
+
+        <section id="info-terkini" class="dashboard-section">
             <div class="container">
-                <h2>Tips Keselamatan Berkendara</h2>
-                <p class="section-subtitle">Hal-hal kecil yang berdampak besar bagi keamanan Anda di jalan.</p>
-                <div class="tips-container">
-                    <div class="tip-item"><div class="tip-icon">✓</div><div class="tip-text"><h3>Selalu Gunakan Sabuk Pengaman</h3><p>Pastikan sabuk pengaman terpasang dengan benar sebelum Anda mulai mengemudi, bahkan untuk jarak dekat sekalipun.</p></div></div>
-                    <div class="tip-item"><div class="tip-icon">✓</div><div class="tip-text"><h3>Jaga Jarak Aman</h3><p>Beri ruang yang cukup antara kendaraan Anda dan kendaraan di depan untuk mengantisipasi pengereman mendadak.</p></div></div>
-                    <div class="tip-item"><div class="tip-icon">✓</div><div class="tip-text"><h3>Periksa Kondisi Kendaraan</h3><p>Lakukan pengecekan rutin pada ban, rem, lampu, dan oli untuk memastikan kendaraan Anda dalam kondisi prima.</p></div></div>
-                    <div class="tip-item"><div class="tip-icon">✓</div><div class="tip-text"><h3>Jangan Gunakan Ponsel</h3><p>Fokus penuh pada jalan. Menggunakan ponsel saat mengemudi sangat berbahaya dan dapat mengurangi konsentrasi.</p></div></div>
+                <h2>Info Terkini</h2>
+                <p class="section-subtitle">Pantau berita dan kondisi lalu lintas terbaru di sekitar Anda.</p>
+                
+                <div class="dashboard-grid">
+                    <div class="traffic-status-column">
+                        <h3>Status Lalu Lintas</h3>
+                        <ul class="status-list">
+                            <li class="status-item"><div class="item-location"><span>Tol Dalam Kota, Jakarta</span><small>Arah Cawang</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
+                            <li class="status-item"><div class="item-location"><span>Gerbang Tol Pasteur</span><small>Bandung</small></div><div class="item-status status-lancar"><span>Lancar</span></div></li>
+                            <li class="status-item"><div class="item-location"><span>Jl. Sudirman</span><small>Jakarta Pusat</small></div><div class="item-status status-lancar"><span>Lancar</span></div></li>
+                            <li class="status-item"><div class="item-location"><span>Tol Waru-Juanda</span><small>Surabaya</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="news-column">
+                        <h3>Berita Utama</h3>
+                        <div class="news-card">
+                            <div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap"></div>
+                            <div class="card-content"><span class="card-tag">Regulasi</span><h3 class="card-title"><a href="#">Aturan Ganjil-Genap di Jakarta Kembali Diperluas</a></h3><div class="card-meta"><span>Detik News</span> • <span>13 Sep 2025</span></div></div>
+                        </div>
+                        <div class="news-card">
+                            <div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru"></div>
+                            <div class="card-content"><span class="card-tag">Infrastruktur</span><h3 class="card-title"><a href="#">Jalan Tol Trans-Jawa Ruas Baru Resmi Dibuka</a></h3><div class="card-meta"><span>Kompas Otomotif</span> • <span>14 Sep 2025</span></div></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
         <section class="gallery" id="galeri">
             <div class="container">
                 <h2>Galeri Rambu Lalu Lintas</h2>
@@ -212,17 +203,6 @@
                     <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Indonesia_road_sign_P4-3.svg/1024px-Indonesia_road_sign_P4-3.svg.png" alt="Rambu Putar Balik"><div class="caption">Perintah untuk melakukan putar balik.</div></div>
                     <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Indonesia_road_sign_P1-1.svg/1024px-Indonesia_road_sign_P1-1.svg.png" alt="Rambu Hati-Hati"><div class="caption">Peringatan untuk berhati-hati di jalan.</div></div>
                     <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Indonesia_road_sign_R1-5-60.svg/1024px-Indonesia_road_sign_R1-5-60.svg.png" alt="Rambu Batas Kecepatan"><div class="caption">Batas maksimum kecepatan 60 km/jam.</div></div>
-                </div>
-            </div>
-        </section>
-        <section class="news-feed" id="berita">
-            <div class="container">
-                <h2>Info Terkini</h2>
-                <p class="section-subtitle">Pantau berita dan kondisi lalu lintas terbaru di sekitar Anda.</p>
-                <div class="news-grid">
-                    <div class="news-card"><div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap"></div><div class="card-content"><span class="card-tag">Regulasi</span><h3 class="card-title"><a href="#">Aturan Ganjil-Genap di Jakarta Kembali Diperluas ke 26 Titik</a></h3><div class="card-meta"><span>Detik News</span> • <span>13 September 2025</span></div></div></div>
-                    <div class="news-card"><div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru"></div><div class="card-content"><span class="card-tag">Proyek Infrastruktur</span><h3 class="card-title"><a href="#">Jalan Tol Trans-Jawa Ruas Baru Resmi Dibuka Hari Ini</a></h3><div class="card-meta"><span>Kompas Otomotif</span> • <span>14 September 2025</span></div></div></div>
-                    <div class="news-card"><div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Macet+Pagi+Hari" alt="Kemacetan Pagi Hari"></div><div class="card-content"><span class="card-tag">Kondisi Jalan</span><h3 class="card-title"><a href="#">Pantauan CCTV: Kemacetan Terjadi di Ruas Tol Cikampek KM 48</a></h3><div class="card-meta"><span>NTMC Polri</span> • <span>14 September 2025</span></div></div></div>
                 </div>
             </div>
         </section>
@@ -244,19 +224,5 @@
             <p>&copy; 2025 LaluLantas. Dirancang dengan ❤️.</p>
         </div>
     </footer>
-
-    <div id="popup-lalulintas" class="popup-overlay">
-        <div class="popup-content">
-            <a href="#" class="popup-close">&times;</a>
-            <h3>Status Lalu Lintas Terkini</h3>
-            <ul class="status-list">
-                <li class="status-item"><div class="item-location"><span>Tol Dalam Kota, Jakarta</span><small>Arah Cawang</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                <li class="status-item"><div class="item-location"><span>Gerbang Tol Pasteur</span><small>Bandung</small></div><div class="item-status status-lancar"><span>Lancar</span></div></li>
-                <li class="status-item"><div class="item-location"><span>Jl. Sudirman</span><small>Jakarta Pusat</small></div><div class="item-status status-lancar"><span>Lancar</span></div></li>
-                <li class="status-item"><div class="item-location"><span>Tol Waru-Juanda</span><small>Surabaya</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-            </ul>
-        </div>
-    </div>
-
 </body>
 </html>
