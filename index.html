@@ -155,6 +155,105 @@
 .card-tag.status-lancar {
     background-color: #27ae60; /* Warna Hijau */
 }
+        /* --- Gaya untuk Tombol Pemicu Pop-up --- */
+.popup-trigger {
+    background-color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 50px;
+    color: var(--white-color) !important; /* Paksa warna jadi putih */
+    transition: background-color 0.3s ease;
+}
+.popup-trigger:hover {
+    background-color: var(--primary-hover);
+}
+
+/* --- Gaya untuk Pop-up --- */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden; /* Sembunyikan pop-up secara default */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Trik CSS: Tampilkan pop-up saat URL memiliki #id-popup */
+.popup-overlay:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background-color: #2a2a2a;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    border: 1px solid #444;
+}
+
+.popup-content h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    color: #888;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.status-list {
+    list-style: none;
+    padding: 0;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #444;
+}
+.status-item:last-child {
+    border-bottom: none;
+}
+
+.item-location small {
+    display: block;
+    color: #a0a0a0;
+    font-size: 0.8rem;
+}
+
+.item-status span {
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+}
+
+.item-status.status-macet span {
+    background-color: #c0392b; /* Merah */
+    color: var(--white-color);
+}
+
+.item-status.status-lancar span {
+    background-color: #27ae60; /* Hijau */
+    color: var(--white-color);
+}
     }
 </style>
     
@@ -167,9 +266,10 @@
                 <span>L</span><span>a</span><span>l</span><span>u</span><span>L</span><span>a</span><span>n</span><span>t</span><span>a</span><span>s</span>
             </a>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#layanan">Panduan</a></li>
-                <li><a href="#kontak">Kontak</a></li>
+                 <li><a href="#">Home</a></li>
+    <li><a href="#layanan">Panduan</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+    <li><a href="#popup-lalulintas" class="popup-trigger">Status Lalin</a></li>
             </ul>
         </nav>
     </header>
@@ -326,64 +426,6 @@
     </div>
 
 </div>
-        
-    </div>
-</section>
-          <section class="traffic-status" id="status-lalulintas">
-    <div class="container">
-        <h2>Informasi Lalu Lintas</h2>
-        <p class="section-subtitle">Status kondisi jalan di beberapa titik pantauan utama.</p>
-
-        <div class="news-grid">
-
-            <div class="news-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/400x225.png?text=Tol+Dalam+Kota+Jakarta" alt="Tol Dalam Kota Jakarta">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag status-macet">Macet</span>
-                    <h3 class="card-title">
-                        <a href="#">Tol Dalam Kota Jakarta (Arah Cawang)</a>
-                    </h3>
-                    <div class="card-meta">
-                        <span>Jasa Marga</span> • <span>Update: 13:30 WIB</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/400x225.png?text=Tol+Pasteur+Bandung" alt="Tol Pasteur Bandung">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag status-lancar">Lancar</span>
-                    <h3 class="card-title">
-                        <a href="#">Gerbang Tol Pasteur, Bandung</a>
-                    </h3>
-                    <div class="card-meta">
-                        <span>ATCS Bandung</span> • <span>Update: 13:35 WIB</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/400x225.png?text=Bundaran+HI" alt="Bundaran HI">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag status-lancar">Lancar</span>
-                    <h3 class="card-title">
-                        <a href="#">Kawasan Bundaran HI, Jakarta Pusat</a>
-                    </h3>
-                    <div class="card-meta">
-                        <span>TMC Polda Metro</span> • <span>Update: 13:38 WIB</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>  
         </section>
         <section class="contact" id="kontak">
             <div class="container">
@@ -412,5 +454,49 @@
             <p>&copy; 2025 LaluLantas. Dirancang dengan ❤️.</p>
         </div>
     </footer>
+    <div id="popup-lalulintas" class="popup-overlay">
+    <div class="popup-content">
+        <a href="#" class="popup-close">&times;</a>
+        <h3>Status Lalu Lintas Terkini</h3>
+        <ul class="status-list">
+            <li class="status-item">
+                <div class="item-location">
+                    <span>Tol Dalam Kota, Jakarta</span>
+                    <small>Arah Cawang</small>
+                </div>
+                <div class="item-status status-macet">
+                    <span>Macet</span>
+                </div>
+            </li>
+            <li class="status-item">
+                <div class="item-location">
+                    <span>Gerbang Tol Pasteur</span>
+                    <small>Bandung</small>
+                </div>
+                <div class="item-status status-lancar">
+                    <span>Lancar</span>
+                </div>
+            </li>
+            <li class="status-item">
+                <div class="item-location">
+                    <span>Jl. Sudirman</span>
+                    <small>Jakarta Pusat</small>
+                </div>
+                <div class="item-status status-lancar">
+                    <span>Lancar</span>
+                </div>
+            </li>
+            <li class="status-item">
+                <div class="item-location">
+                    <span>Tol Waru-Juanda</span>
+                    <small>Surabaya</small>
+                </div>
+                <div class="item-status status-macet">
+                    <span>Macet</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>
