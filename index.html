@@ -98,7 +98,8 @@
 
         .literasi-section { padding: 6rem 0; background-color: #1c1c1c; }
         .literasi-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .story-container { background-color: #1e1e1e; border: 1px solid #333; margin-top: 4rem; border-radius: var(--border-radius); overflow: hidden; }
+        .literasi-list { margin-top: 4rem; }
+        .story-container { background-color: #1e1e1e; border: 1px solid #333; margin-bottom: 3rem; border-radius: var(--border-radius); overflow: hidden; }
         .story-image { width: 100%; height: auto; max-height: 400px; object-fit: cover; display: block; }
         .story-content { padding: 2.5rem; }
         .story-content h3 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--primary-color); }
@@ -232,10 +233,41 @@
             <div class="container">
                 <h2>Literasi Lalu Lintas</h2>
                 <p class="section-subtitle">Belajar keselamatan melalui cerita yang menarik.</p>
-                <div class="story-container">
-                    <div class="story-content">
-                        <h3>Kisah Ardi dan Helm Ajaib</h3>
-                        <p>Ardi adalah anak yang ceria, namun ia paling tidak suka memakai helm... Sejak saat itu, Ardi tidak pernah lagi mengeluh...</p>
+                <div class="literasi-list">
+                    <div class="story-container">
+                        <img src="https://via.placeholder.com/800x400.png?text=Selalu+Pakai+Helmmu!" alt="Anak memakai helm" class="story-image">
+                        <div class="story-content">
+                            <h3>Kisah Ardi dan Helm Ajaib</h3>
+                            <p>Ardi adalah anak yang ceria, namun ia paling tidak suka memakai helm saat dibonceng ayahnya dengan motor...</p>
+                        </div>
+                    </div>
+                    <div class="story-container">
+                        <img src="https://via.placeholder.com/800x400.png?text=Sabuk+Pengaman+Penyelamat" alt="Keluarga memakai sabuk pengaman" class="story-image">
+                        <div class="story-content">
+                            <h3>Petualangan Keluarga Rina dan Sabuk Pengaman</h3>
+                            <p>Keluarga Rina selalu antusias setiap kali pergi berlibur...</p>
+                        </div>
+                    </div>
+                    <div class="story-container">
+                        <img src="https://via.placeholder.com/800x400.png?text=Jangan+Terobos+Lampu+Merah" alt="Pengendara motor di lampu merah" class="story-image">
+                        <div class="story-content">
+                            <h3>Keputusan Cepat Pak Budi</h3>
+                            <p>Pak Budi buru-buru pergi ke kantor. Saat sampai di persimpangan, lampu lalu lintas sudah kuning, hampir merah...</p>
+                        </div>
+                    </div>
+                    <div class="story-container">
+                        <img src="https://via.placeholder.com/800x400.png?text=Hormati+Pejalan+Kaki" alt="Pejalan kaki menyeberang" class="story-image">
+                        <div class="story-content">
+                            <h3>Senyum Tulus Ibu Mia</h3>
+                            <p>Ibu Mia sedang menyeberang jalan di zebra cross, membawa banyak belanjaan...</p>
+                        </div>
+                    </div>
+                    <div class="story-container">
+                        <img src="https://via.placeholder.com/800x400.png?text=Berkendara+Saat+Hujan" alt="Mobil berkendara di hujan" class="story-image">
+                        <div class="story-content">
+                            <h3>Pelajaran Hujan Deras</h3>
+                            <p>Malam itu hujan sangat deras, jarak pandang terbatas. Dani, yang baru punya SIM, merasa sedikit cemas...</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -268,17 +300,9 @@
                 <h2>Uji Pengetahuan Anda!</h2>
                 <p class="section-subtitle">Seberapa jauh Anda memahami aturan lalu lintas? Coba quiz singkat ini!</p>
                 <div class="quiz-container">
-                    <div id="question-container">
-                        <h3 id="question-text">Pertanyaan akan muncul di sini.</h3>
-                        <div id="answer-buttons" class="btn-grid"></div>
-                    </div>
-                    <div id="results-container" class="hidden">
-                        <p id="score-text">Skor Anda: 0 dari 0</p>
-                        <button id="restart-btn" class="cta-button">Ulangi Quiz</button>
-                    </div>
-                    <div class="quiz-controls">
-                        <button id="next-btn" class="cta-button hidden">Berikutnya</button>
-                    </div>
+                    <div id="question-container"><h3 id="question-text"></h3><div id="answer-buttons" class="btn-grid"></div></div>
+                    <div id="results-container" class="hidden"><p id="score-text"></p><button id="restart-btn" class="cta-button">Ulangi Quiz</button></div>
+                    <div class="quiz-controls"><button id="next-btn" class="cta-button hidden">Berikutnya</button></div>
                 </div>
             </div>
         </section>
@@ -298,35 +322,13 @@
         const scoreText = document.getElementById('score-text');
         const restartBtn = document.getElementById('restart-btn');
         const questions = [
-            {
-                question: 'Apa arti dari rambu STOP?',
-                answers: [ { text: 'Wajib berhenti sesaat dan melanjutkan jika aman', correct: true }, { text: 'Boleh jalan terus jika sepi', correct: false } ]
-            },
-            {
-                question: 'Saat lampu lalu lintas menyala kuning, apa yang harus dilakukan?',
-                answers: [ { text: 'Menambah kecepatan', correct: false }, { text: 'Bersiap-siap untuk berhenti', correct: true } ]
-            },
-            {
-                question: 'Fungsi utama sabuk pengaman adalah...',
-                answers: [ { text: 'Menahan tubuh saat terjadi benturan', correct: true }, { text: 'Agar tidak ditilang polisi', correct: false } ]
-            },
-            {
-                question: 'Siapa yang mendapat prioritas di Zebra Cross?',
-                answers: [ { text: 'Pengendara motor', correct: false }, { text: 'Pejalan kaki', correct: true } ]
-            }
+            { question: 'Apa arti dari rambu STOP?', answers: [ { text: 'Wajib berhenti sesaat dan melanjutkan jika aman', correct: true }, { text: 'Boleh jalan terus jika sepi', correct: false }, { text: 'Hanya kurangi kecepatan', correct: false }, { text: 'Berhenti hanya jika ada polisi', correct: false } ] },
+            { question: 'Saat lampu lalu lintas menyala kuning, apa yang harus dilakukan pengemudi?', answers: [ { text: 'Menambah kecepatan agar tidak kena lampu merah', correct: false }, { text: 'Langsung berhenti di tempat', correct: false }, { text: 'Bersiap-siap untuk berhenti karena akan merah', correct: true }, { text: 'Membunyikan klakson', correct: false } ] },
+            { question: 'Fungsi utama sabuk pengaman adalah untuk...', answers: [ { text: 'Menjaga agar tidak ditilang polisi', correct: false }, { text: 'Menahan tubuh saat terjadi benturan atau rem mendadak', correct: true }, { text: 'Membuat nyaman saat menyetir', correct: false }, { text: 'Sebagai hiasan interior mobil', correct: false } ] },
+            { question: 'Di area Zebra Cross, siapa yang mendapatkan prioritas utama untuk menyeberang?', answers: [ { text: 'Pengendara motor', correct: false }, { text: 'Mobil', correct: false }, { text: 'Pejalan kaki', correct: true }, { text: 'Sepeda', correct: false } ] }
         ];
-        let currentQuestionIndex = 0;
-        let score = 0;
-
-        function startQuiz() {
-            currentQuestionIndex = 0;
-            score = 0;
-            nextBtn.classList.add('hidden');
-            resultsContainer.classList.add('hidden');
-            questionContainer.classList.remove('hidden');
-            showQuestion();
-        }
-
+        let currentQuestionIndex = 0, score = 0;
+        function startQuiz() { currentQuestionIndex = 0; score = 0; nextBtn.classList.add('hidden'); resultsContainer.classList.add('hidden'); questionContainer.classList.remove('hidden'); showQuestion(); }
         function showQuestion() {
             resetState();
             let currentQuestion = questions[currentQuestionIndex];
@@ -335,56 +337,25 @@
                 const button = document.createElement('button');
                 button.innerText = answer.text;
                 button.classList.add('btn');
-                if (answer.correct) {
-                    button.dataset.correct = answer.correct;
-                }
+                if (answer.correct) { button.dataset.correct = answer.correct; }
                 button.addEventListener('click', selectAnswer);
                 answerButtons.appendChild(button);
             });
         }
-
-        function resetState() {
-            nextBtn.classList.add('hidden');
-            while (answerButtons.firstChild) {
-                answerButtons.removeChild(answerButtons.firstChild);
-            }
-        }
-
+        function resetState() { nextBtn.classList.add('hidden'); while (answerButtons.firstChild) { answerButtons.removeChild(answerButtons.firstChild); } }
         function selectAnswer(e) {
             const selectedBtn = e.target;
             const isCorrect = selectedBtn.dataset.correct === 'true';
-            if (isCorrect) {
-                score++;
-            }
+            if (isCorrect) { score++; }
             Array.from(answerButtons.children).forEach(button => {
                 setStatusClass(button, button.dataset.correct === 'true');
                 button.disabled = true;
             });
             nextBtn.classList.remove('hidden');
         }
-
-        function setStatusClass(element, correct) {
-            if (correct) {
-                element.classList.add('correct');
-            } else {
-                element.classList.add('wrong');
-            }
-        }
-        
-        function showResults() {
-            questionContainer.classList.add('hidden');
-            resultsContainer.classList.remove('hidden');
-            scoreText.innerText = `Skor Anda: ${score} dari ${questions.length} benar!`;
-        }
-
-        nextBtn.addEventListener('click', () => {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                showQuestion();
-            } else {
-                showResults();
-            }
-        });
+        function setStatusClass(element, correct) { if (correct) { element.classList.add('correct'); } else { element.classList.add('wrong'); } }
+        function showResults() { questionContainer.classList.add('hidden'); resultsContainer.classList.remove('hidden'); scoreText.innerText = `Skor Anda: ${score} dari ${questions.length} benar!`; }
+        nextBtn.addEventListener('click', () => { currentQuestionIndex++; if (currentQuestionIndex < questions.length) { showQuestion(); } else { showResults(); } });
         restartBtn.addEventListener('click', startQuiz);
         startQuiz();
     </script>
