@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literasi - LaluLantas</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --primary-hover: #003d82;
+            --white-color: #ffffff;
+            --text-dark: #333333;
+            --border-radius: 8px;
+            --font-family: 'Poppins', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-family);
+            line-height: 1.7;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        header {
+            background-color: #1c1c1c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { text-decoration: none; display: flex; align-items: center; }
+        .logo img { height: 40px; width: auto; margin-right: 10px; }
+        .logo span { font-size: 1.5rem; font-weight: 700; }
+        .logo span:nth-child(1) { color: #4285F4; } 
+        .logo span:nth-child(2) { color: #DB4437; } 
+        .logo span:nth-child(3) { color: #F4B400; } 
+        .logo span:nth-child(4) { color: #0F9D58; } 
+        .logo span:nth-child(5) { color: #4285F4; } 
+        .logo span:nth-child(6) { color: #DB4437; } 
+        .logo span:nth-child(7) { color: #F4B400; } 
+        .logo span:nth-child(8) { color: #0F9D58; } 
+        .logo span:nth-child(9) { color: #4285F4; } 
+        .logo span:nth-child(10) { color: #DB4437; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 2rem; }
+        nav ul li a { text-decoration: none; color: #e0e0e0; font-weight: 600; transition: color 0.3s ease; }
+        nav ul li a:hover { color: var(--primary-color); }
+        footer { background-color: #1c1c1c; color: var(--white-color); text-align: center; padding: 2rem 0; }
+        
+        /* --- Gaya untuk Halaman Konten (Literasi) --- */
+        .page-content {
+            padding-top: 120px; /* Jarak dari header atas */
+            padding-bottom: 4rem;
+        }
+        .page-header { text-align: center; margin-bottom: 4rem; }
+        .page-header h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
+        .topic-section { margin-bottom: 3rem; }
+        .topic-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .topic-card {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #333;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        .topic-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Logo">
+                <span>L</span><span>a</span><span>l</span><span>u</span><span>L</span><span>a</span><span>n</span><span>t</span><span>a</span><span>s</span>
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="literasi.html">Literasi</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container page-content">
+        <div class="page-header">
+            <h1>Pusat Literasi Lalu Lintas</h1>
+            <p>Pilih topik yang ingin Anda pelajari lebih lanjut di bawah ini.</p>
+        </div>
+
+        <section class="topic-section">
+            <h2>Tugas</h2>
+            <div class="topic-grid">
+                <a href="#" class="topic-card">Tugas 1</a>
+                <a href="#" class="topic-card">Tugas 2</a>
+                <a href="#" class="topic-card">Tugas 3</a>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <h2>Tips</h2>
+            <div class="topic-grid">
+                <a href="#" class="topic-card">Tips Aman Berkendara</a>
+                <a href="#" class="topic-card">Tips Perawatan Kendaraan</a>
+                <a href="#" class="topic-card">Tips Saat Macet</a>
+            </div>
+        </section>
+        
+        <section class="topic-section">
+            <h2>Berita</h2>
+            <div class="topic-grid">
+                <a href="#" class="topic-card">Berita Terkini 1</a>
+                <a href="#" class="topic-card">Berita Terkini 2</a>
+                <a href="#" class="topic-card">Berita Terkini 3</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LaluLantas. Dirancang dengan ❤️.</p>
+        </div>
+    </footer>
+</body>
+</html>
