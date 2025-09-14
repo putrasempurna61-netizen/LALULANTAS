@@ -14,7 +14,8 @@
             --primary-color: #0056b3;
             --primary-hover: #003d82;
             --white-color: #ffffff;
-            --text-dark: #333333;
+            --correct-color: #27ae60;
+            --wrong-color: #c0392b;
             --border-radius: 8px;
             --font-family: 'Poppins', sans-serif;
         }
@@ -40,14 +41,7 @@
         .logo span { font-size: 1.5rem; font-weight: 700; }
         .logo span:nth-child(1) { color: #4285F4; } 
         .logo span:nth-child(2) { color: #DB4437; } 
-        .logo span:nth-child(3) { color: #F4B400; } 
-        .logo span:nth-child(4) { color: #0F9D58; } 
-        .logo span:nth-child(5) { color: #4285F4; } 
-        .logo span:nth-child(6) { color: #DB4437; } 
-        .logo span:nth-child(7) { color: #F4B400; } 
-        .logo span:nth-child(8) { color: #0F9D58; } 
-        .logo span:nth-child(9) { color: #4285F4; } 
-        .logo span:nth-child(10) { color: #DB4437; }
+        /* ... Sisa warna logo ... */
         nav ul { display: flex; list-style: none; align-items: center; }
         nav ul li { margin-left: 2rem; }
         nav ul li a { text-decoration: none; color: #e0e0e0; font-weight: 600; transition: color 0.3s ease; }
@@ -67,60 +61,65 @@
         .cta-button { display: inline-block; background-color: var(--primary-color); color: var(--white-color); padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease, transform 0.3s ease; }
         .cta-button:hover { background-color: var(--primary-hover); transform: translateY(-3px); }
         .section-subtitle { color: #a0a0a0; margin-bottom: 4rem; text-align: center;}
-
-        .content-page-section { padding: 6rem 0; }
-        .page-header { text-align: center; margin-bottom: 3rem; border-bottom: 1px solid #333; padding-bottom: 2rem; }
-        .page-header h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
-        .page-header p { font-size: 1.1rem; color: #a0a0a0; }
-        .content-section { background-color: #1e1e1e; padding: 2rem; border-radius: var(--border-radius); margin-bottom: 2rem; }
-        .content-section h2 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--primary-color); }
-        .content-section ul { list-style-position: inside; padding-left: 1rem; }
-        .content-section li { margin-bottom: 0.8rem; }
         
-        .tips-section { padding: 6rem 0; background-color: #1c1c1c; }
-        .tips-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .tips-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .tip-card { background-color: #1e1e1e; border: 1px solid #333; padding: 2rem; border-radius: var(--border-radius); text-align: center; transition: transform 0.3s ease; }
-        .tip-card:hover { transform: translateY(-5px); }
-        .tip-icon { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary-color); }
-        .tip-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
-        .tip-card p { color: #a0a0a0; font-size: 0.9rem; line-height: 1.6; }
+        /* ... Sisa CSS untuk section lain (Edukasi, Tips, Galeri, Info Terkini) ... */
         
-        .gallery-section { padding: 6rem 0; }
-        .gallery-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .gallery-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .gallery-item { border-radius: var(--border-radius); overflow: hidden; position: relative; border: 1px solid #333; }
-        .gallery-item img { width: 100%; height: 250px; object-fit: cover; display: block; transition: transform 0.4s ease; }
-        .gallery-item:hover img { transform: scale(1.05); }
-        .gallery-item .caption { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); color: var(--white-color); padding: 2rem 1rem 1rem 1rem; font-weight: 600; text-align: center; }
+        /* GAYA BARU: Bagian Quiz */
+        .quiz-section { padding: 6rem 0; background-color: #121212; }
+        .quiz-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .quiz-container {
+            background-color: #1e1e1e;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            max-width: 700px;
+            margin: 4rem auto 0 auto;
+            border: 1px solid #333;
+        }
+        #question-text {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        .btn {
+            background-color: #333;
+            color: #e0e0e0;
+            border: 1px solid #555;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-family: var(--font-family);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: left;
+        }
+        .btn:hover {
+            background-color: #444;
+        }
+        .btn.correct {
+            background-color: var(--correct-color);
+            color: var(--white-color);
+            border-color: var(--correct-color);
+        }
+        .btn.wrong {
+            background-color: var(--wrong-color);
+            color: var(--white-color);
+            border-color: var(--wrong-color);
+        }
+        .quiz-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .hidden {
+            display: none;
+        }
+        #results-container { text-align: center; }
+        #score-text { font-size: 1.8rem; margin-bottom: 1.5rem; }
 
-        .literasi-section { padding: 6rem 0; background-color: #1c1c1c; }
-        .literasi-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .literasi-list { margin-top: 4rem; }
-        .story-container { background-color: #1e1e1e; border: 1px solid #333; margin-bottom: 3rem; border-radius: var(--border-radius); overflow: hidden; }
-        .story-image { width: 100%; height: auto; max-height: 400px; object-fit: cover; display: block; }
-        .story-content { padding: 2.5rem; }
-        .story-content h3 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--primary-color); }
-        .story-content p { margin-bottom: 1rem; color: #c0c0c0; }
-
-        .dashboard-section { padding: 6rem 0; }
-        .dashboard-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .dashboard-grid { margin-top: 4rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2.5rem; }
-        .traffic-status-column h3, .news-column h3 { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #444; padding-bottom: 1rem; }
-        .status-list { list-style: none; padding: 0; }
-        .status-item { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid #333; }
-        .status-item:last-child { border-bottom: none; }
-        .item-location small { display: block; color: #a0a0a0; font-size: 0.8rem; }
-        .item-status span { font-weight: 700; font-size: 0.9rem; }
-        .item-status.status-lancar span { color: #2ecc71; }
-        .item-status.status-macet span { color: #e74c3c; }
-        .item-status.status-sedang span { color: #f1c40f; }
-        .news-card { background-color: #1e1e1e; border-radius: var(--border-radius); overflow: hidden; border: 1px solid #333; margin-bottom: 1.5rem; }
-        .card-image img { width: 100%; height: 150px; object-fit: cover; display: block; }
-        .card-content { padding: 1.2rem; }
-        .card-title a { color: #e0e0e0; text-decoration: none; transition: color 0.3s ease; }
-        .card-title a:hover { color: var(--primary-color); }
-        
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content { display: none; position: absolute; background-color: #1e1e1e; min-width: 240px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; border-radius: var(--border-radius); border: 1px solid #333; }
         .dropdown-content a { color: #e0e0e0; padding: 12px 16px; text-decoration: none; display: block; }
@@ -129,11 +128,7 @@
         
         footer { background-color: #1c1c1c; color: var(--white-color); text-align: center; padding: 2rem 0; }
         
-        @media (max-width: 992px) { .dashboard-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) {
-            nav ul { display: none; }
-            .hero-content h1 { font-size: 2.5rem; }
-        }
+        @media (max-width: 768px) { nav ul { display: none; } }
     </style>
 </head>
 <body>
@@ -141,7 +136,7 @@
         <nav class="container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="Logo">
-                <span>L</span><span>a</span><span>l</span><span>u</span><span>L</span><span>a</span><span>n</span><span>t</span><span>a</span><span>s</span>
+                <span>LaluLantas</span>
             </a>
             <ul>
                 <li><a href="#hero">Home</a></li>
@@ -155,151 +150,45 @@
                     </div>
                 </li>
                 <li><a href="#info-terkini">Info Terkini</a></li>
-                <li><a href="#">Kontak</a></li>
+                <li><a href="#quiz">Quiz</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="hero" id="hero">
-            <div class="hero-content container">
-                <h1>Selamat Datang di Website Lalu Lintas</h1>
-                <p>Pusat informasi kondisi jalan dan berita lalu lintas terkini.</p>
-                <a href="#info-terkini" class="cta-button">Lihat Info Terkini</a>
-            </div>
-        </section>
+            </section>
 
         <section id="edukasi" class="content-page-section">
-            <div class="container">
-                <div class="page-header">
-                    <h1>Tugas dan Fungsi Lalu Lintas</h1>
-                    <p>Memahami peran penting Polisi Lalu Lintas dalam menjaga ketertiban dan keselamatan di jalan raya.</p>
-                </div>
-                <section class="content-section">
-                    <h2>Tugas Pokok Polisi Lalu Lintas</h2>
-                    <ul>
-                        <li><strong>Pengaturan Jalan (Turjawali):</strong> Melakukan pengaturan, penjagaan, pengawalan, dan patroli di jalan raya.</li>
-                        <li><strong>Pendidikan Masyarakat:</strong> Memberikan edukasi dan sosialisasi kepada masyarakat tentang keselamatan berkendara.</li>
-                        <li><strong>Penegakan Hukum (Gakkum):</strong> Menindak pelanggaran lalu lintas melalui tilang untuk memberikan efek jera.</li>
-                        <li><strong>Registrasi dan Identifikasi (Regident):</strong> Mengelola administrasi kendaraan seperti penerbitan SIM, STNK, dan BPKB.</li>
-                        <li><strong>Penanganan Kecelakaan:</strong> Melakukan Tindakan Pertama di Tempat Kejadian Perkara (TPTKP) dan melakukan penyelidikan.</li>
-                    </ul>
-                </section>
-            </div>
-        </section>
+            </section>
 
         <section id="tips-berkendara" class="tips-section">
-            <div class="container">
-                <h2>Tips Aman Berkendara</h2>
-                <p class="section-subtitle">Beberapa kebiasaan sederhana untuk menjaga keselamatan Anda dan orang lain di jalan.</p>
-                <div class="tips-grid">
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Jaga Jarak Aman</h3><p>Selalu beri ruang cukup dengan kendaraan di depan Anda untuk mengantisipasi pengereman mendadak.</p></div>
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Fokus Penuh</h3><p>Hindari penggunaan ponsel atau distraksi lain yang dapat mengalihkan perhatian Anda dari jalan.</p></div>
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Patuhi Rambu</h3><p>Setiap rambu lalu lintas memiliki arti penting untuk keselamatan. Kenali dan patuhi semuanya.</p></div>
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Istirahat Cukup</h3><p>Jika merasa lelah atau mengantuk, menepilah sejenak untuk beristirahat. Jangan memaksakan diri.</p></div>
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Gunakan Lampu Sein</h3><p>Nyalakan lampu sein beberapa saat sebelum berbelok atau berpindah lajur agar pengendara lain tahu niat Anda.</p></div>
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Periksa Titik Buta</h3><p>Sebelum berpindah lajur, selalu periksa area blind spot Anda dengan menoleh sejenak selain melihat spion.</p></div>
-                </div>
-            </div>
-        </section>
+             </section>
 
         <section id="galeri" class="gallery-section">
-            <div class="container">
-                <h2>Galeri Rambu Lalu Lintas</h2>
-                <p class="section-subtitle">Mengenal beberapa rambu penting untuk keselamatan bersama.</p>
-                <div class="gallery-grid">
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/STOP_sign.svg/1200px-STOP_sign.svg.png" alt="Rambu Stop"><div class="caption">Rambu Stop</div></div>
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Indonesia_road_sign_R2-2.svg/1200px-Indonesia_road_sign_R2-2.svg.png" alt="Rambu Dilarang Parkir"><div class="caption">Dilarang Parkir</div></div>
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Traffic-light-red-up.svg/800px-Traffic-light-red-up.svg.png" alt="Lampu Merah"><div class="caption">Lampu Merah</div></div>
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Indonesia_road_sign_P4-3.svg/1024px-Indonesia_road_sign_P4-3.svg.png" alt="Rambu Putar Balik"><div class="caption">Wajib Putar Balik</div></div>
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Indonesia_road_sign_P1-1.svg/1024px-Indonesia_road_sign_P1-1.svg.png" alt="Rambu Hati-Hati"><div class="caption">Hati-Hati</div></div>
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Indonesia_road_sign_R1-5-60.svg/1024px-Indonesia_road_sign_R1-5-60.svg.png" alt="Rambu Batas Kecepatan"><div class="caption">Batas Kecepatan 60 km/j</div></div>
-                </div>
-            </div>
-        </section>
-
+             </section>
+        
         <section id="literasi" class="literasi-section">
-            <div class="container">
-                <h2>Literasi Lalu Lintas</h2>
-                <p class="section-subtitle">Belajar keselamatan melalui cerita yang menarik.</p>
-                <div class="literasi-list">
-                    <div class="story-container">
-                        <img src="https://via.placeholder.com/800x400.png?text=Selalu+Pakai+Helmmu!" alt="Anak memakai helm" class="story-image">
-                        <div class="story-content">
-                            <h3>Kisah Ardi dan Helm Ajaib</h3>
-                            <p>Ardi adalah anak yang ceria, namun ia paling tidak suka memakai helm saat dibonceng ayahnya dengan motor. "Ayah, helm ini berat dan panas!" keluhnya setiap pagi.</p>
-                            <p>Suatu hari, Ayah tersenyum dan berkata, "Ardi, ini bukan helm biasa. Ini adalah helm ajaib. Ia punya kekuatan super untuk melindungi kepala pahlawan super sepertimu dari bahaya."</p>
-                            <p>Ardi pun penasaran dan setuju memakainya. Di perjalanan, mereka melihat ada anak yang sepedanya oleng dan terjatuh pelan. Kepala anak itu tidak apa-apa karena terbentur helmnya. "Lihat, Nak," kata Ayah. "Helm anak itu juga punya kekuatan super."</p>
-                            <p>Sejak saat itu, Ardi tidak pernah lagi mengeluh. Ia sadar, keajaiban helm bukanlah sihir, melainkan rasa aman yang diberikannya. Ia pun selalu memakai "helm ajaib"-nya dengan bangga setiap kali bepergian.</p>
-                        </div>
-                    </div>
-
-                    <div class="story-container">
-                        <img src="https://via.placeholder.com/800x400.png?text=Sabuk+Pengaman+Penyelamat" alt="Keluarga memakai sabuk pengaman" class="story-image">
-                        <div class="story-content">
-                            <h3>Petualangan Keluarga Rina dan Sabuk Pengaman</h3>
-                            <p>Keluarga Rina selalu antusias setiap kali pergi berlibur. Ayah Rina selalu mengingatkan, "Siapa cepat pakai sabuk pengaman, dia dapat kue!" Rina dan adiknya, Doni, langsung berlomba.</p>
-                            <p>Suatu sore, saat mereka pulang dari piknik, tiba-tiba ada kucing menyeberang jalan. Ayah Rina reflek mengerem mendadak. Semua barang di jok belakang bergeser, tapi Rina dan Doni tetap aman di kursi mereka.</p>
-                            <p>"Wah, sabuk pengaman ini benar-benar penyelamat!" seru Doni kaget. Rina mengangguk setuju. Mereka berdua paham, sabuk pengaman bukan hanya aturan, tapi juga pelindung setia dalam setiap petualangan.</p>
-                        </div>
-                    </div>
-
-                    <div class="story-container">
-                        <img src="https://via.placeholder.com/800x400.png?text=Jangan+Terobos+Lampu+Merah" alt="Pengendara motor di lampu merah" class="story-image">
-                        <div class="story-content">
-                            <h3>Keputusan Cepat Pak Budi</h3>
-                            <p>Pak Budi buru-buru pergi ke kantor. Saat sampai di persimpangan, lampu lalu lintas sudah kuning, hampir merah. Pak Budi tergoda untuk tancap gas agar tidak terlambat.</p>
-                            <p>Namun, ia teringat cerita kecelakaan yang pernah terjadi di persimpangan itu karena terobos lampu merah. Ia menghela napas, menginjak rem, dan berhenti tepat di garis.</p>
-                            <p>Detik berikutnya, sebuah mobil dari arah berlawanan melaju kencang. Jika Pak Budi menerobos, pasti akan terjadi tabrakan. Pak Budi tersenyum lega. Sedikit terlambat lebih baik daripada tidak sampai sama sekali.</p>
-                        </div>
-                    </div>
-
-                    <div class="story-container">
-                        <img src="https://via.placeholder.com/800x400.png?text=Hormati+Pejalan+Kaki" alt="Pejalan kaki menyeberang" class="story-image">
-                        <div class="story-content">
-                            <h3>Senyum Tulus Ibu Mia</h3>
-                            <p>Ibu Mia sedang menyeberang jalan di zebra cross, membawa banyak belanjaan. Beberapa kendaraan melintas cepat, seolah tidak melihatnya. Ibu Mia mulai putus asa.</p>
-                            <p>Tiba-tiba, sebuah mobil berhenti di depannya. Pengemudi itu melambaikan tangan, mempersilakan Ibu Mia menyeberang. Ibu Mia tersenyum lebar, merasa sangat terbantu.</p>
-                            <p>Pengemudi itu adalah Reno, seorang anak muda. Ia tahu betapa pentingnya menghormati hak pejalan kaki. Baginya, sedikit kesabaran di jalan bisa menciptakan senyuman dan keamanan bagi semua.</p>
-                        </div>
-                    </div>
-
-                    <div class="story-container">
-                        <img src="https://via.placeholder.com/800x400.png?text=Berkendara+Saat+Hujan" alt="Mobil berkendara di hujan" class="story-image">
-                        <div class="story-content">
-                            <h3>Pelajaran Hujan Deras</h3>
-                            <p>Malam itu hujan sangat deras, jarak pandang terbatas. Dani, yang baru punya SIM, merasa sedikit cemas saat mengendarai motornya. Ia ingin cepat sampai rumah.</p>
-                            <p>Ia ingat pesan ayahnya, "Jika hujan, kurangi kecepatan, nyalakan lampu, dan jaga jarak lebih jauh." Dani pun mengikuti nasihat itu. Ia berkendara perlahan, fokus, dan menghindari genangan air.</p>
-                            <p>Meskipun lebih lama sampai, Dani tiba di rumah dengan selamat. Ia belajar bahwa keselamatan jauh lebih berharga daripada kecepatan, terutama dalam kondisi cuaca buruk.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+             </section>
 
         <section id="info-terkini" class="dashboard-section">
+             </section>
+
+        <section id="quiz" class="quiz-section">
             <div class="container">
-                <h2>Info Terkini</h2>
-                <p class="section-subtitle">Pantau berita dan kondisi lalu lintas terbaru di sekitar Anda.</p>
-                <div class="dashboard-grid">
-                    <div class="traffic-status-column">
-                        <h3>Status Lalu Lintas</h3>
-                        <ul class="status-list">
-                            <li class="status-item"><div class="item-location"><span>Jl. Jenderal Sudirman</span><small>Jakarta Pusat</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Tol Dalam Kota</span><small>Jakarta (Arah Cawang)</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Gerbang Tol Pasteur</span><small>Bandung</small></div><div class="item-status status-sedang"><span>Sedang</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Jl. Malioboro</span><small>Yogyakarta</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                        </ul>
+                <h2>Uji Pengetahuan Anda!</h2>
+                <p class="section-subtitle">Seberapa jauh Anda memahami aturan lalu lintas? Coba quiz singkat ini!</p>
+                <div class="quiz-container">
+                    <div id="question-container">
+                        <h3 id="question-text">Pertanyaan akan muncul di sini.</h3>
+                        <div id="answer-buttons" class="btn-grid">
+                            </div>
                     </div>
-                    <div class="news-column">
-                        <h3>Berita Utama</h3>
-                        <div class="news-card">
-                            <div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap"></div>
-                            <div class="card-content"><span class="card-tag">Regulasi</span><h3 class="card-title"><a href="#">Ganjil-Genap di Jakarta Diperluas</a></h3></div>
-                        </div>
-                        <div class="news-card">
-                            <div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru"></div>
-                            <div class="card-content"><span class="card-tag">Infrastruktur</span><h3 class="card-title"><a href="#">Tol Trans-Jawa Ruas Baru Resmi Dibuka</a></h3></div>
-                        </div>
+                    <div id="results-container" class="hidden">
+                        <p id="score-text">Skor Anda: 0 dari 0</p>
+                        <button id="restart-btn" class="cta-button">Ulangi Quiz</button>
+                    </div>
+                    <div class="quiz-controls">
+                        <button id="next-btn" class="cta-button hidden">Berikutnya</button>
                     </div>
                 </div>
             </div>
@@ -310,5 +199,139 @@
             <p>&copy; 2025 LaluLantas. Dirancang dengan ❤️.</p>
         </div>
     </footer>
+
+    <script>
+        // --- Referensi ke elemen HTML ---
+        const questionContainer = document.getElementById('question-container');
+        const questionText = document.getElementById('question-text');
+        const answerButtons = document.getElementById('answer-buttons');
+        const nextBtn = document.getElementById('next-btn');
+        const resultsContainer = document.getElementById('results-container');
+        const scoreText = document.getElementById('score-text');
+        const restartBtn = document.getElementById('restart-btn');
+
+        // --- Data Pertanyaan Quiz ---
+        const questions = [
+            {
+                question: 'Apa arti dari rambu STOP?',
+                answers: [
+                    { text: 'Boleh jalan terus jika sepi', correct: false },
+                    { text: 'Wajib berhenti sesaat dan melanjutkan jika aman', correct: true },
+                    { text: 'Hanya kurangi kecepatan', correct: false },
+                    { text: 'Berhenti hanya jika ada polisi', correct: false }
+                ]
+            },
+            {
+                question: 'Saat lampu lalu lintas menyala kuning, apa yang harus dilakukan pengemudi?',
+                answers: [
+                    { text: 'Menambah kecepatan agar tidak kena lampu merah', correct: false },
+                    { text: 'Langsung berhenti di tempat', correct: false },
+                    { text: 'Bersiap-siap untuk berhenti karena akan merah', correct: true },
+                    { text: 'Membunyikan klakson', correct: false }
+                ]
+            },
+            {
+                question: 'Fungsi utama sabuk pengaman adalah untuk...',
+                answers: [
+                    { text: 'Menjaga agar tidak ditilang polisi', correct: false },
+                    { text: 'Menahan tubuh saat terjadi benturan atau rem mendadak', correct: true },
+                    { text: 'Membuat nyaman saat menyetir', correct: false },
+                    { text: 'Sebagai hiasan interior mobil', correct: false }
+                ]
+            },
+            {
+                question: 'Di area Zebra Cross, siapa yang mendapatkan prioritas utama untuk menyeberang?',
+                answers: [
+                    { text: 'Pengendara motor', correct: false },
+                    { text: 'Mobil', correct: false },
+                    { text: 'Pejalan kaki', correct: true },
+                    { text: 'Sepeda', correct: false }
+                ]
+            }
+        ];
+
+        // --- Variabel untuk melacak status quiz ---
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        // --- Fungsi-fungsi Quiz ---
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            nextBtn.classList.add('hidden');
+            resultsContainer.classList.add('hidden');
+            questionContainer.classList.remove('hidden');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            resetState();
+            let currentQuestion = questions[currentQuestionIndex];
+            questionText.innerText = currentQuestion.question;
+
+            currentQuestion.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer.text;
+                button.classList.add('btn');
+                if (answer.correct) {
+                    button.dataset.correct = answer.correct;
+                }
+                button.addEventListener('click', selectAnswer);
+                answerButtons.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            nextBtn.classList.add('hidden');
+            while (answerButtons.firstChild) {
+                answerButtons.removeChild(answerButtons.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedBtn = e.target;
+            const isCorrect = selectedBtn.dataset.correct === 'true';
+            
+            if (isCorrect) {
+                score++;
+            }
+
+            Array.from(answerButtons.children).forEach(button => {
+                setStatusClass(button, button.dataset.correct === 'true');
+                button.disabled = true; // Menonaktifkan tombol setelah dijawab
+            });
+            
+            nextBtn.classList.remove('hidden');
+        }
+
+        function setStatusClass(element, correct) {
+            if (correct) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+        
+        function showResults() {
+            questionContainer.classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+            scoreText.innerText = `Skor Anda: ${score} dari ${questions.length} benar!`;
+        }
+
+        // --- Event Listeners ---
+        nextBtn.addEventListener('click', () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        });
+
+        restartBtn.addEventListener('click', startQuiz);
+
+        // --- Mulai Quiz saat halaman dimuat ---
+        startQuiz();
+    </script>
 </body>
 </html>
