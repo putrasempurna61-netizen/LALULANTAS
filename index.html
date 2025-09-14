@@ -3,128 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Perkenalan Modern</title>
+    <title>LaluLantas - Website Modern</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- Reset & Variabel Global --- */
         :root {
             --primary-color: #0056b3;
             --primary-hover: #003d82;
-            --background-light: #f4f7fc;
             --white-color: #ffffff;
             --text-dark: #333333;
             --text-light: #666666;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             --border-radius: 8px;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             --font-family: 'Poppins', sans-serif;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body {
             font-family: var(--font-family);
             line-height: 1.7;
-            background-color: #121212; /* Warna background gelap */
-    color: #e0e0e0;             /* Warna teks terang (putih keabuan) */
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* --- Header & Navigasi --- */
-        header {
             background-color: #121212;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            color: #e0e0e0;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        header {
+            background-color: #1c1c1c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 100;
         }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        /* --- Mengatur Logo Gambar & Teks --- */
-.logo {
-    text-decoration: none;
-    display: flex; /* Mengaktifkan mode flexbox */
-    align-items: center; /* Membuat gambar & teks sejajar di tengah secara vertikal */ 
-}
-.logo img {
-    height: 40px; /* Atur tinggi logo di sini */
-    width: auto;
-    margin-right: 10px;
-}
-
-.logo span {
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-        
-        /* --- Atur Warna-warni untuk Logo "LaluLantas" --- */
-        .logo span {
-            transition: color 0.3s ease;
-        }
-
-        /* Huruf ke-1 (L) */
-        .logo span:nth-child(1) { color: #ffffff; } 
-        /* Huruf ke-2 (a) */
-        .logo span:nth-child(2) { color: #696969; } 
-        /* Huruf ke-3 (l) */
-        .logo span:nth-child(3) { color: #696969; } 
-        /* Huruf ke-4 (u) */
-        .logo span:nth-child(4) { color: #696969; } 
-        /* Huruf ke-5 (L) */
-        .logo span:nth-child(5) { color: #ffff00; } 
-        /* Huruf ke-6 (a) */
-        .logo span:nth-child(6) { color: #ffff00; } 
-        /* Huruf ke-7 (n) */
-        .logo span:nth-child(7) { color: #696969; } 
-        /* Huruf ke-8 (t) */
-        .logo span:nth-child(8) { color: #696969; } 
-        /* Huruf ke-9 (a) */
-        .logo span:nth-child(9) { color: #696969; } 
-        /* Huruf ke-10 (s) */
-        .logo span:nth-child(10) { color: #ffffff; } 
-
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        /* --- Bagian Hero (Perkenalan) --- */
+        nav { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { text-decoration: none; display: flex; align-items: center; }
+        .logo img { height: 40px; width: auto; margin-right: 10px; }
+        .logo span { font-size: 1.5rem; font-weight: 700; }
+        .logo span:nth-child(1) { color: #4285F4; } 
+        .logo span:nth-child(2) { color: #DB4437; } 
+        .logo span:nth-child(3) { color: #F4B400; } 
+        .logo span:nth-child(4) { color: #0F9D58; } 
+        .logo span:nth-child(5) { color: #4285F4; } 
+        .logo span:nth-child(6) { color: #DB4437; } 
+        .logo span:nth-child(7) { color: #F4B400; } 
+        .logo span:nth-child(8) { color: #0F9D58; } 
+        .logo span:nth-child(9) { color: #4285F4; } 
+        .logo span:nth-child(10) { color: #DB4437; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 2rem; }
+        nav ul li a { text-decoration: none; color: #e0e0e0; font-weight: 600; transition: color 0.3s ease; }
+        nav ul li a:hover { color: var(--primary-color); }
         .hero {
             background-color: #121212;
             height: 100vh;
@@ -132,29 +61,11 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 70px; /* Menghindari tumpang tindih dengan header */
+            padding-top: 70px; 
         }
-
-        .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
-        }
-
+        .hero-content { display: flex; flex-direction: column; align-items: center; }
+        .hero-content h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-content p { font-size: 1.2rem; color: #a0a0a0; max-width: 600px; margin: 0 auto 2rem auto; }
         .cta-button {
             display: inline-block;
             background-color: var(--primary-color);
@@ -165,156 +76,194 @@
             font-weight: 600;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
-
-        .cta-button:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-3px);
-        }
-
-        .cta-button + .cta-button {
-    margin-top: 1rem;
-}
-
-        /* --- Bagian Panduan --- */
-        .guides {
-            padding: 6rem 0;
-            text-align: center;
-        }
-
-        .guides h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-subtitle {
-            color: var(--text-light);
-            margin-bottom: 4rem;
-        }
-
-        .guide-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            text-align: left;
-        }
-
+        .cta-button:hover { background-color: var(--primary-hover); transform: translateY(-3px); }
+        .cta-button + .cta-button { margin-top: 1rem; }
+        .section-subtitle { color: #a0a0a0; margin-bottom: 4rem; text-align: center;}
+        .guides { padding: 6rem 0; text-align: center; background-color: #1c1c1c; }
+        .guides h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .guide-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; text-align: left; }
         .guide-card {
             background-color: var(--white-color);
+            color: var(--text-dark);
             border-radius: var(--border-radius);
             padding: 2.5rem 2rem;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .guide-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .card-icon {
-            background-color: var(--primary-color);
-            color: var(--white-color);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .guide-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .guide-card p {
-            color: var(--text-light);
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--text-dark);
-            color: var(--white-color);
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* --- Penyesuaian untuk Mobile (Responsive) --- */
+        .guide-card:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .card-icon { background-color: var(--primary-color); color: var(--white-color); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .guide-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .guide-card p { color: var(--text-light); }
+        .safety-tips { padding: 6rem 0; background-color: #121212; text-align: center; }
+        .safety-tips h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .tips-container { margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; text-align: left; }
+        .tip-item { display: flex; align-items: flex-start; gap: 1rem; }
+        .tip-icon { flex-shrink: 0; background-color: var(--primary-color); color: var(--white-color); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; }
+        .tip-text h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
+        .tip-text p { color: #a0a0a0; }
+        .gallery { padding: 6rem 0; background-color: #1c1c1c; text-align: center;}
+        .gallery h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .gallery-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .gallery-item { border-radius: var(--border-radius); overflow: hidden; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item .caption { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: var(--white-color); padding: 2rem 1rem 1rem 1rem; font-weight: 600; }
+        .contact { padding: 6rem 0; background-color: #121212; text-align: center; }
+        .contact h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .contact-form { max-width: 600px; margin: 4rem auto 0 auto; text-align: left; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid #555; background-color: #2a2a2a; color: #e0e0e0; font-family: var(--font-family); font-size: 1rem; }
+        .contact-form .cta-button { width: 100%; border: none; cursor: pointer; }
+        footer { background-color: #1c1c1c; color: var(--white-color); text-align: center; padding: 2rem 0; }
+        @media (max-width: 900px) { .tips-container { grid-template-columns: 1fr; } }
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            nav ul {
-                display: none; /* Sembunyikan menu di mobile untuk simplisitas */
-            }
-            .guide-container {
-                grid-template-columns: 1fr;
-            }
+            nav ul { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .guide-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
     <header>
         <nav class="container">
             <a href="#" class="logo">
-               <img src="LOGOLANTAS2.png" alt="Logo"> <span>L</span><span>a</span><span>l</span><span>u</span><span>L</span><span>a</span><span>n</span><span>t</span><span>a</span><span>s</span>
+                <img src="logo.png" alt="Logo">
+                <span>L</span><span>a</span><span>l</span><span>u</span><span>L</span><span>a</span><span>n</span><span>t</span><span>a</span><span>s</span>
             </a>
             <ul>
-                <li><a href="index.html">Home</a></li>
-   <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#layanan">Panduan</a></li>
                 <li><a href="#kontak">Kontak</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
         <section class="hero" id="hero">
             <div class="hero-content container">
                 <h1>Selamat Datang di Platform Modern Kami</h1>
                 <p>Temukan panduan langkah-demi-langkah untuk membantu Anda memulai dan berhasil.</p>
-                <a href="#panduan" class="cta-button">Mulai Pelajari</a>
-                <a href="#layanan" class="cta-button" target=blank>Masuk ke Halaman Utama</a>
+                <a href="#layanan" class="cta-button">Mulai Pelajari</a>
+                <a href="#layanan" class="cta-button">Masuk ke Halaman Utama</a>
             </div>
         </section>
-
-        <section class="guides" id="panduan">
+        <section class="guides" id="layanan">
             <div class="container">
-                <h2>Panduan Utama</h2>
-                <p class="section-subtitle">Ikuti langkah-langkah berikut untuk menguasai platform ini.</p>
-                
+                <h2>Layanan Utama Kami</h2>
+                <p class="section-subtitle">Informasi dan layanan untuk mendukung ketertiban berkendara.</p>
                 <div class="guide-container">
                     <div class="guide-card">
-                        <div class="card-icon">1</div>
-                        <h3>Registrasi Akun</h3>
-                        <p>Langkah pertama adalah membuat akun Anda. Prosesnya cepat, aman, dan mudah. Cukup isi formulir yang kami sediakan.</p>
+                        <div class="card-icon">✓</div>
+                        <h3>Info Lalu Lintas</h3>
+                        <p>Dapatkan informasi kondisi lalu lintas terkini, titik kemacetan, dan jalur alternatif secara real-time.</p>
                     </div>
-                    
                     <div class="guide-card">
-                        <div class="card-icon">2</div>
-                        <h3>Konfigurasi Awal</h3>
-                        <p>Setelah akun terbuat, lakukan konfigurasi awal sesuai kebutuhan Anda. Atur profil dan preferensi untuk pengalaman terbaik.</p>
+                        <div class="card-icon">✓</div>
+                        <h3>Edukasi Keselamatan</h3>
+                        <p>Pelajari kembali arti rambu lalu lintas, tips aman berkendara, dan peraturan terbaru di jalan raya.</p>
                     </div>
-
                     <div class="guide-card">
-                        <div class="card-icon">3</div>
-                        <h3>Publikasikan Proyek Pertama</h3>
-                        <p>Anda siap! Mulailah membuat dan mempublikasikan proyek pertama Anda ke seluruh dunia. Jangan ragu untuk berkreasi.</p>
+                        <div class="card-icon">✓</div>
+                        <h3>Laporan Pengguna</h3>
+                        <p>Laporkan insiden kecelakaan, kerusakan jalan, atau pelanggaran lalu lintas langsung dari platform kami.</p>
                     </div>
                 </div>
             </div>
         </section>
+        <section class="safety-tips" id="tips">
+            <div class="container">
+                <h2>Tips Keselamatan Berkendara</h2>
+                <p class="section-subtitle">Hal-hal kecil yang berdampak besar bagi keamanan Anda di jalan.</p>
+                <div class="tips-container">
+                    <div class="tip-item">
+                        <div class="tip-icon">✓</div>
+                        <div class="tip-text">
+                            <h3>Selalu Gunakan Sabuk Pengaman</h3>
+                            <p>Pastikan sabuk pengaman terpasang dengan benar sebelum Anda mulai mengemudi, bahkan untuk jarak dekat sekalipun.</p>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-icon">✓</div>
+                        <div class="tip-text">
+                            <h3>Jaga Jarak Aman</h3>
+                            <p>Beri ruang yang cukup antara kendaraan Anda dan kendaraan di depan untuk mengantisipasi pengereman mendadak.</p>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-icon">✓</div>
+                        <div class="tip-text">
+                            <h3>Periksa Kondisi Kendaraan</h3>
+                            <p>Lakukan pengecekan rutin pada ban, rem, lampu, dan oli untuk memastikan kendaraan Anda dalam kondisi prima.</p>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-icon">✓</div>
+                        <div class="tip-text">
+                            <h3>Jangan Gunakan Ponsel</h3>
+                            <p>Fokus penuh pada jalan. Menggunakan ponsel saat mengemudi sangat berbahaya dan dapat mengurangi konsentrasi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="gallery" id="galeri">
+            <div class="container">
+                <h2>Galeri Rambu Lalu Lintas</h2>
+                <p class="section-subtitle">Mengenal beberapa rambu penting untuk keselamatan bersama.</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/300x300.png?text=Stop" alt="Rambu Stop">
+                        <div class="caption">Dilarang jalan terus, wajib berhenti sesaat.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/300x300.png?text=Dilarang+Parkir" alt="Rambu Dilarang Parkir">
+                        <div class="caption">Dilarang parkir kendaraan di area ini.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/300x300.png?text=Lampu+Merah" alt="Lampu Merah">
+                        <div class="caption">Lampu lalu lintas, berhenti saat merah.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/300x300.png?text=Putar+Balik" alt="Rambu Putar Balik">
+                        <div class="caption">Perintah untuk melakukan putar balik.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/300x300.png?text=Hati-Hati" alt="Rambu Hati-Hati">
+                        <div class="caption">Peringatan untuk berhati-hati di jalan.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/300x300.png?text=Batas+Kecepatan" alt="Rambu Batas Kecepatan">
+                        <div class="caption">Batas maksimum kecepatan yang diizinkan.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact" id="kontak">
+            <div class="container">
+                <h2>Hubungi Kami</h2>
+                <p class="section-subtitle">Punya pertanyaan atau masukan? Jangan ragu untuk mengirim pesan.</p>
+                <form action="#" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nama Anda</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Anda</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan Anda</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Kirim Pesan</button>
+                </form>
+            </div>
+        </section>
     </main>
-
     <footer>
         <div class="container">
             <p>&copy; 2025 LaluLantas. Dirancang dengan ❤️.</p>
         </div>
     </footer>
-
 </body>
 </html>
