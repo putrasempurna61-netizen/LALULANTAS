@@ -104,22 +104,49 @@
         @media (max-width: 768px) {
             nav ul { display: none; }
             .hero-content h1 { font-size: 2.5rem; }
+            /* --- Gaya untuk Menu Dropdown --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1e1e1e;
+    min-width: 220px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 1;
+    border-radius: var(--border-radius);
+    border: 1px solid #333;
+}
+.dropdown-content a {
+    color: #e0e0e0;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: var(--primary-color);
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
         }
     </style>
 </head>
 <body>
     <header>
-        <nav class="container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="Logo">
-                <span>L</span><span>a</span><span>l</span><span>u</span><span>L</span><span>a</span><span>n</span><span>t</span><span>a</span><span>s</span>
-            </a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#info-terkini">Info Terkini</a></li>
-                <li><a href="#">Kontak</a></li>
-            </ul>
-        </nav>
+        <ul>
+    <li><a href="index.html">Home</a></li>
+    <li class="dropdown">
+        <a href="#">Edukasi ▼</a>
+        <div class="dropdown-content">
+            <a href="tugas.html">Tugas & Fungsi Lantas</a>
+            </div>
+    </li>
+    <li><a href="#info-terkini">Info Terkini</a></li>
+    <li><a href="#">Kontak</a></li>
+</ul>
     </header>
     <main>
         <section class="hero" id="hero">
