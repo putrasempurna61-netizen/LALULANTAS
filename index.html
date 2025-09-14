@@ -136,6 +136,25 @@
         nav ul { display: none; }
         .hero-content h1 { font-size: 2.5rem; }
         .guide-container { grid-template-columns: 1fr; }
+
+        /* --- Gaya untuk Status Lalu Lintas --- */
+.traffic-status {
+    padding: 6rem 0;
+    background-color: #121212; /* Warna disesuaikan dengan section lain */
+}
+.traffic-status h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-tag.status-macet {
+    background-color: #c0392b; /* Warna Merah */
+}
+
+.card-tag.status-lancar {
+    background-color: #27ae60; /* Warna Hijau */
+}
     }
 </style>
     
@@ -258,58 +277,113 @@
     <div class="container">
         <h2>Info Terkini</h2>
         <p class="section-subtitle">Pantau berita dan kondisi lalu lintas terbaru di sekitar Anda.</p>
+        
+<div class="news-grid">
+
+    <div class="news-card">
+        <div class="card-image">
+            <img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap">
+        </div>
+        <div class="card-content">
+            <span class="card-tag">Regulasi</span>
+            <h3 class="card-title">
+                <a href="#">Aturan Ganjil-Genap di Jakarta Kembali Diperluas ke 26 Titik</a>
+            </h3>
+            <div class="card-meta">
+                <span>Detik News</span> • <span>13 September 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="news-card">
+        <div class="card-image">
+            <img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru">
+        </div>
+        <div class="card-content">
+            <span class="card-tag">Proyek Infrastruktur</span>
+            <h3 class="card-title">
+                <a href="#">Jalan Tol Trans-Jawa Ruas Baru Resmi Dibuka Hari Ini</a>
+            </h3>
+            <div class="card-meta">
+                <span>Kompas Otomotif</span> • <span>14 September 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="news-card">
+        <div class="card-image">
+            <img src="https://via.placeholder.com/400x225.png?text=Macet+Pagi+Hari" alt="Kemacetan Pagi Hari">
+        </div>
+        <div class="card-content">
+            <span class="card-tag">Kondisi Jalan</span>
+            <h3 class="card-title">
+                <a href="#">Pantauan CCTV: Kemacetan Terjadi di Ruas Tol Cikampek KM 48</a>
+            </h3>
+            <div class="card-meta">
+                <span>NTMC Polri</span> • <span>14 September 2025</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+        
+    </div>
+</section>
+          <section class="traffic-status" id="status-lalulintas">
+    <div class="container">
+        <h2>Informasi Lalu Lintas</h2>
+        <p class="section-subtitle">Status kondisi jalan di beberapa titik pantauan utama.</p>
 
         <div class="news-grid">
 
             <div class="news-card">
                 <div class="card-image">
-                    <img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru">
+                    <img src="https://via.placeholder.com/400x225.png?text=Tol+Dalam+Kota+Jakarta" alt="Tol Dalam Kota Jakarta">
                 </div>
                 <div class="card-content">
-                    <span class="card-tag">Proyek Infrastruktur</span>
+                    <span class="card-tag status-macet">Macet</span>
                     <h3 class="card-title">
-                        <a href="#">Jalan Tol Trans-Jawa Ruas Baru Resmi Dibuka Hari Ini</a>
+                        <a href="#">Tol Dalam Kota Jakarta (Arah Cawang)</a>
                     </h3>
                     <div class="card-meta">
-                        <span>Kompas Otomotif</span> • <span>14 September 2025</span>
+                        <span>Jasa Marga</span> • <span>Update: 13:30 WIB</span>
                     </div>
                 </div>
             </div>
 
             <div class="news-card">
                 <div class="card-image">
-                    <img src="https://via.placeholder.com/400x225.png?text=Macet+Pagi+Hari" alt="Kemacetan Pagi Hari">
+                    <img src="https://via.placeholder.com/400x225.png?text=Tol+Pasteur+Bandung" alt="Tol Pasteur Bandung">
                 </div>
                 <div class="card-content">
-                    <span class="card-tag">Kondisi Jalan</span>
+                    <span class="card-tag status-lancar">Lancar</span>
                     <h3 class="card-title">
-                        <a href="#">Pantauan CCTV: Kemacetan Terjadi di Ruas Tol Cikampek KM 48</a>
+                        <a href="#">Gerbang Tol Pasteur, Bandung</a>
                     </h3>
                     <div class="card-meta">
-                        <span>NTMC Polri</span> • <span>14 September 2025</span>
+                        <span>ATCS Bandung</span> • <span>Update: 13:35 WIB</span>
                     </div>
                 </div>
             </div>
 
             <div class="news-card">
                 <div class="card-image">
-                    <img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap">
+                    <img src="https://via.placeholder.com/400x225.png?text=Bundaran+HI" alt="Bundaran HI">
                 </div>
                 <div class="card-content">
-                    <span class="card-tag">Regulasi</span>
+                    <span class="card-tag status-lancar">Lancar</span>
                     <h3 class="card-title">
-                        <a href="#">Aturan Ganjil-Genap di Jakarta Kembali Diperluas ke 26 Titik</a>
+                        <a href="#">Kawasan Bundaran HI, Jakarta Pusat</a>
                     </h3>
                     <div class="card-meta">
-                        <span>Detik News</span> • <span>13 September 2025</span>
+                        <span>TMC Polda Metro</span> • <span>Update: 13:38 WIB</span>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-</section>
-            
+</section>  
         </section>
         <section class="contact" id="kontak">
             <div class="container">
