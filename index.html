@@ -63,9 +63,35 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-color);
             text-decoration: none;
         }
+        
+        /* --- Atur Warna-warni untuk Logo "LaluLantas" --- */
+        .logo span {
+            transition: color 0.3s ease;
+        }
+
+        /* Huruf ke-1 (L) */
+        .logo span:nth-child(1) { color: #4285F4; } 
+        /* Huruf ke-2 (a) */
+        .logo span:nth-child(2) { color: #DB4437; } 
+        /* Huruf ke-3 (l) */
+        .logo span:nth-child(3) { color: #F4B400; } 
+        /* Huruf ke-4 (u) */
+        .logo span:nth-child(4) { color: #0F9D58; } 
+        /* Huruf ke-5 (L) */
+        .logo span:nth-child(5) { color: #4285F4; } 
+        /* Huruf ke-6 (a) */
+        .logo span:nth-child(6) { color: #DB4437; } 
+        /* Huruf ke-7 (n) */
+        .logo span:nth-child(7) { color: #F4B400; } 
+        /* Huruf ke-8 (t) */
+        .logo span:nth-child(8) { color: #0F9D58; } 
+        /* Huruf ke-9 (a) */
+        .logo span:nth-child(9) { color: #4285F4; } 
+        /* Huruf ke-10 (s) */
+        .logo span:nth-child(10) { color: #DB4437; } 
+
 
         nav ul {
             display: flex;
@@ -213,7 +239,9 @@
 
     <header>
         <nav class="container">
-            <a href="#" class="logo">LaluLantas</a>
+            <a href="#" class="logo">
+                <span>L</span><span>a</span><span>l</span><span>u</span><span>L</span><span>a</span><span>n</span><span>t</span><span>a</span><span>s</span>
+            </a>
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#panduan">Panduan</a></li>
