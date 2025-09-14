@@ -78,7 +78,7 @@
         .content-section ul { list-style-position: inside; padding-left: 1rem; }
         .content-section li { margin-bottom: 0.8rem; }
         
-        /* GAYA BARU: Bagian Tips Berkendara */
+        /* Gaya untuk Bagian Tips Berkendara */
         .tips-section { padding: 6rem 0; background-color: #1c1c1c; }
         .tips-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
         .tips-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
@@ -87,9 +87,18 @@
         .tip-icon { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary-color); }
         .tip-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
         .tip-card p { color: #a0a0a0; font-size: 0.9rem; line-height: 1.6; }
+        
+        /* GAYA BARU: Bagian Galeri */
+        .gallery-section { padding: 6rem 0; }
+        .gallery-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .gallery-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .gallery-item { border-radius: var(--border-radius); overflow: hidden; position: relative; border: 1px solid #333; }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item .caption { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); color: var(--white-color); padding: 2rem 1rem 1rem 1rem; font-weight: 600; text-align: center; }
 
         /* Gaya untuk Dashboard Info Terkini */
-        .dashboard-section { padding: 6rem 0; }
+        .dashboard-section { padding: 6rem 0; background-color: #1c1c1c; }
         .dashboard-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
         .dashboard-grid { margin-top: 4rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2.5rem; }
         .traffic-status-column h3, .news-column h3 { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #444; padding-bottom: 1rem; }
@@ -137,7 +146,8 @@
                     <div class="dropdown-content">
                         <a href="#edukasi">Tugas & Fungsi Lantas</a>
                         <a href="#tips-berkendara">Tips Berkendara</a>
-                        </div>
+                        <a href="#galeri">Galeri Rambu</a>
+                    </div>
                 </li>
                 <li><a href="#info-terkini">Info Terkini</a></li>
                 <li><a href="#">Kontak</a></li>
@@ -177,37 +187,46 @@
                 <h2>Tips Aman Berkendara</h2>
                 <p class="section-subtitle">Beberapa kebiasaan sederhana untuk menjaga keselamatan Anda dan orang lain di jalan.</p>
                 <div class="tips-grid">
-    <div class="tip-card">
-        <div class="tip-icon">✓</div>
-        <h3>Jaga Jarak Aman</h3>
-        <p>Selalu beri ruang cukup dengan kendaraan di depan Anda untuk mengantisipasi pengereman mendadak.</p>
-    </div>
-    <div class="tip-card">
-        <div class="tip-icon">✓</div>
-        <h3>Fokus Penuh</h3>
-        <p>Hindari penggunaan ponsel atau distraksi lain yang dapat mengalihkan perhatian Anda dari jalan.</p>
-    </div>
-    <div class="tip-card">
-        <div class="tip-icon">✓</div>
-        <h3>Patuhi Rambu</h3>
-        <p>Setiap rambu lalu lintas memiliki arti penting untuk keselamatan. Kenali dan patuhi semuanya.</p>
-    </div>
-    <div class="tip-card">
-        <div class="tip-icon">✓</div>
-        <h3>Istirahat Cukup</h3>
-        <p>Jika merasa lelah atau mengantuk, menepilah sejenak untuk beristirahat. Jangan memaksakan diri.</p>
-    </div>
-    <div class="tip-card">
-        <div class="tip-icon">✓</div>
-        <h3>Gunakan Lampu Sein</h3>
-        <p>Nyalakan lampu sein beberapa saat sebelum berbelok atau berpindah lajur agar pengendara lain tahu niat Anda.</p>
-    </div>
-    <div class="tip-card">
-        <div class="tip-icon">✓</div>
-        <h3>Periksa Titik Buta</h3>
-        <p>Sebelum berpindah lajur, selalu periksa area blind spot Anda dengan menoleh sejenak selain melihat spion.</p>
-    </div>
-</div>
+                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Jaga Jarak Aman</h3><p>Selalu beri ruang cukup dengan kendaraan di depan Anda untuk mengantisipasi pengereman mendadak.</p></div>
+                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Fokus Penuh</h3><p>Hindari penggunaan ponsel atau distraksi lain yang dapat mengalihkan perhatian Anda dari jalan.</p></div>
+                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Patuhi Rambu</h3><p>Setiap rambu lalu lintas memiliki arti penting untuk keselamatan. Kenali dan patuhi semuanya.</p></div>
+                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Istirahat Cukup</h3><p>Jika merasa lelah atau mengantuk, menepilah sejenak untuk beristirahat. Jangan memaksakan diri.</p></div>
+                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Gunakan Lampu Sein</h3><p>Nyalakan lampu sein beberapa saat sebelum berbelok atau berpindah lajur agar pengendara lain tahu niat Anda.</p></div>
+                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Periksa Titik Buta</h3><p>Sebelum berpindah lajur, selalu periksa area blind spot Anda dengan menoleh sejenak selain melihat spion.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeri" class="gallery-section">
+            <div class="container">
+                <h2>Galeri Rambu Lalu Lintas</h2>
+                <p class="section-subtitle">Mengenal beberapa rambu penting untuk keselamatan bersama.</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/STOP_sign.svg/1200px-STOP_sign.svg.png" alt="Rambu Stop">
+                        <div class="caption">Rambu Stop</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Indonesia_road_sign_R2-2.svg/1200px-Indonesia_road_sign_R2-2.svg.png" alt="Rambu Dilarang Parkir">
+                        <div class="caption">Dilarang Parkir</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Traffic-light-red-up.svg/800px-Traffic-light-red-up.svg.png" alt="Lampu Merah">
+                        <div class="caption">Lampu Merah</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Indonesia_road_sign_P4-3.svg/1024px-Indonesia_road_sign_P4-3.svg.png" alt="Rambu Putar Balik">
+                        <div class="caption">Wajib Putar Balik</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Indonesia_road_sign_P1-1.svg/1024px-Indonesia_road_sign_P1-1.svg.png" alt="Rambu Hati-Hati">
+                        <div class="caption">Hati-Hati</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Indonesia_road_sign_R1-5-60.svg/1024px-Indonesia_road_sign_R1-5-60.svg.png" alt="Rambu Batas Kecepatan">
+                        <div class="caption">Batas Kecepatan 60 km/j</div>
+                    </div>
+                </div>
             </div>
         </section>
 
