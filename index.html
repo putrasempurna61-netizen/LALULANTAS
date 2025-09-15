@@ -369,7 +369,7 @@
             <div class="container">
                 <h2>Kontak & Laporan</h2>
                 <p class="section-subtitle">Punya pertanyaan atau ingin melaporkan insiden? Gunakan form di bawah ini.</p>
-                <form action="https://formspree.io/f/mzzaqvev" method="POST" class="contact-form">
+                <form id="contact-form" class="contact-form">
                     <div class="form-group"><label for="name">Nama Pelapor</label><input type="text" id="name" name="name" required></div>
                     <div class="form-group"><label for="email">Email Anda</label><input type="email" id="email" name="email" required></div>
                     <div class="form-group"><label for="report-type">Jenis Laporan</label><select id="report-type" name="report-type"><option value="kemacetan">Kemacetan</option><option value="kecelakaan">Kecelakaan</option><option value="jalan-rusak">Jalan Rusak</option><option value="pelanggaran">Pelanggaran Lalu Lintas</option><option value="lainnya">Lainnya...</option></select></div>
@@ -479,6 +479,80 @@
                 navMenu.classList.remove('active');
             });
         });
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script>
+  // GANTI BAGIAN INI DENGAN KODE firebaseConfig YANG SUDAH ANDA SIMPAN DARI NOTEPAD
+  const firebaseConfig = {
+    apiKey: "AIzaSyBu6Z6kigQS9lY-wDg1goaUhnVufqrTI8E",
+    authDomain: "lalulantas-218fb.firebaseapp.com",
+    projectId: "lalulantas-218fb",
+    storageBucket: "lalulantas-218fb.firebasestorage.app",
+    messagingSenderId: "486758253929",
+    appId: "1:486758253929:web:2b62d6be39bf2ecbd3e9f8"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  // Membuat koneksi ke "gudang data" (Firestore)
+  const db = firebase.firestore(); 
+</script>
+
+    <script>
+    // --- KODE JAVASCRIPT UNTUK MENGIRIM FORM KE FIREBASE ---
+
+    // 1. Ambil referensi ke form HTML berdasarkan ID yang kita buat tadi
+    const contactForm = document.getElementById('contact-form');
+
+    // 2. Tambahkan "pendengar" yang akan aktif saat tombol "Kirim Laporan" di-klik
+    contactForm.addEventListener('submit', (event) => {
+        // 3. Hentikan perilaku default form (agar halaman tidak me-reload)
+        event.preventDefault();
+
+        // Ambil tombol submit dan ubah teksnya untuk memberi tahu pengguna
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        submitButton.innerText = 'Mengirim...';
+        submitButton.disabled = true;
+
+        // 4. Baca semua data dari setiap kolom input di form
+        const nama = contactForm.name.value;
+        const email = contactForm.email.value;
+        const jenis = contactForm['report-type'].value;
+        const lokasi = contactForm.location.value;
+        const kota = contactForm.city.value;
+        const detail = contactForm.message.value;
+
+        // 5. Kirim data yang sudah dibaca ke Firestore
+        db.collection("laporan").add({
+            namaPelapor: nama,
+            emailPelapor: email,
+            jenisLaporan: jenis,
+            lokasiKejadian: lokasi,
+            kota: kota,
+            detailLaporan: detail,
+            waktuLaporan: firebase.firestore.FieldValue.serverTimestamp() // Menambahkan waktu saat ini otomatis
+        })
+        .then(() => {
+            // 6. Jika BERHASIL terkirim
+            alert('Laporan Anda berhasil terkirim! Terima kasih.');
+            contactForm.reset(); // Mengosongkan form setelah berhasil
+        })
+        .catch((error) => {
+            // 7. Jika GAGAL terkirim
+            console.error("Error saat mengirim laporan: ", error);
+            alert('Maaf, terjadi kesalahan. Laporan gagal terkirim.');
+        })
+        .finally(() => {
+            // Kembalikan tombol ke keadaan semula baik berhasil maupun gagal
+            submitButton.innerText = 'Kirim Laporan';
+            submitButton.disabled = false;
+        });
+    });
+</script>
+        
     </script>
 </body>
 </html>
