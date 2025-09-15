@@ -321,13 +321,59 @@
                 <h2>Kontak & Laporan</h2>
                 <p class="section-subtitle">Punya pertanyaan atau ingin melaporkan insiden? Gunakan form di bawah ini.</p>
                 <form action="#" method="POST" class="contact-form">
-                    <div class="form-group"><label for="name">Nama Pelapor</label><input type="text" id="name" name="name" required></div>
-                    <div class="form-group"><label for="email">Email Anda</label><input type="email" id="email" name="email" required></div>
-                    <div class="form-group"><label for="report-type">Jenis Laporan</label><select id="report-type" name="report-type"><option value="kemacetan">Kemacetan</option><option value="kecelakaan">Kecelakaan</option><option value="jalan-rusak">Jalan Rusak</option><option value="pelanggaran">Pelanggaran Lalu Lintas</option><option value="lainnya">Lainnya...</option></select></div>
-                    <div class="form-group"><label for="location">Lokasi Kejadian</label><input type="text" id="location" name="location" placeholder="Contoh: Jl. Sudirman dekat Bundaran HI"></div>
-                    <div class="form-group"><label for="message">Detail Laporan</label><textarea id="message" name="message" rows="5" required></textarea></div>
-                    <button type="submit" class="cta-button">Kirim Laporan</button>
-                </form>
+    <div class="form-group">
+        <label for="name">Nama Pelapor</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email Anda</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="report-type">Jenis Laporan</label>
+        <select id="report-type" name="report-type">
+            <option value="kemacetan">Kemacetan</option>
+            <option value="kecelakaan">Kecelakaan</option>
+            <option value="jalan-rusak">Jalan Rusak</option>
+            <option value="pelanggaran">Pelanggaran Lalu Lintas</option>
+            <option value="lainnya">Lainnya...</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="location">Lokasi Kejadian</label>
+        <input type="text" id="location" name="location" placeholder="Contoh: Jl. Basuki Rahmat (depan Tunjungan Plaza)">
+    </div>
+
+    <div class="form-group">
+        <label for="city">Pilih Kota/Kabupaten di Jawa Timur</label>
+        <select id="city" name="city">
+            <option value="">-- Pilih Lokasi --</option>
+            <option value="surabaya">Surabaya</option>
+            <option value="malang">Malang</option>
+            <option value="sidoarjo">Sidoarjo</option>
+            <option value="gresik">Gresik</option>
+            <option value="jember">Jember</option>
+            <option value="banyuwangi">Banyuwangi</_option>
+            <option value="kediri">Kediri</option>
+            <option value="mojokerto">Mojokerto</option>
+            <option value="pasuruan">Pasuruan</option>
+            <option value="probolinggo">Probolinggo</option>
+            <option value="madiun">Madiun</option>
+            <option value="lamongan">Lamongan</option>
+            <option value="tuban">Tuban</option>
+            <option value="bangkalan">Bangkalan</option>
+            <option value="sampang">Sampang</option>
+            <option value="pamekasan">Pamekasan</option>
+            <option value="sumenep">Sumenep</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="message">Detail Laporan</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="cta-button">Kirim Laporan</button>
+</form>
             </div>
         </section>
     </main>
