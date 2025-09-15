@@ -11,30 +11,26 @@
 
     <style>
         :root {
-            --primary-color: #007bff; /* Biru Modern */
-            --primary-hover: #0056b3;
+            --primary-color: #0056b3;
+            --primary-hover: #003d82;
             --white-color: #ffffff;
-            --bg-light: #f8f9fa; /* Abu-abu terang untuk body */
-            --text-dark: #212529; /* Abu-abu gelap untuk judul */
-            --text-light: #6c757d; /* Abu-abu lebih terang untuk paragraf */
-            --border-color: #dee2e6; /* Warna border halus */
-            --correct-color: #28a745; /* Hijau */
-            --wrong-color: #dc3545; /* Merah */
+            --correct-color: #27ae60;
+            --wrong-color: #c0392b;
+            --text-dark: #333333;
             --border-radius: 8px;
-            --font-family: 'Poppins', sans-serif;;
+            --font-family: 'Poppins', sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body {
             font-family: var(--font-family);
             line-height: 1.8;
-            background-color: var(--bg-light);
-            color: var(--text-light);
+            background-color: #121212;
+            color: #e0e0e0;
         }
         .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background-color: #1c1c1c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             position: fixed;
             width: 100%;
             top: 0;
@@ -223,7 +219,7 @@
                 </section>
             </div>
         </section>
-
+        
         <section id="tips-berkendara" class="tips-section">
             <div class="container">
                 <h2>Tips Aman Berkendara</h2>
@@ -301,8 +297,8 @@
                     </div>
                     <div class="news-column">
                         <h3>Berita Utama</h3>
-                        <div class="news-card"><div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap"></div><div class="card-content"><span class="card-tag">Regulasi</span><h3 class="card-title"><a href="https://www.beritasatu.com/jatim/2922553/baru-sebulan-beroperasi-warga-lamongan-blokade-jalan-lintas-utara#goog_rewarded" target="_blank">Warga Lamongan Blokade JLU</a></h3></div></div>
-                        <div class="news-card"><div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru"></div><div class="card-content"><span class="card-tag">Infrastruktur</span><h3 class="card-title"><a href="https://jatim.antaranews.com/berita/973561/seorang-pelajar-tewas-dalam-kecelakaan-lalu-lintas-di-bojonegoro" target="_blank">Pelajar Bojonegoro Tewas Dalam Kecelakaan Lalu Lintas</a></h3></div></div>
+                        <div class="news-card"><div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap"></div><div class="card-content"><span class="card-tag">Regulasi</span><h3 class="card-title"><a href="https://news.detik.com/berita/d-6893952/ganjil-genap-jakarta-diperluas-jadi-28-ruas-jalan-ini-daftarnya" target="_blank">Ganjil-Genap di Jakarta Diperluas</a></h3></div></div>
+                        <div class="news-card"><div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru"></div><div class="card-content"><span class="card-tag">Infrastruktur</span><h3 class="card-title"><a href="https://otomotif.kompas.com/read/2023/12/21/101200915/resmi-beroperasi-ini-tarif-tol-solo-yogyakarta" target="_blank">Tol Trans-Jawa Ruas Baru Resmi Dibuka</a></h3></div></div>
                     </div>
                 </div>
             </div>
@@ -325,59 +321,14 @@
                 <h2>Kontak & Laporan</h2>
                 <p class="section-subtitle">Punya pertanyaan atau ingin melaporkan insiden? Gunakan form di bawah ini.</p>
                 <form action="#" method="POST" class="contact-form">
-    <div class="form-group">
-        <label for="name">Nama Pelapor</label>
-        <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-        <label for="email">Email Anda</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-        <label for="report-type">Jenis Laporan</label>
-        <select id="report-type" name="report-type">
-            <option value="kemacetan">Kemacetan</option>
-            <option value="kecelakaan">Kecelakaan</option>
-            <option value="jalan-rusak">Jalan Rusak</option>
-            <option value="pelanggaran">Pelanggaran Lalu Lintas</option>
-            <option value="lainnya">Lainnya...</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="location">Lokasi Kejadian</label>
-        <input type="text" id="location" name="location" placeholder="Contoh: Jl. Basuki Rahmat (depan Tunjungan Plaza)">
-    </div>
-
-    <div class="form-group">
-        <label for="city">Pilih Kota/Kabupaten di Jawa Timur</label>
-        <select id="city" name="city">
-            <option value="">-- Pilih Lokasi --</option>
-            <option value="surabaya">Surabaya</option>
-            <option value="malang">Malang</option>
-            <option value="sidoarjo">Sidoarjo</option>
-            <option value="gresik">Gresik</option>
-            <option value="jember">Jember</option>
-            <option value="banyuwangi">Banyuwangi</_option>
-            <option value="kediri">Kediri</option>
-            <option value="mojokerto">Mojokerto</option>
-            <option value="pasuruan">Pasuruan</option>
-            <option value="probolinggo">Probolinggo</option>
-            <option value="madiun">Madiun</option>
-            <option value="lamongan">Lamongan</option>
-            <option value="tuban">Tuban</option>
-            <option value="bangkalan">Bangkalan</option>
-            <option value="sampang">Sampang</option>
-            <option value="pamekasan">Pamekasan</option>
-            <option value="sumenep">Sumenep</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="message">Detail Laporan</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="cta-button">Kirim Laporan</button>
-</form>
+                    <div class="form-group"><label for="name">Nama Pelapor</label><input type="text" id="name" name="name" required></div>
+                    <div class="form-group"><label for="email">Email Anda</label><input type="email" id="email" name="email" required></div>
+                    <div class="form-group"><label for="report-type">Jenis Laporan</label><select id="report-type" name="report-type"><option value="kemacetan">Kemacetan</option><option value="kecelakaan">Kecelakaan</option><option value="jalan-rusak">Jalan Rusak</option><option value="pelanggaran">Pelanggaran Lalu Lintas</option><option value="lainnya">Lainnya...</option></select></div>
+                    <div class="form-group"><label for="location">Lokasi Kejadian</label><input type="text" id="location" name="location" placeholder="Contoh: Jl. Sudirman dekat Bundaran HI"></div>
+                    <div class="form-group"><label for="city">Pilih Kota/Kabupaten di Jawa Timur</label><select id="city" name="city"><option value="">-- Pilih Lokasi --</option><option value="surabaya">Surabaya</option><option value="malang">Malang</option><option value="sidoarjo">Sidoarjo</option><option value="gresik">Gresik</option><option value="jember">Jember</option><option value="banyuwangi">Banyuwangi</option><option value="kediri">Kediri</option><option value="mojokerto">Mojokerto</option><option value="pasuruan">Pasuruan</option><option value="probolinggo">Probolinggo</option><option value="madiun">Madiun</option><option value="lamongan">Lamongan</option><option value="tuban">Tuban</option><option value="bangkalan">Bangkalan</option><option value="sampang">Sampang</option><option value="pamekasan">Pamekasan</option><option value="sumenep">Sumenep</option></select></div>
+                    <div class="form-group"><label for="message">Detail Laporan</label><textarea id="message" name="message" rows="5" required></textarea></div>
+                    <button type="submit" class="cta-button">Kirim Laporan</button>
+                </form>
             </div>
         </section>
     </main>
