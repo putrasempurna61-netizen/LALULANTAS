@@ -137,11 +137,10 @@
         .dropdown-content a:hover { background-color: var(--primary-color); }
         .dropdown:hover .dropdown-content { display: block; }
         footer { background-color: #1c1c1c; color: var(--white-color); text-align: center; padding: 2rem 0; transition: background-color 0.3s ease; border-top: 1px solid transparent;}
-
         #theme-toggle { background: none; border: none; cursor: pointer; padding: 5px; color: #e0e0e0; display: flex; align-items: center; justify-content: center; }
         #theme-toggle svg { transition: transform 0.3s ease, color 0.3s ease; }
         #theme-toggle:hover svg { transform: scale(1.2); color: var(--primary-color); }
-
+        .hamburger-menu { display: none; }
         body.light-mode { background-color: var(--bg-light); color: var(--text-light); }
         body.light-mode header { background-color: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         body.light-mode .logo span { color: var(--text-dark); }
@@ -239,6 +238,9 @@
                     </button>
                 </li>
             </ul>
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Buka Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
         </nav>
     </header>
     <main>
@@ -344,8 +346,8 @@
                     </div>
                     <div class="news-column">
                         <h3>Berita Utama</h3>
-                        <div class="news-card"><div class="card-image"><img src="https://img2.beritasatu.com/cache/beritasatu/960x620-3/2025/09/1757918903-1927x1080.webp" alt="Ganjil Genap"></div><div class="card-content"><h3 class="card-title"><a href="https://www.beritasatu.com/jatim/2922553/baru-sebulan-beroperasi-warga-lamongan-blokade-jalan-lintas-utara#goog_rewarded" target="_blank">Blokade JLU Oleh Warga Lamongan</a></h3></div></div>
-                        <div class="news-card"><div class="card-image"><img src="https://img.antaranews.com/cache/1200x800/2025/09/11/1001974544_1.jpg.webp" alt="Jalan Tol Baru"></div><div class="card-content"><h3 class="card-title"><a href="https://jatim.antaranews.com/berita/973561/seorang-pelajar-tewas-dalam-kecelakaan-lalu-lintas-di-bojonegoro" target="_blank">Seorang Pelajar Asal Lamongan Tewas Akibat Kecelakaan Lalu Lintas</a></h3></div></div>
+                        <div class="news-card"><div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap"></div><div class="card-content"><h3 class="card-title"><a href="https://news.detik.com/berita/d-6893952/ganjil-genap-jakarta-diperluas-jadi-28-ruas-jalan-ini-daftarnya" target="_blank">Ganjil-Genap di Jakarta Diperluas</a></h3></div></div>
+                        <div class="news-card"><div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru"></div><div class="card-content"><h3 class="card-title"><a href="https://otomotif.kompas.com/read/2023/12/21/101200915/resmi-beroperasi-ini-tarif-tol-solo-yogyakarta" target="_blank">Tol Trans-Jawa Ruas Baru Resmi Dibuka</a></h3></div></div>
                     </div>
                 </div>
             </div>
@@ -466,21 +468,12 @@
             }
             updateIcon(isLightMode);
         });
-    </script>
 
-    <script>
-        // ... Kode JavaScript untuk Pengalih Tema ...
-
-        // --- KODE JAVASCRIPT BARU UNTUK MENU HAMBURGER ---
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const navMenu = document.querySelector('nav ul');
-        
-        // Buka/tutup menu saat tombol hamburger di klik
         hamburgerBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
-
-        // Tutup menu saat salah satu link di dalamnya di klik
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
