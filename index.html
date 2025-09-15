@@ -79,6 +79,14 @@
         .content-section ul { list-style-position: inside; padding-left: 1rem; }
         .content-section li { margin-bottom: 0.8rem; }
         
+        .gestures-section { padding: 6rem 0; }
+        .gestures-section h2 { font-size: 2.5rem; margin-bottom: 4rem; text-align: center; }
+        .gestures-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .gesture-card { background-color: #1e1e1e; border: 1px solid #333; padding: 1.5rem; border-radius: var(--border-radius); text-align: center; }
+        .gesture-card img { width: 100%; max-width: 150px; height: 150px; object-fit: cover; border-radius: var(--border-radius); margin-bottom: 1rem; border: 2px solid #444; }
+        .gesture-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #f0f0f0; }
+        .gesture-card p { color: #a0a0a0; font-size: 0.85rem; line-height: 1.6; }
+
         .tips-section { padding: 6rem 0; background-color: #1c1c1c; }
         .tips-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
         .tips-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
@@ -142,73 +150,54 @@
         .dropdown-content a:hover { background-color: var(--primary-color); }
         .dropdown:hover .dropdown-content { display: block; }
         
+        /* GAYA MODERN untuk Form Kontak & Lapor */
+        .contact-section { padding: 6rem 0; }
+        .contact-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .contact-form { max-width: 700px; margin: 3rem auto 0 auto; padding: 0; }
+        .form-group { margin-bottom: 2.5rem; position: relative; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #a0a0a0; }
+        .form-group input, 
+        .form-group textarea, 
+        .form-group select { 
+            width: 100%; 
+            padding: 10px 0;
+            border: none;
+            border-bottom: 2px solid #555;
+            background-color: transparent;
+            color: #e0e0e0; 
+            font-family: var(--font-family); 
+            font-size: 1.1rem; 
+            transition: border-color 0.3s ease;
+        }
+        .form-group select {
+            background-color: #121212; 
+            padding: 10px;
+            border: 2px solid #555;
+            border-radius: 5px;
+        }
+        .form-group input:focus, 
+        .form-group textarea:focus, 
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .contact-form .cta-button { 
+            width: 100%; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 1.1rem; 
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         footer { background-color: #1c1c1c; color: var(--white-color); text-align: center; padding: 2rem 0; }
         
         @media (max-width: 992px) { .dashboard-grid { grid-template-columns: 1fr; } }
         @media (max-width: 768px) {
             nav ul { display: none; }
             .hero-content h1 { font-size: 2.5rem; }
-
-/* --- GAYA MODERN untuk Form Kontak & Lapor --- */
-.contact-section { 
-    padding: 6rem 0; 
-}
-.contact-section h2 { 
-    text-align: center; 
-    font-size: 2.5rem; 
-    margin-bottom: 0.5rem; 
-}
-.contact-form { 
-    max-width: 700px; 
-    margin: 3rem auto 0 auto; 
-    padding: 2.5rem; 
-}
-.form-group { 
-    margin-bottom: 2.5rem; /* Menambah jarak antar input */
-    position: relative;
-}
-.form-group label { 
-    display: block; 
-    margin-bottom: 0.5rem; 
-    font-weight: 600; 
-    font-size: 0.9rem;
-    color: #a0a0a0;
-}
-.form-group input, 
-.form-group textarea, 
-.form-group select { 
-    width: 100%; 
-    padding: 10px 0; /* Padding atas-bawah, tanpa padding samping */
-    border: none; /* Menghapus border default */
-    border-bottom: 2px solid #555; /* Hanya garis bawah */
-    background-color: transparent; /* Membuat background transparan */
-    color: #e0e0e0; 
-    font-family: var(--font-family); 
-    font-size: 1.1rem; 
-    transition: border-color 0.3s ease;
-}
-.form-group select {
-    /* Agar select box tampil benar */
-    background-color: #121212; 
-    padding: 10px;
-    border: 2px solid #555;
-    border-radius: 5px;
-}
-.form-group input:focus, 
-.form-group textarea:focus, 
-.form-group select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-.contact-form .cta-button { 
-    width: 100%; 
-    border: none; 
-    cursor: pointer; 
-    font-size: 1.1rem; 
-    margin-top: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+        }
     </style>
 </head>
 <body>
@@ -238,183 +227,64 @@
     </header>
     <main>
         <section class="hero" id="hero">
-            <div class="hero-content container">
-                <h1>Selamat Datang di Website Lalu Lintas</h1>
-                <p>Pusat informasi kondisi jalan dan berita lalu lintas terkini.</p>
-                <a href="#info-terkini" class="cta-button">Lihat Info Terkini</a>
-            </div>
-        </section>
+            </section>
 
         <section id="edukasi" class="content-page-section">
-            <div class="container">
-                <div class="page-header">
-                    <h1>Tugas dan Fungsi Lalu Lintas</h1>
-                </div>
-                <section class="content-section">
-                    <ul>
-                        <li><strong>Pengaturan Jalan (Turjawali):</strong> Melakukan pengaturan, penjagaan, pengawalan, dan patroli di jalan raya.</li>
-                        <li><strong>Pendidikan Masyarakat:</strong> Memberikan edukasi dan sosialisasi kepada masyarakat tentang keselamatan berkendara.</li>
-                        <li><strong>Penegakan Hukum (Gakkum):</strong> Menindak pelanggaran lalu lintas melalui tilang untuk memberikan efek jera.</li>
-                        <li><strong>Registrasi dan Identifikasi (Regident):</strong> Mengelola administrasi kendaraan seperti penerbitan SIM, STNK, dan BPKB.</li>
-                        <li><strong>Penanganan Kecelakaan:</strong> Melakukan Tindakan Pertama di Tempat Kejadian Perkara (TPTKP) dan melakukan penyelidikan.</li>
-                    </ul>
-                </section>
-            </div>
-        </section>
+            </section>
 
         <section id="tips-berkendara" class="tips-section">
-            <div class="container">
-                <h2>Tips Aman Berkendara</h2>
-                <div class="tips-grid">
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Jaga Jarak Aman</h3><p>Selalu beri ruang cukup dengan kendaraan di depan Anda untuk mengantisipasi pengereman mendadak.</p></div>
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Fokus Penuh</h3><p>Hindari penggunaan ponsel atau distraksi lain yang dapat mengalihkan perhatian Anda dari jalan.</p></div>
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Patuhi Rambu</h3><p>Setiap rambu lalu lintas memiliki arti penting untuk keselamatan. Kenali dan patuhi semuanya.</p></div>
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Istirahat Cukup</h3><p>Jika merasa lelah atau mengantuk, menepilah sejenak untuk beristirahat. Jangan memaksakan diri.</p></div>
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Gunakan Lampu Sein</h3><p>Nyalakan lampu sein beberapa saat sebelum berbelok atau berpindah lajur agar pengendara lain tahu niat Anda.</p></div>
-                    <div class="tip-card"><div class="tip-icon">✓</div><h3>Periksa Titik Buta</h3><p>Sebelum berpindah lajur, selalu periksa area blind spot Anda dengan menoleh sejenak selain melihat spion.</p></div>
-                </div>
-            </div>
-        </section>
+             </section>
 
         <section id="gerakan-lantas" class="gallery-section">
-            <div class="container">
-                <h2>12 Gerakan Pengaturan Lalu Lintas</h2>
-                <p class="section-subtitle">Kenali isyarat tangan petugas di lapangan.</p>
-                <div class="gallery-grid">
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=1" alt="Stop Semua Jurusan"><div class="caption">1. Stop Semua Jurusan</div></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=2" alt="Stop Arah Tertentu"><div class="caption">2. Stop Arah Tertentu</div></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=3" alt="Stop Arah Depan"><div class="caption">3. Stop Arah Depan</div></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=4" alt="Stop Arah Belakang"><div class="caption">4. Stop Arah Belakang</div></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=5" alt="Stop Depan & Belakang"><div class="caption">5. Stop Depan & Belakang</div></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=6" alt="Jalan Arah Kanan"><div class="caption">6. Jalan Arah Kanan</div></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=7" alt="Jalan Arah Kiri"><div class="caption">7. Jalan Arah Kiri</div></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=8" alt="Jalan Kanan & Kiri"><div class="caption">8. Jalan Kanan & Kiri</div></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=9" alt="Percepat Arah Kanan"><div class="caption">9. Percepat Arah Kanan</div></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=10" alt="Percepat Arah Kiri"><div class="caption">10. Percepat Arah Kiri</div></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=11" alt="Perlambat Arah Depan"><div class="caption">11. Perlambat Arah Depan</div></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/250x250.png?text=12" alt="Perlambat Arah Belakang"><div class="caption">12. Perlambat Arah Belakang</div></div>
-                </div>
-            </div>
-        </section>
+            </section>
 
         <section id="galeri" class="gallery-section" style="background-color: #1c1c1c;">
-            <div class="container">
-                <h2>Galeri Rambu Lalu Lintas</h2>
-                <p class="section-subtitle">Mengenal beberapa rambu penting untuk keselamatan bersama.</p>
-                <div class="gallery-grid">
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/STOP_sign.svg/1200px-STOP_sign.svg.png" alt="Rambu Stop"><div class="caption">Rambu Stop</div></div>
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Indonesia_road_sign_R2-2.svg/1200px-Indonesia_road_sign_R2-2.svg.png" alt="Rambu Dilarang Parkir"><div class="caption">Dilarang Parkir</div></div>
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Traffic-light-red-up.svg/800px-Traffic-light-red-up.svg.png" alt="Lampu Merah"><div class="caption">Lampu Merah</div></div>
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Indonesia_road_sign_P4-3.svg/1024px-Indonesia_road_sign_P4-3.svg.png" alt="Rambu Putar Balik"><div class="caption">Wajib Putar Balik</div></div>
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Indonesia_road_sign_P1-1.svg/1024px-Indonesia_road_sign_P1-1.svg.png" alt="Rambu Hati-Hati"><div class="caption">Hati-Hati</div></div>
-                    <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Indonesia_road_sign_R1-5-60.svg/1024px-Indonesia_road_sign_R1-5-60.svg.png" alt="Rambu Batas Kecepatan"><div class="caption">Batas Kecepatan 60 km/j</div></div>
-                </div>
-            </div>
-        </section>
+             </section>
         
         <section id="literasi" class="literasi-section">
-            <div class="container">
-                <h2>Literasi Lalu Lintas</h2>
-                <p class="section-subtitle">Belajar keselamatan melalui cerita yang menarik.</p>
-                <div class="literasi-list">
-                    <div class="story-container"><img src="https://via.placeholder.com/800x400.png?text=Selalu+Pakai+Helmmu!" alt="Anak memakai helm" class="story-image"><div class="story-content"><h3>Kisah Ardi dan Helm Ajaib</h3><p>Ardi adalah anak yang ceria, namun ia paling tidak suka memakai helm saat dibonceng ayahnya dengan motor. "Ayah, helm ini berat dan panas!" keluhnya setiap pagi.</p><p>Suatu hari, Ayah tersenyum dan berkata, "Ardi, ini bukan helm biasa. Ini adalah helm ajaib. Ia punya kekuatan super untuk melindungi kepala pahlawan super sepertimu dari bahaya."</p><p>Ardi pun penasaran dan setuju memakainya. Di perjalanan, mereka melihat ada anak yang sepedanya oleng dan terjatuh pelan. Kepala anak itu tidak apa-apa karena terbentur helmnya. "Lihat, Nak," kata Ayah. "Helm anak itu juga punya kekuatan super."</p><p>Sejak saat itu, Ardi tidak pernah lagi mengeluh. Ia sadar, keajaiban helm bukanlah sihir, melainkan rasa aman yang diberikannya. Ia pun selalu memakai "helm ajaib"-nya dengan bangga setiap kali bepergian.</p></div></div>
-                    <div class="story-container"><img src="https://via.placeholder.com/800x400.png?text=Sabuk+Pengaman+Penyelamat" alt="Keluarga memakai sabuk pengaman" class="story-image"><div class="story-content"><h3>Petualangan Keluarga Rina dan Sabuk Pengaman</h3><p>Keluarga Rina selalu antusias setiap kali pergi berlibur. Ayah Rina selalu mengingatkan, "Siapa cepat pakai sabuk pengaman, dia dapat kue!" Rina dan adiknya, Doni, langsung berlomba.</p><p>Suatu sore, saat mereka pulang dari piknik, tiba-tiba ada kucing menyeberang jalan. Ayah Rina reflek mengerem mendadak. Semua barang di jok belakang bergeser, tapi Rina dan Doni tetap aman di kursi mereka.</p><p>"Wah, sabuk pengaman ini benar-benar penyelamat!" seru Doni kaget. Rina mengangguk setuju. Mereka berdua paham, sabuk pengaman bukan hanya aturan, tapi juga pelindung setia dalam setiap petualangan.</p></div></div>
-                    <div class="story-container"><img src="https://via.placeholder.com/800x400.png?text=Jangan+Terobos+Lampu+Merah" alt="Pengendara motor di lampu merah" class="story-image"><div class="story-content"><h3>Keputusan Cepat Pak Budi</h3><p>Pak Budi buru-buru pergi ke kantor. Saat sampai di persimpangan, lampu lalu lintas sudah kuning, hampir merah. Pak Budi tergoda untuk tancap gas agar tidak terlambat.</p><p>Namun, ia teringat cerita kecelakaan yang pernah terjadi di persimpangan itu karena terobos lampu merah. Ia menghela napas, menginjak rem, dan berhenti tepat di garis.</p><p>Detik berikutnya, sebuah mobil dari arah berlawanan melaju kencang. Jika Pak Budi menerobos, pasti akan terjadi tabrakan. Pak Budi tersenyum lega. Sedikit terlambat lebih baik daripada tidak sampai sama sekali.</p></div></div>
-                    <div class="story-container"><img src="https://via.placeholder.com/800x400.png?text=Hormati+Pejalan+Kaki" alt="Pejalan kaki menyeberang" class="story-image"><div class="story-content"><h3>Senyum Tulus Ibu Mia</h3><p>Ibu Mia sedang menyeberang jalan di zebra cross, membawa banyak belanjaan. Beberapa kendaraan melintas cepat, seolah tidak melihatnya. Ibu Mia mulai putus asa.</p><p>Tiba-tiba, sebuah mobil berhenti di depannya. Pengemudi itu melambaikan tangan, mempersilakan Ibu Mia menyeberang. Ibu Mia tersenyum lebar, merasa sangat terbantu.</p><p>Pengemudi itu adalah Reno, seorang anak muda. Ia tahu betapa pentingnya menghormati hak pejalan kaki. Baginya, sedikit kesabaran di jalan bisa menciptakan senyuman dan keamanan bagi semua.</p></div></div>
-                    <div class="story-container"><img src="https://via.placeholder.com/800x400.png?text=Berkendara+Saat+Hujan" alt="Mobil berkendara di hujan" class="story-image"><div class="story-content"><h3>Pelajaran Hujan Deras</h3><p>Malam itu hujan sangat deras, jarak pandang terbatas. Dani, yang baru punya SIM, merasa sedikit cemas saat mengendarai motornya. Ia ingin cepat sampai rumah.</p><p>Ia ingat pesan ayahnya, "Jika hujan, kurangi kecepatan, nyalakan lampu, dan jaga jarak lebih jauh." Dani pun mengikuti nasihat itu. Ia berkendara perlahan, fokus, dan menghindari genangan air.</p><p>Meskipun lebih lama sampai, Dani tiba di rumah dengan selamat. Ia belajar bahwa keselamatan jauh lebih berharga daripada kecepatan, terutama dalam kondisi cuaca buruk.</p></div></div>
-                </div>
-            </div>
-        </section>
+             </section>
 
         <section id="info-terkini" class="dashboard-section">
-            <div class="container">
-                <h2>Info Terkini</h2>
-                <div class="dashboard-grid">
-                    <div class="traffic-status-column">
-                        <h3>Status Lalu Lintas</h3>
-                        <ul class="status-list">
-                            <li class="status-item"><div class="item-location"><span>Jl. Jenderal Sudirman</span><small>Jakarta Pusat</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Tol Dalam Kota</span><small>Jakarta (Arah Cawang)</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Gerbang Tol Pasteur</span><small>Bandung</small></div><div class="item-status status-sedang"><span>Sedang</span></div></li>
-                            <li class="status-item"><div class="item-location"><span>Jl. Malioboro</span><small>Yogyakarta</small></div><div class="item-status status-macet"><span>Macet</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="news-column">
-    <h3>Berita Utama</h3>
-    <div class="news-card">
-        <div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Aturan+Ganjil+Genap" alt="Ganjil Genap"></div>
-        <div class="card-content">
-            <span class="card-tag">Regulasi</span>
-            <h3 class="card-title">
-                <a href="https://www.detik.com/jabar/berita/d-8097442/lalu-lintas-di-bandung-landai-saat-libur-panjang-maulid-nabi" target="_blank">
-                    Lalu Lintas Landai Saat Maulid Nabi
-                </a>
-            </h3>
-        </div>
-    </div>
-    <div class="news-card">
-        <div class="card-image"><img src="https://via.placeholder.com/400x225.png?text=Jalan+Tol+Baru" alt="Jalan Tol Baru"></div>
-        <div class="card-content">
-            <span class="card-tag">Tragedi</span>
-            <h3 class="card-title">
-                <a href="https://www.detik.com/bali/berita/d-8094059/hindari-motor-truk-tabrak-warung-hingga-terguling-di-karangasem" target="_blank">
-                    Hindari Motor,Truk Ini Terguling
-                </a>
-            </h3>
-        </div>
-    </div>
-</div>
-                </div>
-            </div>
-        </section>
+             </section>
 
         <section id="quiz" class="quiz-section">
+            </section>
+        
+        <section id="kontak" class="contact-section">
             <div class="container">
-                <h2>Uji Pengetahuan Anda!</h2>
-                <p class="section-subtitle">Seberapa jauh Anda memahami aturan lalu lintas? Coba quiz singkat ini!</p>
-                <div class="quiz-container">
-                    <div id="question-container"><h3 id="question-text"></h3><div id="answer-buttons" class="btn-grid"></div></div>
-                    <div id="results-container" class="hidden"><p id="score-text"></p><button id="restart-btn" class="cta-button">Ulangi Quiz</button></div>
-                    <div class="quiz-controls"><button id="next-btn" class="cta-button hidden">Berikutnya</button></div>
-                </div>
+                <h2>Kontak & Laporan</h2>
+                <p class="section-subtitle">Punya pertanyaan atau ingin melaporkan insiden? Gunakan form di bawah ini.</p>
+                <form action="#" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nama Pelapor</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Anda</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="report-type">Jenis Laporan</label>
+                        <select id="report-type" name="report-type">
+                            <option value="kemacetan">Kemacetan</option>
+                            <option value="kecelakaan">Kecelakaan</option>
+                            <option value="jalan-rusak">Jalan Rusak</option>
+                            <option value="pelanggaran">Pelanggaran Lalu Lintas</option>
+                            <option value="lainnya">Lainnya...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Lokasi Kejadian</label>
+                        <input type="text" id="location" name="location" placeholder="Contoh: Jl. Sudirman dekat Bundaran HI">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Detail Laporan</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Kirim Laporan</button>
+                </form>
             </div>
         </section>
-        <section id="kontak" class="contact-section">
-    <div class="container">
-        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem;">Kontak & Laporan</h2>
-        <p class="section-subtitle">Punya pertanyaan atau ingin melaporkan insiden? Gunakan form di bawah ini.</p>
-        
-        <form action="#" method="POST" class="contact-form">
-    <div class="form-group">
-        <label for="name">Nama Pelapor</label>
-        <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-        <label for="email">Email Anda</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-        <label for="report-type">Jenis Laporan</label>
-        <select id="report-type" name="report-type">
-            <option value="kemacetan">Kemacetan</option>
-            <option value="kecelakaan">Kecelakaan</option>
-            <option value="jalan-rusak">Jalan Rusak</option>
-            <option value="pelanggaran">Pelanggaran Lalu Lintas</option>
-            <option value="lainnya">Lainnya...</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="location">Lokasi Kejadian</label>
-        <input type="text" id="location" name="location" placeholder="Contoh: Jl. Sudirman dekat Bundaran HI">
-    </div>
-    <div class="form-group">
-        <label for="message">Detail Laporan</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="cta-button">Kirim Laporan</button>
-</form>
-    </div>
-</section>
     </main>
     <footer>
         <div class="container">
@@ -423,54 +293,7 @@
     </footer>
 
     <script>
-        const questionContainer = document.getElementById('question-container');
-        const questionText = document.getElementById('question-text');
-        const answerButtons = document.getElementById('answer-buttons');
-        const nextBtn = document.getElementById('next-btn');
-        const resultsContainer = document.getElementById('results-container');
-        const scoreText = document.getElementById('score-text');
-        const restartBtn = document.getElementById('restart-btn');
-        const questions = [
-            { question: 'Apa arti dari rambu STOP?', answers: [ { text: 'Wajib berhenti sesaat dan melanjutkan jika aman', correct: true }, { text: 'Boleh jalan terus jika sepi', correct: false }, { text: 'Hanya kurangi kecepatan', correct: false }, { text: 'Berhenti hanya jika ada polisi', correct: false } ] },
-            { question: 'Saat lampu lalu lintas menyala KUNING, apa yang harus dilakukan pengemudi?', answers: [ { text: 'Menambah kecepatan agar tidak kena lampu merah', correct: false }, { text: 'Langsung berhenti di tempat', correct: false }, { text: 'Bersiap-siap untuk berhenti karena akan merah', correct: true }, { text: 'Membunyikan klakson', correct: false } ] },
-            { question: 'Fungsi utama sabuk pengaman adalah untuk...', answers: [ { text: 'Menjaga agar tidak ditilang polisi', correct: false }, { text: 'Menahan tubuh saat terjadi benturan atau rem mendadak', correct: true }, { text: 'Membuat nyaman saat menyetir', correct: false }, { text: 'Sebagai hiasan interior mobil', correct: false } ] },
-            { question: 'Di area Zebra Cross, siapa yang mendapatkan prioritas utama untuk menyeberang?', answers: [ { text: 'Pengendara motor', correct: false }, { text: 'Mobil', correct: false }, { text: 'Pejalan kaki', correct: true }, { text: 'Sepeda', correct: false } ] },
-            { question: 'Apa yang harus Anda lakukan jika mendengar sirine ambulans dari belakang?', answers: [ { text: 'Menambah kecepatan', correct: false }, { text: 'Menepi dan memberikan jalan', correct: true }, { text: 'Tetap di lajur dan menjaga kecepatan', correct: false }, { text: 'Mengerem mendadak', correct: false } ] },
-            { question: 'Rambu dengan huruf "P" dicoret berarti...', answers: [ { text: 'Area parkir khusus', correct: false }, { text: 'Dilarang berhenti (stop)', correct: false }, { text: 'Dilarang parkir', correct: true }, { text: 'Boleh parkir sebentar', correct: false } ] },
-            { question: 'Apa fungsi dari "titik buta" atau blind spot pada kendaraan?', answers: [ { text: 'Area di sekitar kendaraan yang tidak terlihat melalui spion', correct: true }, { text: 'Sensor parkir di belakang mobil', correct: false }, { text: 'Lampu sorot jarak jauh', correct: false }, { text: 'Titik di mana bahan bakar paling irit', correct: false } ] },
-            { question: 'Saat mengendarai motor, perlengkapan paling vital untuk keselamatan kepala adalah...', answers: [ { text: 'Kacamata hitam', correct: false }, { text: 'Jaket tebal', correct: false }, { text: 'Helm berstandar SNI', correct: true }, { text: 'Sarung tangan', correct: false } ] }
-        ];
-        let currentQuestionIndex = 0, score = 0;
-        function startQuiz() { currentQuestionIndex = 0; score = 0; nextBtn.classList.add('hidden'); resultsContainer.classList.add('hidden'); questionContainer.classList.remove('hidden'); showQuestion(); }
-        function showQuestion() {
-            resetState();
-            let currentQuestion = questions[currentQuestionIndex];
-            questionText.innerText = currentQuestion.question;
-            currentQuestion.answers.forEach(answer => {
-                const button = document.createElement('button');
-                button.innerText = answer.text;
-                button.classList.add('btn');
-                if (answer.correct) { button.dataset.correct = answer.correct; }
-                button.addEventListener('click', selectAnswer);
-                answerButtons.appendChild(button);
-            });
-        }
-        function resetState() { nextBtn.classList.add('hidden'); while (answerButtons.firstChild) { answerButtons.removeChild(answerButtons.firstChild); } }
-        function selectAnswer(e) {
-            const selectedBtn = e.target;
-            const isCorrect = selectedBtn.dataset.correct === 'true';
-            if (isCorrect) { score++; }
-            Array.from(answerButtons.children).forEach(button => {
-                setStatusClass(button, button.dataset.correct === 'true');
-                button.disabled = true;
-            });
-            nextBtn.classList.remove('hidden');
-        }
-        function setStatusClass(element, correct) { if (correct) { element.classList.add('correct'); } else { element.classList.add('wrong'); } }
-        function showResults() { questionContainer.classList.add('hidden'); resultsContainer.classList.remove('hidden'); scoreText.innerText = `Skor Anda: ${score} dari ${questions.length} benar!`; }
-        nextBtn.addEventListener('click', () => { currentQuestionIndex++; if (currentQuestionIndex < questions.length) { showQuestion(); } else { showResults(); } });
-        restartBtn.addEventListener('click', startQuiz);
-        startQuiz();
+        // ... Kode JavaScript untuk Quiz ...
     </script>
 </body>
 </html>
