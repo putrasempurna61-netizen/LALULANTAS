@@ -66,7 +66,7 @@
         .cta-button { display: inline-block; background-color: var(--primary-color); color: var(--white-color); padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease, transform 0.3s ease; border: none; }
         .cta-button:hover { background-color: var(--primary-hover); transform: translateY(-3px); }
         .section-subtitle { color: #a0a0a0; margin-bottom: 4rem; text-align: center;}
-        .content-page-section, .gestures-section-wrapper, .gallery-section, .dashboard-section, .contact-section { padding: 6rem 0; }
+        .content-page-section, .gestures-section, .gallery-section, .dashboard-section, .contact-section { padding: 6rem 0; }
         .tips-section, .literasi-section, .quiz-section { padding: 6rem 0; background-color: #1c1c1c; transition: background-color 0.3s ease;}
         h2 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; transition: color 0.3s ease;}
         h3, h4 { transition: color 0.3s ease; }
@@ -77,8 +77,6 @@
         .content-section h2 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--primary-color); }
         .content-section ul { list-style-position: inside; padding-left: 1rem; }
         .content-section li { margin-bottom: 0.8rem; }
-        .gestures-section { padding: 6rem 0; }
-        .gestures-section h2 { font-size: 2.5rem; margin-bottom: 4rem; text-align: center; }
         .gestures-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
         .gesture-card { background-color: #1e1e1e; border: 1px solid #333; padding: 1.5rem; border-radius: var(--border-radius); text-align: center; }
         .gesture-card img { width: 100%; max-width: 150px; height: 150px; object-fit: cover; border-radius: var(--border-radius); margin-bottom: 1rem; border: 2px solid #444; }
@@ -155,9 +153,9 @@
         body.light-mode .tips-section, body.light-mode .literasi-section, body.light-mode .quiz-section { background-color: var(--white-color); }
         body.light-mode .content-section, body.light-mode .gesture-card, body.light-mode .tip-card, body.light-mode .story-container, body.light-mode .dashboard-grid > div, body.light-mode .quiz-container { background-color: var(--white-color); border: 1px solid var(--border-color); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         body.light-mode .item-location { color: var(--text-dark); }
-        body.light-mode .item-status.status-lancar span { color: #28a745; }
-        body.light-mode .item-status.status-macet span { color: #dc3545; }
-        body.light-mode .item-status.status-sedang span { color: #ffc107; }
+        body.light-mode .item-status.status-lancar span, body.light-mode .item-status.status-Lancar span { color: #28a745; }
+        body.light-mode .item-status.status-macet span, body.light-mode .item-status.status-Macet span { color: #dc3545; }
+        body.light-mode .item-status.status-sedang span, body.light-mode .item-status.status-Sedang span { color: #ffc107; }
         body.light-mode .form-group input, body.light-mode .form-group textarea, body.light-mode .form-group select { background-color: var(--white-color); color: var(--text-dark); border-color: #ced4da; }
         body.light-mode .form-group select { background-color: var(--white-color); }
         body.light-mode .form-group input:focus, body.light-mode .form-group textarea:focus, body.light-mode .form-group select:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); }
@@ -265,7 +263,7 @@
             </div>
         </section>
 
-        <section id="galeri" class="gallery-section">
+        <section id="galeri" class="gallery-section" style="background-color: #f8f9fa;">
             <div class="container">
                 <h2>Galeri Rambu Lalu Lintas</h2>
                 <div class="gallery-grid">
@@ -357,81 +355,16 @@
         const resultsContainer = document.getElementById('results-container');
         const scoreText = document.getElementById('score-text');
         const restartBtn = document.getElementById('restart-btn');
-        const questions = const questions = [
-    { 
-        question: 'Apa arti dari rambu STOP?', 
-        answers: [ 
-            { text: 'Wajib berhenti sesaat dan melanjutkan jika aman', correct: true }, 
-            { text: 'Boleh jalan terus jika sepi', correct: false }, 
-            { text: 'Hanya kurangi kecepatan', correct: false }, 
-            { text: 'Berhenti hanya jika ada polisi', correct: false } 
-        ] 
-    },
-    { 
-        question: 'Saat lampu lalu lintas menyala KUNING, apa yang harus dilakukan pengemudi?', 
-        answers: [ 
-            { text: 'Menambah kecepatan agar tidak kena lampu merah', correct: false }, 
-            { text: 'Langsung berhenti di tempat', correct: false }, 
-            { text: 'Bersiap-siap untuk berhenti karena akan merah', correct: true }, 
-            { text: 'Membunyikan klakson', correct: false } 
-        ] 
-    },
-    { 
-        question: 'Fungsi utama sabuk pengaman adalah untuk...', 
-        answers: [ 
-            { text: 'Menjaga agar tidak ditilang polisi', correct: false }, 
-            { text: 'Menahan tubuh saat terjadi benturan atau rem mendadak', correct: true }, 
-            { text: 'Membuat nyaman saat menyetir', correct: false }, 
-            { text: 'Sebagai hiasan interior mobil', correct: false } 
-        ] 
-    },
-    { 
-        question: 'Di area Zebra Cross, siapa yang mendapatkan prioritas utama untuk menyeberang?', 
-        answers: [ 
-            { text: 'Pengendara motor', correct: false }, 
-            { text: 'Mobil', correct: false }, 
-            { text: 'Pejalan kaki', correct: true }, 
-            { text: 'Sepeda', correct: false } 
-        ] 
-    },
-    { 
-        question: 'Apa yang harus Anda lakukan jika mendengar sirine ambulans dari belakang?', 
-        answers: [ 
-            { text: 'Menambah kecepatan', correct: false }, 
-            { text: 'Menepi dan memberikan jalan', correct: true }, 
-            { text: 'Tetap di lajur dan menjaga kecepatan', correct: false }, 
-            { text: 'Mengerem mendadak', correct: false } 
-        ] 
-    },
-    { 
-        question: 'Rambu dengan huruf "P" dicoret berarti...', 
-        answers: [ 
-            { text: 'Area parkir khusus', correct: false }, 
-            { text: 'Dilarang berhenti (stop)', correct: false }, 
-            { text: 'Dilarang parkir', correct: true }, 
-            { text: 'Boleh parkir sebentar', correct: false } 
-        ] 
-    },
-    { 
-        question: 'Apa fungsi dari "titik buta" atau blind spot pada kendaraan?', 
-        answers: [ 
-            { text: 'Area di sekitar kendaraan yang tidak terlihat melalui spion', correct: true }, 
-            { text: 'Sensor parkir di belakang mobil', correct: false }, 
-            { text: 'Lampu sorot jarak jauh', correct: false }, 
-            { text: 'Titik di mana bahan bakar paling irit', correct: false } 
-        ] 
-    },
-    { 
-        question: 'Saat mengendarai motor, perlengkapan paling vital untuk keselamatan kepala adalah...', 
-        answers: [ 
-            { text: 'Kacamata hitam', correct: false }, 
-            { text: 'Jaket tebal', correct: false }, 
-            // Baris ini yang diperbaiki, sebelumnya ada error di sini
-            { text: 'Helm berstandar SNI', correct: true }, 
-            { text: 'Sarung tangan', correct: false } 
-        ] 
-    }
-];
+        const questions = [
+            { question: 'Apa arti dari rambu STOP?', answers: [ { text: 'Wajib berhenti sesaat dan melanjutkan jika aman', correct: true }, { text: 'Boleh jalan terus jika sepi', correct: false }, { text: 'Hanya kurangi kecepatan', correct: false }, { text: 'Berhenti hanya jika ada polisi', correct: false } ] },
+            { question: 'Saat lampu lalu lintas menyala KUNING, apa yang harus dilakukan pengemudi?', answers: [ { text: 'Menambah kecepatan agar tidak kena lampu merah', correct: false }, { text: 'Langsung berhenti di tempat', correct: false }, { text: 'Bersiap-siap untuk berhenti karena akan merah', correct: true }, { text: 'Membunyikan klakson', correct: false } ] },
+            { question: 'Fungsi utama sabuk pengaman adalah untuk...', answers: [ { text: 'Menjaga agar tidak ditilang polisi', correct: false }, { text: 'Menahan tubuh saat terjadi benturan atau rem mendadak', correct: true }, { text: 'Membuat nyaman saat menyetir', correct: false }, { text: 'Sebagai hiasan interior mobil', correct: false } ] },
+            { question: 'Di area Zebra Cross, siapa yang mendapatkan prioritas utama untuk menyeberang?', answers: [ { text: 'Pengendara motor', correct: false }, { text: 'Mobil', correct: false }, { text: 'Pejalan kaki', correct: true }, { text: 'Sepeda', correct: false } ] },
+            { question: 'Apa yang harus Anda lakukan jika mendengar sirine ambulans dari belakang?', answers: [ { text: 'Menambah kecepatan', correct: false }, { text: 'Menepi dan memberikan jalan', correct: true }, { text: 'Tetap di lajur dan menjaga kecepatan', correct: false }, { text: 'Mengerem mendadak', correct: false } ] },
+            { question: 'Rambu dengan huruf "P" dicoret berarti...', answers: [ { text: 'Area parkir khusus', correct: false }, { text: 'Dilarang berhenti (stop)', correct: false }, { text: 'Dilarang parkir', correct: true }, { text: 'Boleh parkir sebentar', correct: false } ] },
+            { question: 'Apa fungsi dari "titik buta" atau blind spot pada kendaraan?', answers: [ { text: 'Area di sekitar kendaraan yang tidak terlihat melalui spion', correct: true }, { text: 'Sensor parkir di belakang mobil', correct: false }, { text: 'Lampu sorot jarak jauh', correct: false }, { text: 'Titik di mana bahan bakar paling irit', correct: false } ] },
+            { question: 'Saat mengendarai motor, perlengkapan paling vital untuk keselamatan kepala adalah...', answers: [ { text: 'Kacamata hitam', correct: false }, { text: 'Jaket tebal', correct: false }, { text: 'Helm berstandar SNI', correct: true }, { text: 'Sarung tangan', correct: false } ] }
+        ];
         let currentQuestionIndex = 0, score = 0;
         function startQuiz() { currentQuestionIndex = 0; score = 0; nextBtn.classList.add('hidden'); resultsContainer.classList.add('hidden'); questionContainer.classList.remove('hidden'); showQuestion(); }
         function showQuestion() {
@@ -465,12 +398,10 @@
         startQuiz();
     </script>
     <script>
-        // --- KODE JAVASCRIPT UNTUK PENGALIH TEMA ---
         const themeToggleBtn = document.getElementById('theme-toggle');
         const body = document.body;
         const iconMoon = document.getElementById('icon-moon');
         const iconSun = document.getElementById('icon-sun');
-
         function updateIcon(isLightMode) {
             if (isLightMode) {
                 iconMoon.classList.add('hidden');
@@ -480,7 +411,6 @@
                 iconSun.classList.add('hidden');
             }
         }
-
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             body.classList.add('light-mode');
@@ -488,7 +418,6 @@
         } else {
             updateIcon(false);
         }
-
         themeToggleBtn.addEventListener('click', () => {
             body.classList.toggle('light-mode');
             const isLightMode = body.classList.contains('light-mode');
