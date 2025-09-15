@@ -467,5 +467,25 @@
             updateIcon(isLightMode);
         });
     </script>
+
+    <script>
+        // ... Kode JavaScript untuk Pengalih Tema ...
+
+        // --- KODE JAVASCRIPT BARU UNTUK MENU HAMBURGER ---
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        // Buka/tutup menu saat tombol hamburger di klik
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Tutup menu saat salah satu link di dalamnya di klik
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
