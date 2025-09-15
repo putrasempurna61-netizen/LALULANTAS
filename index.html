@@ -11,26 +11,30 @@
 
     <style>
         :root {
-            --primary-color: #0056b3;
-            --primary-hover: #003d82;
+            --primary-color: #007bff; /* Biru Modern */
+            --primary-hover: #0056b3;
             --white-color: #ffffff;
-            --correct-color: #27ae60;
-            --wrong-color: #c0392b;
-            --text-dark: #333333;
+            --bg-light: #f8f9fa; /* Abu-abu terang untuk body */
+            --text-dark: #212529; /* Abu-abu gelap untuk judul */
+            --text-light: #6c757d; /* Abu-abu lebih terang untuk paragraf */
+            --border-color: #dee2e6; /* Warna border halus */
+            --correct-color: #28a745; /* Hijau */
+            --wrong-color: #dc3545; /* Merah */
             --border-radius: 8px;
-            --font-family: 'Poppins', sans-serif;
+            --font-family: 'Poppins', sans-serif;;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body {
             font-family: var(--font-family);
             line-height: 1.8;
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: var(--bg-light);
+            color: var(--text-light);
         }
         .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
         header {
-            background-color: #1c1c1c;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             position: fixed;
             width: 100%;
             top: 0;
