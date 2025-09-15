@@ -149,7 +149,7 @@
             nav ul { display: none; }
             .hero-content h1 { font-size: 2.5rem; }
 
-/* --- Gaya BARU untuk Form Kontak & Lapor --- */
+/* --- GAYA MODERN untuk Form Kontak & Lapor --- */
 .contact-section { 
     padding: 6rem 0; 
 }
@@ -160,58 +160,45 @@
 }
 .contact-form { 
     max-width: 700px; 
-    margin: 2rem auto 0 auto; 
-    background-color: #1e1e1e; 
+    margin: 3rem auto 0 auto; 
     padding: 2.5rem; 
-    border-radius: var(--border-radius); 
-    border: 1px solid #333; 
-}
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
 }
 .form-group { 
-    margin-bottom: 1.5rem; 
+    margin-bottom: 2.5rem; /* Menambah jarak antar input */
+    position: relative;
 }
 .form-group label { 
     display: block; 
-    margin-bottom: 0.7rem; 
+    margin-bottom: 0.5rem; 
     font-weight: 600; 
-}
-.input-wrapper {
-    position: relative;
-}
-.input-wrapper .icon {
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    color: #888;
+    font-size: 0.9rem;
+    color: #a0a0a0;
 }
 .form-group input, 
 .form-group textarea, 
 .form-group select { 
     width: 100%; 
-    padding: 12px 15px;
-    border-radius: 5px; 
-    border: 1px solid #555; 
-    background-color: #2a2a2a; 
+    padding: 10px 0; /* Padding atas-bawah, tanpa padding samping */
+    border: none; /* Menghapus border default */
+    border-bottom: 2px solid #555; /* Hanya garis bawah */
+    background-color: transparent; /* Membuat background transparan */
     color: #e0e0e0; 
     font-family: var(--font-family); 
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem; 
+    transition: border-color 0.3s ease;
 }
-/* Tambahkan padding kiri jika ada ikon */
-.input-wrapper input {
-    padding-left: 45px;
+.form-group select {
+    /* Agar select box tampil benar */
+    background-color: #121212; 
+    padding: 10px;
+    border: 2px solid #555;
+    border-radius: 5px;
 }
 .form-group input:focus, 
 .form-group textarea:focus, 
 .form-group select:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3);
 }
 .contact-form .cta-button { 
     width: 100%; 
@@ -219,12 +206,8 @@
     cursor: pointer; 
     font-size: 1.1rem; 
     margin-top: 1rem;
-}
-/* Aturan untuk mobile */
-@media (max-width: 600px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
     </style>
 </head>
@@ -402,23 +385,13 @@
         <p class="section-subtitle">Punya pertanyaan atau ingin melaporkan insiden? Gunakan form di bawah ini.</p>
         
         <form action="#" method="POST" class="contact-form">
-    <div class="form-row">
-        <div class="form-group">
-            <label for="name">Nama Pelapor</label>
-            <div class="input-wrapper">
-                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                </span>
-                <input type="text" id="name" name="name" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email">Email Anda</label>
-            <div class="input-wrapper">
-                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                </span>
-                <input type="email" id="email" name="email" required>
-            </div>
-        </div>
+    <div class="form-group">
+        <label for="name">Nama Pelapor</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email Anda</label>
+        <input type="email" id="email" name="email" required>
     </div>
     <div class="form-group">
         <label for="report-type">Jenis Laporan</label>
@@ -432,11 +405,7 @@
     </div>
     <div class="form-group">
         <label for="location">Lokasi Kejadian</label>
-        <div class="input-wrapper">
-            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            </span>
-            <input type="text" id="location" name="location" placeholder="Contoh: Jl. Sudirman dekat Bundaran HI">
-        </div>
+        <input type="text" id="location" name="location" placeholder="Contoh: Jl. Sudirman dekat Bundaran HI">
     </div>
     <div class="form-group">
         <label for="message">Detail Laporan</label>
