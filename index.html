@@ -483,75 +483,61 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
-<script>
-  // GANTI BAGIAN INI DENGAN KODE firebaseConfig YANG SUDAH ANDA SIMPAN DARI NOTEPAD
-  const firebaseConfig = {
-    apiKey: "AIzaSyCF8eXRIQMNYQdsRuFj-qWpz3J0hzV8tpo",
-    authDomain: "lalulintas-v2.firebaseapp.com",
-    projectId: "lalulintas-v2",
-    storageBucket: "lalulintas-v2.firebasestorage.app",
-    messagingSenderId: "850945038170",
-    appId: "1:850945038170:web:590762ff3b26593befc563"
-  };
+<script type="module">
+        // 1. Impor fungsi yang dibutuhkan langsung dari CDN Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  
-  // Membuat koneksi ke "gudang data" (Firestore)
-  const db = firebase.firestore(); 
-</script>
+        // 2. GANTI DENGAN KODE firebaseConfig BARU DARI KONSOL FIREBASE ANDA
+        const firebaseConfig = {
+            apiKey: "AIzaSyXXXXXXXXXXXXXXXXXXX",
+            authDomain: "lalulintas-v2.firebaseapp.com",
+            projectId: "lalulintas-v2",
+            storageBucket: "lalulintas-v2.appspot.com",
+            messagingSenderId: "850945038170",
+            appId: "1:850945038170:web:590762fff3b26593befc563",
+            measurementId: "G-MR7FD1KVWJ" // measurementId sekarang disertakan
+        };
 
-    <script>
-    // --- KODE JAVASCRIPT UNTUK MENGIRIM FORM KE FIREBASE ---
+        // 3. Inisialisasi Firebase dengan cara baru
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app); // Membuat koneksi ke "gudang data"
 
-    // 1. Ambil referensi ke form HTML berdasarkan ID yang kita buat tadi
-    const contactForm = document.getElementById('contact-form');
+        // 4. Mengubah cara kerja form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', async (event) => { // Menggunakan async
+            event.preventDefault();
 
-    // 2. Tambahkan "pendengar" yang akan aktif saat tombol "Kirim Laporan" di-klik
-    contactForm.addEventListener('submit', (event) => {
-        // 3. Hentikan perilaku default form (agar halaman tidak me-reload)
-        event.preventDefault();
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            submitButton.innerText = 'Mengirim...';
+            submitButton.disabled = true;
 
-        // Ambil tombol submit dan ubah teksnya untuk memberi tahu pengguna
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        submitButton.innerText = 'Mengirim...';
-        submitButton.disabled = true;
+            try {
+                // Mengirim data dengan cara baru (addDoc dan collection)
+                await addDoc(collection(db, "laporan"), {
+                    namaPelapor: contactForm.name.value,
+                    emailPelapor: contactForm.email.value,
+                    jenisLaporan: contactForm['report-type'].value,
+                    lokasiKejadian: contactForm.location.value,
+                    kota: contactForm.city.value,
+                    detailLaporan: contactForm.message.value,
+                    waktuLaporan: serverTimestamp() // Fungsi timestamp baru
+                });
 
-        // 4. Baca semua data dari setiap kolom input di form
-        const nama = contactForm.name.value;
-        const email = contactForm.email.value;
-        const jenis = contactForm['report-type'].value;
-        const lokasi = contactForm.location.value;
-        const kota = contactForm.city.value;
-        const detail = contactForm.message.value;
+                // Jika berhasil
+                alert('Laporan Anda berhasil terkirim! Terima kasih.');
+                contactForm.reset();
 
-        // 5. Kirim data yang sudah dibaca ke Firestore
-        db.collection("laporan").add({
-            namaPelapor: nama,
-            emailPelapor: email,
-            jenisLaporan: jenis,
-            lokasiKejadian: lokasi,
-            kota: kota,
-            detailLaporan: detail,
-            waktuLaporan: firebase.firestore.FieldValue.serverTimestamp() // Menambahkan waktu saat ini otomatis
-        })
-        .then(() => {
-            // 6. Jika BERHASIL terkirim
-            alert('Laporan Anda berhasil terkirim! Terima kasih.');
-            contactForm.reset(); // Mengosongkan form setelah berhasil
-        })
-        .catch((error) => {
-            // 7. Jika GAGAL terkirim
-            console.error("Error saat mengirim laporan: ", error);
-            alert('Maaf, terjadi kesalahan. Laporan gagal terkirim.');
-        })
-        .finally(() => {
-            // Kembalikan tombol ke keadaan semula baik berhasil maupun gagal
-            submitButton.innerText = 'Kirim Laporan';
-            submitButton.disabled = false;
+            } catch (error) {
+                // Jika gagal
+                console.error("Error saat mengirim laporan: ", error);
+                alert('Maaf, terjadi kesalahan. Laporan gagal terkirim.');
+            } finally {
+                // Kembalikan tombol ke keadaan semula
+                submitButton.innerText = 'Kirim Laporan';
+                submitButton.disabled = false;
+            }
         });
-    });
-</script>
         
     </script>
 </body>
