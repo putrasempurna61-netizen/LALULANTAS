@@ -165,48 +165,51 @@
         body.light-mode footer { background-color: var(--white-color); border-top: 1px solid var(--border-color); }
         
         @media (max-width: 992px) {
-            .dashboard-grid { grid-template-columns: 1fr; }
-            .hamburger-menu {
-                display: flex;
-                background: none;
-                border: none;
-                cursor: pointer;
-                padding: 5px;
-                z-index: 1001;
-            }
-            .hamburger-menu svg {
-                width: 28px;
-                height: 28px;
-                color: #e0e0e0;
-            }
-            body.light-mode .hamburger-menu svg {
-                color: var(--text-dark);
-            }
-            nav ul {
-                position: fixed;
-                top: 0;
-                right: -300px;
-                width: 280px;
-                height: 100vh;
-                background-color: #1e1e1e;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 4rem 2rem 2rem;
-                gap: 1.5rem;
-                transition: transform 0.3s ease-in-out;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-            }
-            nav ul.active {
-                transform: translateX(-300px);
-            }
-            nav ul li {
-                margin-left: 0;
-                width: 100%;
-            }
-            body.light-mode nav ul {
-                background-color: var(--white-color);
-            }
-        }
+    .desktop-nav {
+        display: none; /* Sembunyikan menu desktop di HP */
+    }
+    .hamburger-menu {
+        display: flex;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1001;
+    }
+    .hamburger-menu svg {
+        width: 28px;
+        height: 28px;
+        color: #e0e0e0;
+    }
+    body.light-mode .hamburger-menu svg {
+        color: var(--text-dark);
+    }
+    nav ul.mobile-nav { /* Ini adalah menu yang akan muncul */
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Sembunyikan di kanan */
+        width: 280px;
+        height: 100vh;
+        background-color: #1e1e1e;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 4rem 2rem 2rem;
+        gap: 1.5rem;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    }
+    nav ul.mobile-nav.active {
+        transform: translateX(-100%); /* Munculkan menu */
+    }
+    nav ul.mobile-nav li {
+        margin-left: 0;
+        width: 100%;
+    }
+    body.light-mode nav ul.mobile-nav {
+        background-color: var(--white-color);
+    }
+}
     </style>
 </head>
 <body>
@@ -234,7 +237,7 @@
                 <li>
                     <button id="theme-toggle" title="Ganti Tema">
                         <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                     </button>
                 </li>
             </ul>
@@ -438,48 +441,56 @@
         startQuiz();
     </script>
     <script>
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const body = document.body;
-        const iconMoon = document.getElementById('icon-moon');
-        const iconSun = document.getElementById('icon-sun');
-        function updateIcon(isLightMode) {
-            if (isLightMode) {
-                iconMoon.classList.add('hidden');
-                iconSun.classList.remove('hidden');
-            } else {
-                iconMoon.classList.remove('hidden');
-                iconSun.classList.add('hidden');
-            }
-        }
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            body.classList.add('light-mode');
-            updateIcon(true);
+    // --- KODE JAVASCRIPT UNTUK PENGALIH TEMA & HAMBURGER ---
+
+    // --- Logika untuk Pengalih Tema ---
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const iconMoon = document.getElementById('icon-moon');
+    const iconSun = document.getElementById('icon-sun');
+
+    function updateIcon(isLightMode) {
+        if (isLightMode) {
+            iconMoon.classList.add('hidden');
+            iconSun.classList.remove('hidden');
         } else {
-            updateIcon(false);
+            iconMoon.classList.remove('hidden');
+            iconSun.classList.add('hidden');
         }
-        themeToggleBtn.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            const isLightMode = body.classList.contains('light-mode');
-            if (isLightMode) {
-                localStorage.setItem('theme', 'light');
-            } else {
-                localStorage.setItem('theme', 'dark');
-            }
-            updateIcon(isLightMode);
-        });
+    }
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        updateIcon(true);
+    } else {
+        updateIcon(false);
+    }
+    themeToggleBtn.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        const isLightMode = body.classList.contains('light-mode');
+        if (isLightMode) {
+            localStorage.setItem('theme', 'light');
+        } else {
+            localStorage.setItem('theme', 'dark');
+        }
+        updateIcon(isLightMode);
+    });
 
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const navMenu = document.querySelector('nav ul');
-        hamburgerBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
+    // --- Logika untuk Menu Hamburger ---
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navMenu = document.querySelector('nav ul.mobile-nav');
 
+    hamburgerBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+</script>
+        
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
