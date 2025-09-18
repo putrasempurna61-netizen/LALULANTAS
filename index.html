@@ -562,90 +562,82 @@ body.light-mode .report-card-location h4 { color: var(--text-dark); }
 
 <script type="module">
         // 1. Impor fungsi yang dibutuhkan langsung dari CDN Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+        // SCRIPT FIREBASE (LENGKAP DAN SUDAH DIPERBAIKI)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp, query, where, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
-        // 2. GANTI DENGAN KODE firebaseConfig BARU DARI KONSOL FIREBASE ANDA
-        const firebaseConfig = {
-            apiKey: "AIzaSyXXXXXXXXXXXXXXXXXXX",
-            authDomain: "lalulintas-v2.firebaseapp.com",
-            projectId: "lalulintas-v2",
-            storageBucket: "lalulintas-v2.appspot.com",
-            messagingSenderId: "850945038170",
-            appId: "1:850945038170:web:590762fff3b26593befc563",
-            measurementId: "G-MR7FD1KVWJ" // measurementId sekarang disertakan
-        };
+// GANTI DENGAN KODE firebaseConfig ANDA
+const firebaseConfig = {
+    apiKey: "...",
+    authDomain: "...",
+    projectId: "...",
+    storageBucket: "...",
+    messagingSenderId: "...",
+    appId: "..."
+};
 
-        // 3. Inisialisasi Firebase dengan cara baru
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app); // Membuat koneksi ke "gudang data"
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-        // 4. Mengubah cara kerja form submission
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    submitButton.innerText = 'Mengirim...';
-    submitButton.disabled = true;
+// --- Logika Mengirim Form (ke Ruang Tunggu) ---
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        submitButton.innerText = 'Mengirim...';
+        submitButton.disabled = true;
 
-    // Mengirim data ke collection "laporan" dengan status "pending"
-    db.collection("laporan").add({
-        namaPelapor: contactForm.name.value,
-        emailPelapor: contactForm.email.value,
-        jenisLaporan: contactForm['report-type'].value,
-        lokasiKejadian: contactForm.location.value,
-        kota: contactForm.city.value,
-        detailLaporan: contactForm.message.value,
-        waktuLaporan: firebase.firestore.FieldValue.serverTimestamp(),
-        status: "pending" // INI BAGIAN PENTINGNYA
-    })
-    .then(() => {
-        alert('Laporan Anda berhasil terkirim dan akan direview! Terima kasih.');
-        contactForm.reset();
-    })
-    .catch((error) => {
-        console.error("Error: ", error);
-        alert('Maaf, laporan gagal terkirim.');
-    })
-    .finally(() => {
-        submitButton.innerText = 'Kirim Laporan';
-        submitButton.disabled = false;
+        try {
+            await addDoc(collection(db, "laporan"), {
+                namaPelapor: contactForm.name.value,
+                emailPelapor: contactForm.email.value,
+                jenisLaporan: contactForm['report-type'].value,
+                lokasiKejadian: contactForm.location.value,
+                kota: contactForm.city.value,
+                detailLaporan: contactForm.message.value,
+                waktuLaporan: serverTimestamp(),
+                status: "pending" // Ini menambahkan status "pending"
+            });
+            alert('Laporan Anda berhasil terkirim dan akan direview! Terima kasih.');
+            contactForm.reset();
+        } catch (error) {
+            console.error("Error saat mengirim laporan: ", error);
+            alert('Maaf, terjadi kesalahan. Laporan gagal terkirim.');
+        } finally {
+            submitButton.innerText = 'Kirim Laporan';
+            submitButton.disabled = false;
+        }
     });
-});
+}
 
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            submitButton.innerText = 'Mengirim...';
-            submitButton.disabled = true;
+// --- Logika Menampilkan Laporan Publik ---
+const reportsContainer = document.getElementById('public-reports-container');
+const loadingMessage = document.getElementById('loading-reports');
+const q = query(collection(db, "laporan"), where("status", "==", "approved"), orderBy("waktuLaporan", "desc"), limit(10));
 
-            try {
-                // Mengirim data dengan cara baru (addDoc dan collection)
-                await addDoc(collection(db, "laporan"), {
-                    namaPelapor: contactForm.name.value,
-                    emailPelapor: contactForm.email.value,
-                    jenisLaporan: contactForm['report-type'].value,
-                    lokasiKejadian: contactForm.location.value,
-                    kota: contactForm.city.value,
-                    detailLaporan: contactForm.message.value,
-                    waktuLaporan: serverTimestamp() // Fungsi timestamp baru
-                });
-
-                // Jika berhasil
-                alert('Laporan Anda berhasil terkirim! Terima kasih.');
-                contactForm.reset();
-
-            } catch (error) {
-                // Jika gagal
-                console.error("Error saat mengirim laporan: ", error);
-                alert('Maaf, terjadi kesalahan. Laporan gagal terkirim.');
-            } finally {
-                // Kembalikan tombol ke keadaan semula
-                submitButton.innerText = 'Kirim Laporan';
-                submitButton.disabled = false;
-            }
+onSnapshot(q, (querySnapshot) => {
+    if (querySnapshot.empty && loadingMessage) {
+        loadingMessage.innerText = "Belum ada laporan publik yang disetujui.";
+        return;
+    }
+    if(reportsContainer) {
+        reportsContainer.innerHTML = '';
+        querySnapshot.forEach((doc) => {
+            const report = doc.data();
+            const reportCard = document.createElement('div');
+            reportCard.className = 'report-card';
+            const reportDate = report.waktuLaporan ? report.waktuLaporan.toDate().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Baru saja';
+            reportCard.innerHTML = `<div class="report-card-header"><div class="report-card-location"><h4>${report.lokasiKejadian}</h4><small>${report.kota} • ${reportDate}</small></div><span class="report-card-tag ${report.jenisLaporan}">${report.jenisLaporan.replace(/-/g, ' ')}</span></div><div class="report-card-body"><p>${report.detailLaporan}</p></div>`;
+            reportsContainer.appendChild(reportCard);
         });
-        
-    </script>
-
+    }
+}, (error) => {
+    console.error("Error fetching reports: ", error);
+    if(loadingMessage) loadingMessage.innerText = "Gagal memuat laporan. Periksa koneksi dan coba lagi.";
+});
+</script>
+    
 <script>
 // --- SCRIPT BARU UNTUK MENAMPILKAN LAPORAN PUBLIK ---
 const reportsContainer = document.getElementById('public-reports-container');
