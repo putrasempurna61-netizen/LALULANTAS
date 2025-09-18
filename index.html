@@ -530,100 +530,59 @@ body.light-mode .pending-report-content p { color: var(--text-light); }
     </footer>
 
     <script>
-        const questionContainer = document.getElementById('question-container');
-        const questionText = document.getElementById('question-text');
-        const answerButtons = document.getElementById('answer-buttons');
-        const nextBtn = document.getElementById('next-btn');
-        const resultsContainer = document.getElementById('results-container');
-        const scoreText = document.getElementById('score-text');
-        const restartBtn = document.getElementById('restart-btn');
-        const questions = [
-            { question: 'Apa arti dari rambu STOP?', answers: [ { text: 'Wajib berhenti sesaat dan melanjutkan jika aman', correct: true }, { text: 'Boleh jalan terus jika sepi', correct: false }, { text: 'Hanya kurangi kecepatan', correct: false }, { text: 'Berhenti hanya jika ada polisi', correct: false } ] },
-            { question: 'Saat lampu lalu lintas menyala KUNING, apa yang harus dilakukan pengemudi?', answers: [ { text: 'Menambah kecepatan agar tidak kena lampu merah', correct: false }, { text: 'Langsung berhenti di tempat', correct: false }, { text: 'Bersiap-siap untuk berhenti karena akan merah', correct: true }, { text: 'Membunyikan klakson', correct: false } ] },
-            { question: 'Fungsi utama sabuk pengaman adalah untuk...', answers: [ { text: 'Menjaga agar tidak ditilang polisi', correct: false }, { text: 'Menahan tubuh saat terjadi benturan atau rem mendadak', correct: true }, { text: 'Membuat nyaman saat menyetir', correct: false }, { text: 'Sebagai hiasan interior mobil', correct: false } ] },
-            { question: 'Di area Zebra Cross, siapa yang mendapatkan prioritas utama untuk menyeberang?', answers: [ { text: 'Pengendara motor', correct: false }, { text: 'Mobil', correct: false }, { text: 'Pejalan kaki', correct: true }, { text: 'Sepeda', correct: false } ] },
-            { question: 'Apa yang harus Anda lakukan jika mendengar sirine ambulans dari belakang?', answers: [ { text: 'Menambah kecepatan', correct: false }, { text: 'Menepi dan memberikan jalan', correct: true }, { text: 'Tetap di lajur dan menjaga kecepatan', correct: false }, { text: 'Mengerem mendadak', correct: false } ] },
-            { question: 'Rambu dengan huruf "P" dicoret berarti...', answers: [ { text: 'Area parkir khusus', correct: false }, { text: 'Dilarang berhenti (stop)', correct: false }, { text: 'Dilarang parkir', correct: true }, { text: 'Boleh parkir sebentar', correct: false } ] },
-            { question: 'Apa fungsi dari "titik buta" atau blind spot pada kendaraan?', answers: [ { text: 'Area di sekitar kendaraan yang tidak terlihat melalui spion', correct: true }, { text: 'Sensor parkir di belakang mobil', correct: false }, { text: 'Lampu sorot jarak jauh', correct: false }, { text: 'Titik di mana bahan bakar paling irit', correct: false } ] },
-            { question: 'Saat mengendarai motor, perlengkapan paling vital untuk keselamatan kepala adalah...', answers: [ { text: 'Kacamata hitam', correct: false }, { text: 'Jaket tebal', correct: false }, { text: 'Helm berstandar SNI', correct: true }, { text: 'Sarung tangan', correct: false } ] }
-        ];
-        let currentQuestionIndex = 0, score = 0;
-        function startQuiz() { currentQuestionIndex = 0; score = 0; nextBtn.classList.add('hidden'); resultsContainer.classList.add('hidden'); questionContainer.classList.remove('hidden'); showQuestion(); }
-        function showQuestion() {
-            resetState();
-            let currentQuestion = questions[currentQuestionIndex];
-            questionText.innerText = currentQuestion.question;
-            currentQuestion.answers.forEach(answer => {
-                const button = document.createElement('button');
-                button.innerText = answer.text;
-                button.classList.add('btn');
-                if (answer.correct) { button.dataset.correct = answer.correct; }
-                button.addEventListener('click', selectAnswer);
-                answerButtons.appendChild(button);
-            });
-        }
-        function resetState() { nextBtn.classList.add('hidden'); while (answerButtons.firstChild) { answerButtons.removeChild(answerButtons.firstChild); } }
-        function selectAnswer(e) {
-            const selectedBtn = e.target;
-            const isCorrect = selectedBtn.dataset.correct === 'true';
-            if (isCorrect) { score++; }
-            Array.from(answerButtons.children).forEach(button => {
-                setStatusClass(button, button.dataset.correct === 'true');
-                button.disabled = true;
-            });
-            nextBtn.classList.remove('hidden');
-        }
-        function setStatusClass(element, correct) { if (correct) { element.classList.add('correct'); } else { element.classList.add('wrong'); } }
-        function showResults() { questionContainer.classList.add('hidden'); resultsContainer.classList.remove('hidden'); scoreText.innerText = `Skor Anda: ${score} dari ${questions.length} benar!`; }
-        nextBtn.addEventListener('click', () => { currentQuestionIndex++; if (currentQuestionIndex < questions.length) { showQuestion(); } else { showResults(); } });
-        restartBtn.addEventListener('click', startQuiz);
-        startQuiz();
+            // SCRIPT UNTUK QUIZ
+    const questionContainer = document.getElementById('question-container');
+    const questionText = document.getElementById('question-text');
+    const answerButtons = document.getElementById('answer-buttons');
+    const nextBtn = document.getElementById('next-btn');
+    const resultsContainer = document.getElementById('results-container');
+    const scoreText = document.getElementById('score-text');
+    const restartBtn = document.getElementById('restart-btn');
+    const questions = [
+        { question: 'Apa arti dari rambu STOP?', answers: [ { text: 'Wajib berhenti sesaat dan melanjutkan jika aman', correct: true }, { text: 'Boleh jalan terus jika sepi', correct: false }, { text: 'Hanya kurangi kecepatan', correct: false }, { text: 'Berhenti hanya jika ada polisi', correct: false } ] },
+        { question: 'Saat lampu lalu lintas menyala KUNING, apa yang harus dilakukan pengemudi?', answers: [ { text: 'Menambah kecepatan agar tidak kena lampu merah', correct: false }, { text: 'Langsung berhenti di tempat', correct: false }, { text: 'Bersiap-siap untuk berhenti karena akan merah', correct: true }, { text: 'Membunyikan klakson', correct: false } ] },
+        { question: 'Fungsi utama sabuk pengaman adalah untuk...', answers: [ { text: 'Menjaga agar tidak ditilang polisi', correct: false }, { text: 'Menahan tubuh saat terjadi benturan atau rem mendadak', correct: true }, { text: 'Membuat nyaman saat menyetir', correct: false }, { text: 'Sebagai hiasan interior mobil', correct: false } ] },
+        { question: 'Di area Zebra Cross, siapa yang mendapatkan prioritas utama untuk menyeberang?', answers: [ { text: 'Pengendara motor', correct: false }, { text: 'Mobil', correct: false }, { text: 'Pejalan kaki', correct: true }, { text: 'Sepeda', correct: false } ] },
+        { question: 'Apa yang harus Anda lakukan jika mendengar sirine ambulans dari belakang?', answers: [ { text: 'Menambah kecepatan', correct: false }, { text: 'Menepi dan memberikan jalan', correct: true }, { text: 'Tetap di lajur dan menjaga kecepatan', correct: false }, { text: 'Mengerem mendadak', correct: false } ] },
+        { question: 'Rambu dengan huruf "P" dicoret berarti...', answers: [ { text: 'Area parkir khusus', correct: false }, { text: 'Dilarang berhenti (stop)', correct: false }, { text: 'Dilarang parkir', correct: true }, { text: 'Boleh parkir sebentar', correct: false } ] },
+        { question: 'Apa fungsi dari "titik buta" atau blind spot pada kendaraan?', answers: [ { text: 'Area di sekitar kendaraan yang tidak terlihat melalui spion', correct: true }, { text: 'Sensor parkir di belakang mobil', correct: false }, { text: 'Lampu sorot jarak jauh', correct: false }, { text: 'Titik di mana bahan bakar paling irit', correct: false } ] },
+        { question: 'Saat mengendarai motor, perlengkapan paling vital untuk keselamatan kepala adalah...', answers: [ { text: 'Kacamata hitam', correct: false }, { text: 'Jaket tebal', correct: false }, { text: 'Helm berstandar SNI', correct: true }, { text: 'Sarung tangan', correct: false } ] }
+    ];
+    let currentQuestionIndex = 0, score = 0;
+    function startQuiz() { if(!questionContainer) return; currentQuestionIndex = 0; score = 0; nextBtn.classList.add('hidden'); resultsContainer.classList.add('hidden'); questionContainer.classList.remove('hidden'); showQuestion(); }
+    function showQuestion() { resetState(); let currentQuestion = questions[currentQuestionIndex]; questionText.innerText = currentQuestion.question; currentQuestion.answers.forEach(answer => { const button = document.createElement('button'); button.innerText = answer.text; button.classList.add('btn'); if (answer.correct) { button.dataset.correct = answer.correct; } button.addEventListener('click', selectAnswer); answerButtons.appendChild(button); }); }
+    function resetState() { nextBtn.classList.add('hidden'); while (answerButtons.firstChild) { answerButtons.removeChild(answerButtons.firstChild); } }
+    function selectAnswer(e) { const selectedBtn = e.target; const isCorrect = selectedBtn.dataset.correct === 'true'; if (isCorrect) { score++; } Array.from(answerButtons.children).forEach(button => { setStatusClass(button, button.dataset.correct === 'true'); button.disabled = true; }); nextBtn.classList.remove('hidden'); }
+    function setStatusClass(element, correct) { if (correct) { element.classList.add('correct'); } else { element.classList.add('wrong'); } }
+    function showResults() { questionContainer.classList.add('hidden'); resultsContainer.classList.remove('hidden'); scoreText.innerText = `Skor Anda: ${score} dari ${questions.length} benar!`; }
+    if(nextBtn) { nextBtn.addEventListener('click', () => { currentQuestionIndex++; if (currentQuestionIndex < questions.length) { showQuestion(); } else { showResults(); } }); }
+    if(restartBtn) { restartBtn.addEventListener('click', startQuiz); }
+    startQuiz();
+
     </script>
     <script>
-    // --- KODE JAVASCRIPT UNTUK PENGALIH TEMA & HAMBURGER ---
-
-    // --- Logika untuk Pengalih Tema ---
+    // SCRIPT UNTUK TEMA & HAMBURGER
     const themeToggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
     const iconMoon = document.getElementById('icon-moon');
     const iconSun = document.getElementById('icon-sun');
-
-    function updateIcon(isLightMode) {
-        if (isLightMode) {
-            iconMoon.classList.add('hidden');
-            iconSun.classList.remove('hidden');
-        } else {
-            iconMoon.classList.remove('hidden');
-            iconSun.classList.add('hidden');
-        }
-    }
+    function updateIcon(isLightMode) { if(iconMoon && iconSun){ if (isLightMode) { iconMoon.classList.add('hidden'); iconSun.classList.remove('hidden'); } else { iconMoon.classList.remove('hidden'); iconSun.classList.add('hidden'); } } }
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.classList.add('light-mode');
-        updateIcon(true);
-    } else {
-        updateIcon(false);
-    }
-    themeToggleBtn.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
-        const isLightMode = body.classList.contains('light-mode');
-        if (isLightMode) {
-            localStorage.setItem('theme', 'light');
-        } else {
-            localStorage.setItem('theme', 'dark');
-        }
-        updateIcon(isLightMode);
-    });
+    if (savedTheme === 'light') { body.classList.add('light-mode'); updateIcon(true); } else { updateIcon(false); }
+    if(themeToggleBtn){ themeToggleBtn.addEventListener('click', () => { body.classList.toggle('light-mode'); const isLightMode = body.classList.contains('light-mode'); if (isLightMode) { localStorage.setItem('theme', 'light'); } else { localStorage.setItem('theme', 'dark'); } updateIcon(isLightMode); }); }
 
-    // --- Logika untuk Menu Hamburger ---
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navMenu = document.querySelector('nav ul.mobile-nav');
-
-    hamburgerBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-
-    navMenu.querySelectorAll('a').forEach(link => {link.addEventListener('click', () => {navMenu.classList.remove('active');});});
+    if(hamburgerBtn && navMenu){ 
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        }); 
+    }
 </script>
         
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
