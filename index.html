@@ -209,6 +209,62 @@
     body.light-mode nav ul.mobile-nav {
         background-color: var(--white-color);
     }
+
+            .reports-section { 
+    padding: 6rem 0; 
+    background-color: #1c1c1c; 
+}
+.reports-section h2 { 
+    text-align: center; 
+    font-size: 2.5rem; 
+    margin-bottom: 0.5rem; 
+}
+#public-reports-container { 
+    margin-top: 4rem; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1.5rem; 
+}
+.report-card { 
+    background-color: #1e1e1e; 
+    border: 1px solid #333; 
+    padding: 1.5rem; 
+    border-radius: var(--border-radius); 
+}
+.report-card-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin-bottom: 1rem; 
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.report-card-location h4 { 
+    font-size: 1.3rem; 
+    margin-bottom: 0.2rem; 
+    color: #f0f0f0;
+}
+.report-card-location small { 
+    color: #a0a0a0; 
+}
+.report-card-tag { 
+    font-size: 0.8rem; 
+    font-weight: 700; 
+    padding: 4px 12px; 
+    border-radius: 50px; 
+    background-color: #555; 
+    color: var(--white-color);
+    text-transform: capitalize;
+}
+.report-card-tag.kemacetan { background-color: #c0392b; } /* Merah */
+.report-card-tag.kecelakaan { background-color: #f39c12; } /* Oranye */
+.report-card-tag.jalan-rusak { background-color: #8e44ad; } /* Ungu */
+.report-card-body p { 
+    margin: 0; 
+}
+body.light-mode .reports-section { background-color: var(--white-color); }
+body.light-mode .report-card { background-color: var(--bg-light); border-color: var(--border-color); }
+body.light-mode .report-card-location h4 { color: var(--text-dark); }
 }
     </style>
 </head>
@@ -367,6 +423,16 @@
                 </div>
             </div>
         </section>
+
+        <section id="laporan-publik" class="reports-section">
+    <div class="container">
+        <h2>Laporan Publik Terverifikasi</h2>
+        <p class="section-subtitle">Kumpulan laporan dari masyarakat yang sudah kami verifikasi.</p>
+        <div id="public-reports-container">
+            <p id="loading-reports">Memuat laporan...</p>
+        </div>
+    </div>
+</section>
         
         <section id="kontak" class="contact-section">
             <div class="container">
@@ -516,8 +582,36 @@
 
         // 4. Mengubah cara kerja form submission
         const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', async (event) => { // Menggunakan async
-            event.preventDefault();
+        contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    submitButton.innerText = 'Mengirim...';
+    submitButton.disabled = true;
+
+    // Mengirim data ke collection "laporan" dengan status "pending"
+    db.collection("laporan").add({
+        namaPelapor: contactForm.name.value,
+        emailPelapor: contactForm.email.value,
+        jenisLaporan: contactForm['report-type'].value,
+        lokasiKejadian: contactForm.location.value,
+        kota: contactForm.city.value,
+        detailLaporan: contactForm.message.value,
+        waktuLaporan: firebase.firestore.FieldValue.serverTimestamp(),
+        status: "pending" // INI BAGIAN PENTINGNYA
+    })
+    .then(() => {
+        alert('Laporan Anda berhasil terkirim dan akan direview! Terima kasih.');
+        contactForm.reset();
+    })
+    .catch((error) => {
+        console.error("Error: ", error);
+        alert('Maaf, laporan gagal terkirim.');
+    })
+    .finally(() => {
+        submitButton.innerText = 'Kirim Laporan';
+        submitButton.disabled = false;
+    });
+});
 
             const submitButton = contactForm.querySelector('button[type="submit"]');
             submitButton.innerText = 'Mengirim...';
@@ -551,5 +645,50 @@
         });
         
     </script>
+
+<script>
+// --- SCRIPT BARU UNTUK MENAMPILKAN LAPORAN PUBLIK ---
+const reportsContainer = document.getElementById('public-reports-container');
+const loadingMessage = document.getElementById('loading-reports');
+
+db.collection("laporan")
+  .where("status", "==", "approved") // Hanya ambil yang statusnya "approved"
+  .orderBy("waktuLaporan", "desc") // Urutkan dari yang terbaru
+  .limit(10) // Batasi 10 laporan terbaru
+  .onSnapshot((querySnapshot) => {
+        if (querySnapshot.empty && loadingMessage) {
+            loadingMessage.innerText = "Belum ada laporan publik yang disetujui.";
+            return;
+        }
+
+        reportsContainer.innerHTML = ''; // Kosongkan container
+        querySnapshot.forEach((doc) => {
+            const report = doc.data();
+            const reportCard = document.createElement('div');
+            reportCard.className = 'report-card';
+
+            // Format tanggal agar lebih mudah dibaca
+            const reportDate = report.waktuLaporan ? report.waktuLaporan.toDate().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Baru saja';
+
+            reportCard.innerHTML = `
+                <div class="report-card-header">
+                    <div class="report-card-location">
+                        <h4>${report.lokasiKejadian}</h4>
+                        <small>${report.kota} • ${reportDate}</small>
+                    </div>
+                    <span class="report-card-tag ${report.jenisLaporan}">${report.jenisLaporan.replace(/-/g, ' ')}</span>
+                </div>
+                <div class="report-card-body">
+                    <p>${report.detailLaporan}</p>
+                </div>
+            `;
+            reportsContainer.appendChild(reportCard);
+        });
+  }, (error) => {
+      console.error("Error fetching reports: ", error);
+      if(loadingMessage) loadingMessage.innerText = "Gagal memuat laporan. Coba lagi nanti.";
+  });
+</script>
+    
 </body>
 </html>
