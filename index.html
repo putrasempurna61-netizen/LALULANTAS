@@ -623,9 +623,7 @@ body.light-mode .pending-report-content p { color: var(--text-light); }
         navMenu.classList.toggle('active');
     });
 
-    navMenu.querySelectorAll('a').forEach(link => {link.addEventListener('click', () => {navMenu.classList.remove('active');
-        });
-    });
+    navMenu.querySelectorAll('a').forEach(link => {link.addEventListener('click', () => {navMenu.classList.remove('active');});});
 </script>
         
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
