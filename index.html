@@ -553,163 +553,109 @@ body.light-mode .pending-report-content p { color: var(--text-light); }
     </footer>
 
     <script>
-            // SCRIPT UNTUK QUIZ
-    const questionContainer = document.getElementById('question-container');
-    const questionText = document.getElementById('question-text');
-    const answerButtons = document.getElementById('answer-buttons');
-    const nextBtn = document.getElementById('next-btn');
-    const resultsContainer = document.getElementById('results-container');
-    const scoreText = document.getElementById('score-text');
-    const restartBtn = document.getElementById('restart-btn');
-    const questions = [
-        { question: 'Apa arti dari rambu STOP?', answers: [ { text: 'Wajib berhenti sesaat dan melanjutkan jika aman', correct: true }, { text: 'Boleh jalan terus jika sepi', correct: false }, { text: 'Hanya kurangi kecepatan', correct: false }, { text: 'Berhenti hanya jika ada polisi', correct: false } ] },
-        { question: 'Saat lampu lalu lintas menyala KUNING, apa yang harus dilakukan pengemudi?', answers: [ { text: 'Menambah kecepatan agar tidak kena lampu merah', correct: false }, { text: 'Langsung berhenti di tempat', correct: false }, { text: 'Bersiap-siap untuk berhenti karena akan merah', correct: true }, { text: 'Membunyikan klakson', correct: false } ] },
-        { question: 'Fungsi utama sabuk pengaman adalah untuk...', answers: [ { text: 'Menjaga agar tidak ditilang polisi', correct: false }, { text: 'Menahan tubuh saat terjadi benturan atau rem mendadak', correct: true }, { text: 'Membuat nyaman saat menyetir', correct: false }, { text: 'Sebagai hiasan interior mobil', correct: false } ] },
-        { question: 'Di area Zebra Cross, siapa yang mendapatkan prioritas utama untuk menyeberang?', answers: [ { text: 'Pengendara motor', correct: false }, { text: 'Mobil', correct: false }, { text: 'Pejalan kaki', correct: true }, { text: 'Sepeda', correct: false } ] },
-        { question: 'Apa yang harus Anda lakukan jika mendengar sirine ambulans dari belakang?', answers: [ { text: 'Menambah kecepatan', correct: false }, { text: 'Menepi dan memberikan jalan', correct: true }, { text: 'Tetap di lajur dan menjaga kecepatan', correct: false }, { text: 'Mengerem mendadak', correct: false } ] },
-        { question: 'Rambu dengan huruf "P" dicoret berarti...', answers: [ { text: 'Area parkir khusus', correct: false }, { text: 'Dilarang berhenti (stop)', correct: false }, { text: 'Dilarang parkir', correct: true }, { text: 'Boleh parkir sebentar', correct: false } ] },
-        { question: 'Apa fungsi dari "titik buta" atau blind spot pada kendaraan?', answers: [ { text: 'Area di sekitar kendaraan yang tidak terlihat melalui spion', correct: true }, { text: 'Sensor parkir di belakang mobil', correct: false }, { text: 'Lampu sorot jarak jauh', correct: false }, { text: 'Titik di mana bahan bakar paling irit', correct: false } ] },
-        { question: 'Saat mengendarai motor, perlengkapan paling vital untuk keselamatan kepala adalah...', answers: [ { text: 'Kacamata hitam', correct: false }, { text: 'Jaket tebal', correct: false }, { text: 'Helm berstandar SNI', correct: true }, { text: 'Sarung tangan', correct: false } ] }
-    ];
-    let currentQuestionIndex = 0, score = 0;
-    function startQuiz() { if(!questionContainer) return; currentQuestionIndex = 0; score = 0; nextBtn.classList.add('hidden'); resultsContainer.classList.add('hidden'); questionContainer.classList.remove('hidden'); showQuestion(); }
-    function showQuestion() { resetState(); let currentQuestion = questions[currentQuestionIndex]; questionText.innerText = currentQuestion.question; currentQuestion.answers.forEach(answer => { const button = document.createElement('button'); button.innerText = answer.text; button.classList.add('btn'); if (answer.correct) { button.dataset.correct = answer.correct; } button.addEventListener('click', selectAnswer); answerButtons.appendChild(button); }); }
-    function resetState() { nextBtn.classList.add('hidden'); while (answerButtons.firstChild) { answerButtons.removeChild(answerButtons.firstChild); } }
-    function selectAnswer(e) { const selectedBtn = e.target; const isCorrect = selectedBtn.dataset.correct === 'true'; if (isCorrect) { score++; } Array.from(answerButtons.children).forEach(button => { setStatusClass(button, button.dataset.correct === 'true'); button.disabled = true; }); nextBtn.classList.remove('hidden'); }
-    function setStatusClass(element, correct) { if (correct) { element.classList.add('correct'); } else { element.classList.add('wrong'); } }
-    function showResults() { questionContainer.classList.add('hidden'); resultsContainer.classList.remove('hidden'); scoreText.innerText = `Skor Anda: ${score} dari ${questions.length} benar!`; }
-    if(nextBtn) { nextBtn.addEventListener('click', () => { currentQuestionIndex++; if (currentQuestionIndex < questions.length) { showQuestion(); } else { showResults(); } }); }
-    if(restartBtn) { restartBtn.addEventListener('click', startQuiz); }
-    startQuiz();
-
+        const questionContainer = document.getElementById('question-container');
+        const questionText = document.getElementById('question-text');
+        const answerButtons = document.getElementById('answer-buttons');
+        const nextBtn = document.getElementById('next-btn');
+        const resultsContainer = document.getElementById('results-container');
+        const scoreText = document.getElementById('score-text');
+        const restartBtn = document.getElementById('restart-btn');
+        const questions = [
+            { question: 'Apa arti dari rambu STOP?', answers: [ { text: 'Wajib berhenti sesaat dan melanjutkan jika aman', correct: true }, { text: 'Boleh jalan terus jika sepi', correct: false }, { text: 'Hanya kurangi kecepatan', correct: false }, { text: 'Berhenti hanya jika ada polisi', correct: false } ] },
+            { question: 'Saat lampu lalu lintas menyala KUNING, apa yang harus dilakukan pengemudi?', answers: [ { text: 'Menambah kecepatan agar tidak kena lampu merah', correct: false }, { text: 'Langsung berhenti di tempat', correct: false }, { text: 'Bersiap-siap untuk berhenti karena akan merah', correct: true }, { text: 'Membunyikan klakson', correct: false } ] },
+            { question: 'Fungsi utama sabuk pengaman adalah untuk...', answers: [ { text: 'Menjaga agar tidak ditilang polisi', correct: false }, { text: 'Menahan tubuh saat terjadi benturan atau rem mendadak', correct: true }, { text: 'Membuat nyaman saat menyetir', correct: false }, { text: 'Sebagai hiasan interior mobil', correct: false } ] },
+            { question: 'Di area Zebra Cross, siapa yang mendapatkan prioritas utama untuk menyeberang?', answers: [ { text: 'Pengendara motor', correct: false }, { text: 'Mobil', correct: false }, { text: 'Pejalan kaki', correct: true }, { text: 'Sepeda', correct: false } ] },
+            { question: 'Apa yang harus Anda lakukan jika mendengar sirine ambulans dari belakang?', answers: [ { text: 'Menambah kecepatan', correct: false }, { text: 'Menepi dan memberikan jalan', correct: true }, { text: 'Tetap di lajur dan menjaga kecepatan', correct: false }, { text: 'Mengerem mendadak', correct: false } ] },
+            { question: 'Rambu dengan huruf "P" dicoret berarti...', answers: [ { text: 'Area parkir khusus', correct: false }, { text: 'Dilarang berhenti (stop)', correct: false }, { text: 'Dilarang parkir', correct: true }, { text: 'Boleh parkir sebentar', correct: false } ] },
+            { question: 'Apa fungsi dari "titik buta" atau blind spot pada kendaraan?', answers: [ { text: 'Area di sekitar kendaraan yang tidak terlihat melalui spion', correct: true }, { text: 'Sensor parkir di belakang mobil', correct: false }, { text: 'Lampu sorot jarak jauh', correct: false }, { text: 'Titik di mana bahan bakar paling irit', correct: false } ] },
+            { question: 'Saat mengendarai motor, perlengkapan paling vital untuk keselamatan kepala adalah...', answers: [ { text: 'Kacamata hitam', correct: false }, { text: 'Jaket tebal', correct: false }, { text: 'Helm berstandar SNI', correct: true }, { text: 'Sarung tangan', correct: false } ] }
+        ];
+        let currentQuestionIndex = 0, score = 0;
+        function startQuiz() { if(!questionContainer) return; currentQuestionIndex = 0; score = 0; if(nextBtn) nextBtn.classList.add('hidden'); if(resultsContainer) resultsContainer.classList.add('hidden'); if(questionContainer) questionContainer.classList.remove('hidden'); showQuestion(); }
+        function showQuestion() { resetState(); let currentQuestion = questions[currentQuestionIndex]; if(questionText) questionText.innerText = currentQuestion.question; currentQuestion.answers.forEach(answer => { const button = document.createElement('button'); button.innerText = answer.text; button.classList.add('btn'); if (answer.correct) { button.dataset.correct = answer.correct; } button.addEventListener('click', selectAnswer); if(answerButtons) answerButtons.appendChild(button); }); }
+        function resetState() { if(nextBtn) nextBtn.classList.add('hidden'); while (answerButtons && answerButtons.firstChild) { answerButtons.removeChild(answerButtons.firstChild); } }
+        function selectAnswer(e) { const selectedBtn = e.target; const isCorrect = selectedBtn.dataset.correct === 'true'; if (isCorrect) { score++; } Array.from(answerButtons.children).forEach(button => { setStatusClass(button, button.dataset.correct === 'true'); button.disabled = true; }); if(nextBtn) nextBtn.classList.remove('hidden'); }
+        function setStatusClass(element, correct) { if (correct) { element.classList.add('correct'); } else { element.classList.add('wrong'); } }
+        function showResults() { if(questionContainer) questionContainer.classList.add('hidden'); if(resultsContainer) resultsContainer.classList.remove('hidden'); if(scoreText) scoreText.innerText = `Skor Anda: ${score} dari ${questions.length} benar!`; }
+        if(nextBtn) { nextBtn.addEventListener('click', () => { currentQuestionIndex++; if (currentQuestionIndex < questions.length) { showQuestion(); } else { showResults(); } }); }
+        if(restartBtn) { restartBtn.addEventListener('click', startQuiz); }
+        document.addEventListener('DOMContentLoaded', startQuiz);
     </script>
+    
     <script>
-    // SCRIPT UNTUK TEMA & HAMBURGER
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const body = document.body;
-    const iconMoon = document.getElementById('icon-moon');
-    const iconSun = document.getElementById('icon-sun');
-    function updateIcon(isLightMode) { if(iconMoon && iconSun){ if (isLightMode) { iconMoon.classList.add('hidden'); iconSun.classList.remove('hidden'); } else { iconMoon.classList.remove('hidden'); iconSun.classList.add('hidden'); } } }
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') { body.classList.add('light-mode'); updateIcon(true); } else { updateIcon(false); }
-    if(themeToggleBtn){ themeToggleBtn.addEventListener('click', () => { body.classList.toggle('light-mode'); const isLightMode = body.classList.contains('light-mode'); if (isLightMode) { localStorage.setItem('theme', 'light'); } else { localStorage.setItem('theme', 'dark'); } updateIcon(isLightMode); }); }
-
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navMenu = document.querySelector('nav ul.mobile-nav');
-    if(hamburgerBtn && navMenu){ 
-        hamburgerBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
+        // SCRIPT UNTUK TEMA & HAMBURGER
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        const iconMoon = document.getElementById('icon-moon');
+        const iconSun = document.getElementById('icon-sun');
+        function updateIcon(isLightMode) { if(iconMoon && iconSun){ if (isLightMode) { iconMoon.classList.add('hidden'); iconSun.classList.remove('hidden'); } else { iconMoon.classList.remove('hidden'); iconSun.classList.add('hidden'); } } }
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') { body.classList.add('light-mode'); updateIcon(true); } else { updateIcon(false); }
+        if(themeToggleBtn){ themeToggleBtn.addEventListener('click', () => { body.classList.toggle('light-mode'); const isLightMode = body.classList.contains('light-mode'); if (isLightMode) { localStorage.setItem('theme', 'light'); } else { localStorage.setItem('theme', 'dark'); } updateIcon(isLightMode); }); }
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.querySelector('nav ul.desktop-nav');
+        if(hamburgerBtn && navMenu){ 
+            hamburgerBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
             });
-        }); 
-    }
-</script>
-        
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            }); 
+        }
+    </script>
 
-<script type="module">
-        // 1. Impor fungsi baru: doc, updateDoc, deleteDoc
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, serverTimestamp, query, where, orderBy, limit, onSnapshot, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+    <script type="module">
+        // SCRIPT FIREBASE
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, query, where, orderBy, limit, onSnapshot, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
-    // GANTI DENGAN KODE firebaseConfig ANDA
-    const firebaseConfig = {
-        apiKey: "AIzaSyCF8eXRIQMNYQdsRuFj-qWpz3J0hzV8tpo",
-        authDomain: "lalulintas-v2.firebaseapp.com",
-        projectId: "lalulintas-v2",
-        storageBucket: "lalulintas-v2.firebasestorage.app",
-        messagingSenderId: "850945038170",
-        appId: "1:850945038170:web:590762ff3b26593befc563"
-    };
+        // GANTI DENGAN KODE firebaseConfig ANDA
+        const firebaseConfig = {
+            apiKey: "AIzaSyCF8eXRIQMNYQdsRuFj-qWpz3J0hzV8tpo",
+            authDomain: "lalulintas-v2.firebaseapp.com",
+            projectId: "lalulintas-v2",
+            storageBucket: "lalulintas-v2.firebasestorage.app",
+            messagingSenderId: "850945038170",
+            appId: "1:850945038170:web:590762ff3b26593befc563"
+        };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-    // --- Logika Mengirim Form (ke Ruang Tunggu) ---
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            // ... (kode pengiriman form Anda tetap sama)
-        });
-    }
+        // --- Logika Mengirim Form ---
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                submitButton.innerText = 'Mengirim...';
+                submitButton.disabled = true;
 
-    // --- Logika Menampilkan Laporan Publik ---
-    const reportsContainer = document.getElementById('public-reports-container');
-    // ... (kode menampilkan laporan publik Anda tetap sama)
-
-
-    // ===============================================
-    // KODE BARU UNTUK PANEL ADMIN (TAMBAHKAN INI)
-    // ===============================================
-    const adminPanel = document.getElementById('admin-panel');
-    const pendingReportsContainer = document.getElementById('pending-reports-container');
-
-    // Cek apakah URL berisi ?admin=true
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('admin') === 'true') {
-        adminPanel.classList.remove('hidden'); // Tampilkan panel admin
-        loadPendingReports(); // Muat laporan yang menunggu persetujuan
-    }
-
-    function loadPendingReports() {
-        const pendingQuery = query(collection(db, "laporan"), where("status", "==", "pending"), orderBy("waktuLaporan", "asc"));
-        
-        onSnapshot(pendingQuery, (snapshot) => {
-            if (!pendingReportsContainer) return;
-            pendingReportsContainer.innerHTML = '';
-            if (snapshot.empty) {
-                pendingReportsContainer.innerHTML = '<p>Tidak ada laporan yang menunggu persetujuan. Kerja bagus!</p>';
-                return;
-            }
-            snapshot.forEach(docSnapshot => {
-                const report = docSnapshot.data();
-                const reportEl = document.createElement('div');
-                reportEl.className = 'pending-report';
-                reportEl.innerHTML = `
-                    <div class="pending-report-content">
-                        <strong>${report.lokasiKejadian}, ${report.kota}</strong>
-                        <p>"${report.detailLaporan}"</p>
-                        <small>Pelapor: ${report.namaPelapor} (${report.emailPelapor})</small>
-                    </div>
-                    <div class="pending-report-actions">
-                        <button class="admin-btn approve-btn" data-id="${docSnapshot.id}">Setujui</button>
-                        <button class="admin-btn reject-btn" data-id="${docSnapshot.id}">Tolak</button>
-                    </div>
-                `;
-                pendingReportsContainer.appendChild(reportEl);
+                try {
+                    await addDoc(collection(db, "laporan"), {
+                        namaPelapor: contactForm.name.value,
+                        emailPelapor: contactForm.email.value,
+                        jenisLaporan: contactForm['report-type'].value,
+                        lokasiKejadian: contactForm.location.value,
+                        kota: contactForm.city.value,
+                        detailLaporan: contactForm.message.value,
+                        waktuLaporan: serverTimestamp(),
+                        status: "pending"
+                    });
+                    alert('Laporan Anda berhasil terkirim dan akan direview! Terima kasih.');
+                    contactForm.reset();
+                } catch (error) {
+                    console.error("Error saat mengirim laporan: ", error);
+                    alert('Maaf, terjadi kesalahan. Laporan gagal terkirim.');
+                } finally {
+                    submitButton.innerText = 'Kirim Laporan';
+                    submitButton.disabled = false;
+                }
             });
-        });
-    }
-
-    // Fungsi untuk tombol "Setujui" dan "Tolak"
-    if (pendingReportsContainer) {
-        pendingReportsContainer.addEventListener('click', async (e) => {
-            const target = e.target;
-            if (target.classList.contains('admin-btn')) {
-                const docId = target.dataset.id;
-                if (!docId) return;
-
-                target.disabled = true; // Nonaktifkan tombol sementara
-
-                if (target.classList.contains('approve-btn')) {
-                    const docRef = doc(db, "laporan", docId);
-                    await updateDoc(docRef, { status: "approved" });
-                    console.log(`Laporan ${docId} disetujui.`);
-                }
-                if (target.classList.contains('reject-btn')) {
-                    const docRef = doc(db, "laporan", docId);
-                    await deleteDoc(docRef);
-                    console.log(`Laporan ${docId} ditolak dan dihapus.`);
-                }
-            }
-        });
-    }
-</script>
+        }
+    </script>
     
 </body>
 </html>
